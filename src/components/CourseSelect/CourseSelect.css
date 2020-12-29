@@ -1,0 +1,52 @@
+.CourseSelect {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* background-image: url('./background_search_desktop.jpg'); */
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 10rem;
+  }
+  
+  .CourseSelect-options ul {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2.22rem;
+    color: #ffffff;
+    list-style-type: none;
+  }
+  
+  .CourseSelect-options li {
+    cursor: pointer;
+    width: 5rem;
+    border-bottom: 1px solid #fff;
+    padding: 0 2.58rem .33rem 2.58rem;
+    line-height: 1.13;
+    text-align: center;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: color .25s;
+  }
+  
+  .CourseSelect-options li:hover {
+    color: #d4cfcf;
+  }
+  
+  .CourseSelect-options li.active,
+  .CourseSelect-options li.active:hover {
+    border-bottom: 1px solid #f0c36c;
+    color: #f0c36c;
+  }
+
+  .CourseSelect-progress {
+      color: white;
+      width: 50%;
+      margin: 0 auto
+  }
+  
+  progress {
+      width: 50%;
+      margin: 0 5px;
+      
+  }
+  

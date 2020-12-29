@@ -1,0 +1,48 @@
+.exercise {
+    max-width: 60%;
+    margin: 0 auto;
+}
+.exercise h2 {
+    display: inline;
+}
+.exercise img {
+    height: 64px;
+    width: 64px;
+    vertical-align: middle;
+}
+.exercise h4 {
+    margin-block-start: 0.33em;
+}
+.exercise-completion p, button {
+    display: inline;
+    margin: 0 5px;
+}
+.task-list {
+    text-align: left;
+    margin: 10px auto;
+    min-width: 50%;
+    max-width: 90%;
+    background-color: lightcyan;
+    padding: 5px;
+    border: darkcyan 5px solid;
+    color: black;
+}
+
+.fade-enter {
+    opacity: 0.01;
+}
+  
+.fade-enter.fade-enter-active {
+    opacity: 1;
+    transition: opacity 500ms ease-in;
+}
+  
+.fade-leave {
+    opacity: 1;
+}
+  
+.fade-leave.fade-leave-active {
+    opacity: 0.01;
+    transition: opacity 500ms ease-in;
+}
+

@@ -1,0 +1,72 @@
+.fade-enter {
+    opacity: 0.01;
+}
+  
+.fade-enter.fade-enter-active {
+    opacity: 1;
+    transition: opacity 500ms ease-in;
+}
+  
+.fade-leave {
+    opacity: 1;
+}
+  
+.fade-leave.fade-leave-active {
+    opacity: 0.01;
+    transition: opacity 500ms ease-in;
+}
+.task-list p {
+    margin: 0;
+    display: inline;
+}
+.task-header h6 {
+    margin: 1em 0;
+    font-size: 1rem;
+    display: inline; 
+}
+.task-header img {
+    display: inline;
+    width: 64px;
+    height: 64px;
+    vertical-align: middle;
+}
+.task-instruction {
+    margin: 4px 8px;
+}
+.task-instruction p {
+    margin: 0;
+}
+.task-instruction img {
+    max-width: 100%;
+    max-height: 400px;
+    display: block;
+    margin: 5px 0;
+}
+.task-hint, .task-hint-open {
+    margin: 4px 8px;
+}
+.task-hint {
+    cursor: pointer;
+    font-style: italic;
+}
+/* .task-complete {
+    color: green;
+}
+.task-current {
+    color: black;
+} */
+.task-current img {
+    cursor: pointer;
+}
+.task-incomplete {
+    /* color: black; */
+    opacity: 0.5;
+}
+em {
+    color: royalblue;
+    font-weight: bold; 
+}
+code {
+    color: lightcyan;
+    background-color: #282c34;
+}
