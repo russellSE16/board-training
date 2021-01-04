@@ -1,6 +1,6 @@
 import React from 'react';
 import { CSSTransitionGroup } from 'react-transition-group';
-import logo from './Board Logo.jpg';
+import logo from './board-logo.svg';
 import './App.css';
 import Training from './data';
 import CourseSelect from './components/CourseSelect/CourseSelect';
@@ -103,7 +103,7 @@ class App extends React.Component {
                   <Exercise 
                     exercise={exercise}
                     index={index} 
-                    key={index} 
+                    key={this.state.selectedCourse.title + index} 
                     updateExerciseStatus={this.updateExerciseStatus}
                     resetExercise={this.resetExercise} 
                   />

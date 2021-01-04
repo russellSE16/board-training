@@ -41,13 +41,15 @@
     max-height: 400px;
     display: block;
     margin: 5px 0;
+    
 }
 .task-hint, .task-hint-open {
     margin: 4px 8px;
+    font-style: italic;
 }
 .task-hint {
     cursor: pointer;
-    font-style: italic;
+    
 }
 /* .task-complete {
     color: green;
@@ -69,4 +71,7 @@ em {
 code {
     color: lightcyan;
     background-color: #282c34;
+}
+ul {
+    list-style: none;
 }

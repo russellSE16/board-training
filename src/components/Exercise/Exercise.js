@@ -67,7 +67,7 @@ class Exercise extends React.Component {
         return (
             <div className="exercise" id={'exercise'+ this.props.index}>
                 <h2>{this.props.index + 1}. {this.props.exercise.name}</h2>
-                {this.state.complete && <img src="https://img.icons8.com/plasticine/100/000000/checked-2.png" alt='Checked checkbox' />}
+                {this.state.complete && <img src="https://img.icons8.com/plasticine/100/000000/checked-2.png" alt='Checked checkbox' className='exercise-complete' />}
                 <h4>{this.props.exercise.objective}</h4>
                 <div className="exercise-completion">
                     <p>Tasks completed: {this.countCompletedTasks()} / {this.props.exercise.tasks.length}</p>

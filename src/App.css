@@ -9,7 +9,8 @@ body {
 }
 
 .App-logo {
-  /* height: 40vmin; */
+  height: 20vmin;
+  background-color: white;
   pointer-events: none;
   border-color: white;
   border-width: 10px;

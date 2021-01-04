@@ -5,7 +5,7 @@
 .exercise h2 {
     display: inline;
 }
-.exercise img {
+.exercise-complete img {
     height: 64px;
     width: 64px;
     vertical-align: middle;
