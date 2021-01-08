@@ -5,7 +5,7 @@
 .exercise h2 {
     display: inline;
 }
-.exercise-complete img {
+.exercise-complete {
     height: 64px;
     width: 64px;
     vertical-align: middle;
@@ -16,6 +16,9 @@
 .exercise-completion p, button {
     display: inline;
     margin: 0 5px;
+}
+.exercise-open-close {
+    cursor: pointer;
 }
 .task-list {
     text-align: left;

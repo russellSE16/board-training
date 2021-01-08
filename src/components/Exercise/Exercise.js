@@ -81,7 +81,7 @@ class Exercise extends React.Component {
                     {this.renderTasks()}
                 </CSSTransitionGroup>
                 <ScrollIntoView selector={'exercise' + this.props.index} smooth={true}> 
-                    <img src={imgSrc} alt={imgAlt} onClick={this.handleClick} />
+                    <img src={imgSrc} alt={imgAlt} onClick={this.handleClick} className="exercise-open-close"/>
                 </ScrollIntoView>
             </div>
         );
