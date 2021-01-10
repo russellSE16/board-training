@@ -153,15 +153,15 @@ const Training = {
                         },
                         {
                             instructionJsx: 
-                                <p>
-                                    Calculate the values for each cube by writing the SQL expressions directly into the <em>RDB item</em> field as follows:
+                                <div>
+                                    <p>Calculate the values for each cube by writing the SQL expressions directly into the <em>RDB item</em> field as follows:</p>
                                     <ul>
                                         <li>Sales Volume = <code>Order_Details.Amount</code></li>
                                         <li>Net Sales = <code>Order_Details.Amount * Order_Details.UnitPrice * (1 – Order_Details.Discountpc)</code></li>
                                         <li>Net Sales at Markdown Price = <code>Order_Details.Amount * Order_Details.UnitPrice</code></li>
                                         <li>Net Sales at Std Price = <code>Order_Details.Amount * Product.StdPrice</code></li>
                                     </ul>
-                                </p>
+                                </div>
                         },
                         {
                             instructionJsx: <p>Configure the required joins between the three tables</p>,
@@ -217,14 +217,14 @@ const Training = {
                     tasks: [
                         {
                             instructionJsx: 
-                                <p>
-                                    Create a new cube called <code>Order Count</code> with the following attributes:
+                                <div>
+                                    <p>Create a new cube called <code>Order Count</code> with the following attributes:</p>
                                     <ul>
                                         <li>Group: Sales</li>
                                         <li>Data Type: Single</li>
                                         <li>Dimensions: Day, Branch</li>
                                     </ul>
-                                </p>
+                                </div>
                         },
                         {
                             instructionJsx: <p>Create a new data reader called <code>CUBE-Order Count</code> to load data to this cube from the dbo.Orders table</p>
@@ -247,14 +247,14 @@ const Training = {
                     tasks: [
                         {
                             instructionJsx: 
-                                <p>
-                                    Create a new cube called <code>Working Hours</code> with the following attributes:
+                                <div>
+                                    <p>Create a new cube called <code>Working Hours</code> with the following attributes:</p>
                                     <ul>
                                         <li>Group: HR</li>
                                         <li>Data Type: Single</li>
                                         <li>Dimensions: Month, Sales Person</li>
                                     </ul>
-                                </p>
+                                </div>
                         },
                         {
                             instructionJsx: <p>Create a new data reader called <code>CUBE-Working Hours</code> with <em>source type</em> set to <code>text file</code></p>
@@ -323,15 +323,15 @@ const Training = {
                     tasks: [
                         {
                             instructionJsx: 
-                                <p>
-                                    Create a new <em>entity</em> called <code>Product Category</code> with the following attributes:
+                                <div>
+                                    <p>Create a new <em>entity</em> called <code>Product Category</code> with the following attributes:</p>
                                     <ul>
                                         <li>Group: Product</li>
                                         <li>Code width: 2</li>
                                         <li>Desc width: 10</li>
                                         <li>Max item no.: 5</li>
                                     </ul>
-                                </p>
+                                </div>
                         },
                         {
                             instructionJsx: <p>Manually populate the entity with two members: <code>Existing</code> and <code>New</code></p>,
@@ -355,15 +355,15 @@ const Training = {
                         },
                         {
                             instructionJsx:
-                                <p>
-                                    Create a new <em>entity</em> called <code>Continent</code> with the following attributes:
+                                <div>
+                                    <p>Create a new <em>entity</em> called <code>Continent</code> with the following attributes:</p>
                                     <ul>
                                         <li>Group: Branch</li>
                                         <li>Code width: 2</li>
                                         <li>Desc width: 30</li>
                                         <li>Max item no.: 10</li>
                                     </ul>
-                                </p> 
+                                </div> 
                         },
                         {
                             instructionJsx: <p>Manually populate the entity with three members: <code>Europe</code>, <code>North & Central America</code>, <code>South America</code></p>
@@ -457,26 +457,26 @@ const Training = {
                         },
                         {
                             instructionJsx: 
-                            <p>
-                                Create a new data view and configure the layout with the following data blocks:
+                            <div>
+                                <p>Create a new data view and configure the layout with the following data blocks:</p>
                                 <ul>
                                     <li>Net Sales at Std Price</li>
                                     <li>Net Sales at Markdown Price</li>
                                     <li>Net Sales</li>
                                 </ul>
-                            </p>
+                            </div>
                         },
                         {
                             instructionJsx:
-                            <p>
-                                Add the following blocks using an <em>algorithm</em> to calculate the results. The formulas should refer to other data blocks by the letter shown. Write the name of the measure in the <em>header</em> field on the right-hand configuration menu.
+                            <div>
+                                <p>Add the following blocks using an <em>algorithm</em> to calculate the results. The formulas should refer to other data blocks by the letter shown. Write the name of the measure in the <em>header</em> field on the right-hand configuration menu.</p>
                                 <ul>
                                     <li>Markdown = <code>Net Sales at Std Price - Net Sales at Markdown Price</code></li>
                                     <li>Discount = <code>Net Sales at Markdown Price - Net Sales</code></li>
                                     <li>Total Deduction = <code>Markdown + Discount</code></li>
                                     <li>Total Deduction % = <code>Total Deduction / Net Sales at Std Price * 100</code></li>
                                 </ul>
-                            </p>,
+                            </div>,
                             hintJsx: <p>To add an algorithm block, click the <em>+</em> at the bottom of the data blocks list and then click the <em>fx</em> icon. Enter the formula first then click on tick to insert, e.g. for Markdown it would be <code>a-b</code>. Enter the header in the right-hand side menu and click <em>apply</em> to update.</p> 
                         },
                         {
@@ -610,14 +610,14 @@ const Training = {
                     tasks: [
                         {
                             instructionJsx: 
-                                <p>
-                                    Create a new cube called <code>Stock</code> with the following attributes:
+                                <div>
+                                    <p>Create a new cube called <code>Stock</code> with the following attributes:</p>
                                     <ul>
                                         <li>Group: Stock</li>
                                         <li>Data Type: Single</li>
                                         <li>Dimensions: Product</li>
                                     </ul>
-                                </p>
+                                </div>
                         },
                         {
                             instructionJsx: <p>After setting the dimension in <em>versions</em>, click on the version number and change the <em>MDB/RDB</em> option to <code>RDB</code></p>
@@ -643,15 +643,15 @@ const Training = {
                     tasks: [
                         {
                             instructionJsx: 
-                                <p>
-                                    Create a new cube called <code>Sales Person Picture</code> with the following attributes:
+                                <div>
+                                    <p>Create a new cube called <code>Sales Person Picture</code> with the following attributes:</p>
                                     <ul>
                                         <li>Group: HR</li>
                                         <li>Data Type: Picture</li>
                                         <li><em>Blob extension</em>: <code>.jpg</code></li>
                                         <li>Dimensions: Sales Person</li>
                                     </ul>
-                                </p>
+                                </div>
                         },
                         {
                             instructionJsx: <p>In Entities, <em>extract</em> the Sales Person entity to a text file</p>
@@ -683,14 +683,14 @@ const Training = {
                     tasks: [
                         {
                             instructionJsx: 
-                                <p>
-                                    Create a new cube called <code>Career Information</code> with the following attributes:
+                                <div>
+                                    <p>Create a new cube called <code>Career Information</code> with the following attributes:</p>
                                     <ul>
                                         <li>Group: HR</li>
                                         <li>Data Type: Text</li>
                                         <li>Dimensions: Sales Person</li>
                                     </ul>
-                                </p>
+                                </div>
                         },
                         {
                             instructionJsx: <p>Set the cube as an <em>RDB</em> cube and configure the query, mapping the field <code>dbo.Employee.Comments</code> to the cube data and the relevant field from the dbo.Employee table for the Sales Person dimension</p>
@@ -940,7 +940,7 @@ const Training = {
                             instructionJsx: <p>Set the <em>combine mode</em> of each of the Net Sales series to <code>stack</code></p>
                         },
                         {
-                            instructionJsx: <p>Pick a colour for each Product Division and set the <em>series color</em> for both Net Sales and Cumulated Vertial series to that colour</p>
+                            instructionJsx: <p>Pick a colour for each Product Division and set the <em>series color</em> for both Net Sales and Cumulated Vertical series to that colour</p>
                         }
                     ]
                 },
@@ -1010,7 +1010,7 @@ const Training = {
                             instructionJsx: <p>From the capsule menu, navigate to <em>Masks</em> and create a new mask, called <code>Dashboard</code></p>
                         },
                         {
-                            instructionJsx: <p>In <em>creen properties</em>, set the <em>background colour</em> to a colour of your choice and set the <em>screen size</em> to <code>custom</code>, with width and height set to <code>1920 x 820</code></p>
+                            instructionJsx: <p>In <em>screen properties</em>, set the <em>background colour</em> to a colour of your choice and set the <em>screen size</em> to <code>custom</code>, with width and height set to <code>1920 x 820</code></p>
                         },
                         {
                             instructionJsx: <p>Create a label, removing the <em>caption</em> and setting the <em>border color</em> to black or white (depending on whether your screen background is light or dark)</p>
@@ -1018,11 +1018,11 @@ const Training = {
                         {
                             instructionJsx: <p><em>Position and size</em> the label accurately by setting the <em>top, left, width and height</em> properties according to the wireframe diagram below. Copy and paste the label for each of the seven sections of the wireframe.</p>,
                             image: 'wireframe.png',
-                            imageAlt: 'Wireframe of dashboard template with posisition and size settings for each label'
+                            imageAlt: 'Wireframe of dashboard template with position and size settings for each label'
                         },
                         {
                             instructionJsx: <p>Give the three larger area labels a background colour distinct from the screen background colour. Give the four thin labels another distinct background colour.</p>,
-                            hintJsx: <p>Different shades of the same colour can look more attraactive than several wildly different colours. To set each group of labels the same colour, hold down Ctrl when clicking to select them to select together. Properties can then be set for all selected objects at once.</p>
+                            hintJsx: <p>Different shades of the same colour can look more attractive than several wildly different colours. To set each group of labels the same colour, hold down Ctrl when clicking to select them to select together. Properties can then be set for all selected objects at once.</p>
                         }
                     ]
                 },
@@ -1037,14 +1037,14 @@ const Training = {
                             instructionJsx: <p>Set a <em>dynamic selection</em> on the Day entity, based on cube Net Sales using <em>latest period year-to-date</em></p>
                         },
                         {
-                            instructionJsx: <p>Using the mask background as a guide, create a <em>treemap</em> object and position in the top-left tile of the wirefram. Configure the treemap layout to show Net Sales by Product Group.</p>,
+                            instructionJsx: <p>Using the mask background as a guide, create a <em>treemap</em> object and position in the top-left tile of the wireframe. Configure the treemap layout to show Net Sales by Product Group.</p>,
                             hintJsx: <p>The mask background will help you position the object by dragging but to position and size it precisely, refer to the settings from the wireframe and set them directly on the object.</p>
                         },
                         {
-                            instructionJsx: <p>From the right-hand treemap menu, set the <em>data blocks</em> to use the Net Sales block for both value and colour, which will determine both the size and the colour shading of each rectangle in the treemap. In <em>colors</em> set the <em>color</em> proprty to a colour of your choice for treemap rectangles.</p>
+                            instructionJsx: <p>From the right-hand treemap menu, set the <em>data blocks</em> to use the Net Sales block for both value and colour, which will determine both the size and the colour shading of each rectangle in the treemap. In <em>colors</em> set the <em>color</em> property to a colour of your choice for treemap rectangles.</p>
                         },
                         {
-                            instructionJsx: <p>Add a label and position on the left-side of the banner tile above the treemap. Set the caption to <code>Sales Distribution</code>. Set the <em>background</em> to transparent and format the font approrpriately to appear as a title to the treemap.</p>
+                            instructionJsx: <p>Add a label and position on the left-side of the banner tile above the treemap. Set the caption to <code>Sales Distribution</code>. Set the <em>background</em> to transparent and format the font appropriately to appear as a title to the treemap.</p>
                         },
                         {
                             instructionJsx: <p>Copy the label and paste another one on the right side of the banner tile. Set the caption to <code>Net Sales £</code>. Add a layout to the label to display the total Net Sales. Add an algorithm block to display Net Sales in millions, with the <em>expression</em> set to <code>ROUND(a/1000000,1)&”m”</code>. Set the <em>algorithm type</em> as <code>text</code> and in label settings set block b as the <em>show value</em>.</p>
