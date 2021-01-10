@@ -73,15 +73,14 @@ class Exercise extends React.Component {
                     <p>Tasks completed: {this.countCompletedTasks()} / {this.props.exercise.tasks.length}</p>
                     <button onClick={this.handleReset}>Reset Progress</button>
                 </div>
-                
                 <CSSTransitionGroup
                     transitionName="fade"
                     transitionEnterTimeout={500}
                     transitionLeaveTimeout={500}>               
                     {this.renderTasks()}
                 </CSSTransitionGroup>
-                <ScrollIntoView selector={'exercise' + this.props.index} smooth={true}> 
-                    <img src={imgSrc} alt={imgAlt} onClick={this.handleClick} className="exercise-open-close"/>
+                <ScrollIntoView selector={'#exercise' + this.props.index} smooth={true}>
+                    <img src={imgSrc} alt={imgAlt} onClick={this.handleClick} className="exercise-open-close" />
                 </ScrollIntoView>
             </div>
         );
