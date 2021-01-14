@@ -17,7 +17,7 @@ const Training = {
                             hintJsx: <p>Click on the + icon to create a new data model</p>
                         },
                         {
-                            instructionJsx: <p>Set the <em>from year</em> and <em>to year</em> as <code>2015</code> and <code>2020</code>respectively</p>
+                            instructionJsx: <p>Set the <em>from year</em> and <em>to year</em> as <code>2015</code> and <code>2020</code> respectively</p>
                         },
                         {
                             instructionJsx: <p>Enable all of the <em>time range</em> options (Day, Week, Quarter, Fiscal year), leaving additional options for each one as the default setting</p>
@@ -53,13 +53,13 @@ const Training = {
                             instructionJsx: <p>Return to Board and navigate to <em>Entities</em> in your newly created data model. Click <em>+ entity</em> to create a new entity within it.</p>
                         },
                         {
-                            instructionJsx: <p>Create Product entities (<code>Product, Product Group, Product Division</code>) with the <em>group</em> set to <code>Product</code>. Set appropriate <em>code width, desc width and max item number</em> for each.</p>,
+                            instructionJsx: <p>Create Product entities (<code>Product</code>, <code>Product Group</code>, <code>Product Division</code>) with the <em>group</em> set to <code>Product</code>. Set appropriate <em>code width, desc width and max item number</em> for each.</p>,
                             image: 'product-hierarchy.png',
                             imageAlt: 'Hierarchy diagram showing Product, Product Group and Product Division, each one a parent of the previous one.',
                             hintJsx: <p>The width and max item settings should be made with reference to the data from the SQL tables. Some assumptions should be made on how the entity members might grow in the future.</p>
                         },
                         {
-                            instructionJsx: <p>Create Branch entities (<code>Branch, Customer, Branch Country, Customer City, Customer Country, Sales Person, Area Manager</code>) in a group called <code>Branch</code> with appropriate settings.</p>,
+                            instructionJsx: <p>Create Branch entities (<code>Branch</code>, <code>Customer</code>, <code>Branch Country</code>, <code>Customer City</code>, <code>Customer Country</code>, <code>Sales Person</code>, <code>Area Manager</code>) in a group called <code>Branch</code> with appropriate settings.</p>,
                             image: 'branch-hierarchy.png',
                             imageAlt: 'Hierarchy diagram showing Branch, Customer, Customer City, Customer Country as one path. Branch, Customer, Sales Person, Area Manager as another path. Branch, Branch Country as the final path.'
                         },
@@ -111,14 +111,14 @@ const Training = {
                         },
                         {
                             instructionJsx: <p>Return to mapping and set the <em>mode</em> of each item to allow new items to be added to the entities. Save the data reader.</p>,
-                            hintJsx: <p>Code items should be set to <code>append</code> to enable the entity to be filled. Description items can be set to either setting, although <code>replace</code> is usually recommended so descriptions will remain up to date if amended in the data source.</p>
+                            hintJsx: <p>Code items should be set to <code>add new item</code> to enable the entity to be filled. Description items can be set to either setting, although <code>replace</code> is usually recommended so descriptions will remain up to date if amended in the data source.</p>
                         },
                         {
-                            instructionJsx: <p>Run the TREE-Product data reader and check that the relevant entities and relationships have been populated as expected</p>,
+                            instructionJsx: <p><em>Run</em> the TREE-Product data reader and check that the relevant entities and relationships have been populated as expected</p>,
                             hintJsx: <p>Return to entities, click on the name of the entity and navigate to the <em>content</em> tab to inspect the members. For relationships, click on the child, select the parent from the drop-down to inspect the relationships between members of the two entities.</p>
                         },
                         {
-                            instructionJsx: <p>Create a new data reader called <code>TREE-Branch</code> to load the Branch entities, their descriptions (excluding the description for Area Manager) and the relationships between them. For the description field of the Sales Person entity, two fields will need to be concatenated. You cannot drag two RDB items to the same mdb item so click to manually type the SQL expression. See the hint for syntax.</p>,
+                            instructionJsx: <p>Create a new data reader called <code>TREE-Branch</code> to load the Branch entities, their descriptions (excluding the description for Area Manager) and the relationships between them. For the description field of the Sales Person entity, two fields will need to be concatenated. You cannot drag two RDB items to the same MDB item so click to manually type the SQL expression. See the hint for syntax.</p>,
                             hintJsx: <p>The required fields are found in the tables <code>dbo.Customer</code> and <code>dbo.Employee</code>, which should be joined on the common field <code>c_Employee</code>. The syntax to concatenate two fields with a space in between is <code>[field1] + ' ' + [field2]</code>.</p>
                         },
                         {
@@ -126,7 +126,7 @@ const Training = {
                         },
                         {
                             instructionJsx: <p>Create a new data reader called <code>ENT-Area Manager Desc</code> to load the correct descriptions for the Area Manager entity. Ensure that this data reader does not allow new items to be added to the entity but does replace the blank descriptions for members loaded in the TREE-Branch data reader.</p>,
-                            hintJsx: <p>The Area Manager names (descriptions) are in the same field as the Sales Person descriptions. The <em>mode</em> of the Area Manager code item should be set to <code>discard</code> so that all the sales person employees are not added as area managers. The mode of the description should be set to <code>replace</code> so the name is added.</p>
+                            hintJsx: <p>The Area Manager names (descriptions) are in the same field as the Sales Person descriptions. The <em>mode</em> of the Area Manager code item should be set to <code>discard new item</code> so that all the sales person employees are not added as area managers. The mode of the description should be set to <code>replace</code> so the name is added.</p>
                         },
                         {
                             instructionJsx: <p>Create a new data reader called <code>ENT-Shipper</code> to load the Shipper entity and its descriptions</p>,
@@ -204,10 +204,10 @@ const Training = {
                             instructionJsx: <p>Navigate to the <em>entities</em> menu to see a list of all entity groups in the data model. Open the Product group and drag the Product Group entity to the <em>by row</em> section of the <em>axis</em> window. Click save to return to the screen and view the report.</p>
                         },
                         {
-                            instructionJsx: <p>Drag a new <em>selector</em> object from the toolbox to the workspace. Click on it to select it and, from the right-hand vertical menu, assign it the Country entity. Interact with it and select one or more countries. Observe the data in the data view updating automatically.</p>
+                            instructionJsx: <p>Drag a new <em>selector</em> object from the toolbox to the workspace. Click on it to select it and, from the right-hand vertical menu, assign it the Customer Country entity. Interact with it and select one or more countries. Observe the data in the data view updating automatically.</p>
                         },
                         {
-                            instructionJsx: <p>In the Data View, double-click on one of the Product Group names to open the <em>drill configuration</em>. Choose Product entity to drill to and inspect the data at a more granular level.</p>
+                            instructionJsx: <p>In the data view, double-click on one of the Product Group names to open the <em>drill configuration</em>. Choose Product entity to drill to and inspect the data at a more granular level.</p>
                         }
                     ]
                 },
@@ -301,7 +301,7 @@ const Training = {
                             hintJsx: <p>Only the code fields of the entities are needed for mapping relationships</p>
                         },
                         {
-                            instructionJsx: <p>Navigate to <em>ETL</em>. Enable <em>show formulas</em> to enable the ability to transform the data before loading. In cell D4 (file output for loading to Weekday entity) write the formula to <code>=WEEKDAY(C4,2)</code>. This function will translate the date from the extracted Day entity into a number representing the day of the week running Monday to Sunday.</p>
+                            instructionJsx: <p>Navigate to <em>ETL</em>. Enable <em>show formulas</em> to transform the data before loading. In cell D4 (file output for loading to Weekday entity) write the formula <code>=WEEKDAY(C4,2)</code>. This function will translate the date from the extracted Day entity into a number representing the day of the week running Monday to Sunday.</p>
                         },
                         {
                             instructionJsx: <p>Disable <em>show formulas</em> to check a number from 1-7 is returned. Page through the rows of the file to check some other dates.</p>
@@ -372,7 +372,7 @@ const Training = {
                             instructionJsx: <p>Set Continent to be a direct <em>parent</em> of Customer Country, in the Branch hierarchy</p>
                         },
                         {
-                            instructionJsx: <p>View the relationship between Customer Country and Continent (child to parent). Manually set the correct parent for a few of the members of Country.</p>,
+                            instructionJsx: <p>View the relationship between Customer Country and Continent (child to parent). Manually set the correct parent for a few of the members of Customer Country.</p>,
                             hintJsx: <p>To view the relationships, click on Customer Country, then from the <em>related with</em> drop-down select Continent. Click on the name of a country to set the continent.</p>
                         },
                         {
@@ -555,7 +555,7 @@ const Training = {
                     ]
                 },
                 {
-                    name: 'Use cubes more efficiently with data picker',
+                    name: 'Use Cubes More Efficiently with Data Picker',
                     objective: 'An advanced functionality of rules is called the data picker, which allows the formulas to not only reference other entity members but also specific cubes. This exercise shows how this can be used to remove the need for loading duplicate data performed into the Sales Report cube.',
                     tasks: [
                         {
@@ -623,7 +623,7 @@ const Training = {
                             instructionJsx: <p>After setting the dimension in <em>versions</em>, click on the version number and change the <em>MDB/RDB</em> option to <code>RDB</code></p>
                         },
                         {
-                            instructionJsx: <p>Open the <em>query</em> designer and connect to the Northwind SQL data source. Drag the Stock cube into the <em>mapping</em> window and map the relevant fields from the dbo.Product table in the database.</p>
+                            instructionJsx: <p>Open the <em>query</em> designer and connect to the Northwind SQL data source. In the <em>mapping</em> window, map the relevant fields from the dbo.Product table in the database.</p>
                         },
                         {
                             instructionJsx: <p>In the Data Validation capsule, create a data view with the Stock cube and Product on the row axis. This should show the ‘live’ stock values from the database.</p>
@@ -778,7 +778,7 @@ const Training = {
                             hintJsx: <p>Column widths can be sized by dragging on the data view header, or more accurately by specifying the width in the Columns menu on the right-hand panel</p>
                         },
                         {
-                            instructionJsx: <p>Set up a <em>drill down</em> to Country</p>,
+                            instructionJsx: <p>Set up a <em>drill down</em> to Customer Country</p>,
                             hintJsx: <p>Double-click on any of the row labels to access the drill configuration.</p>
                         },
                         {
@@ -792,10 +792,10 @@ const Training = {
                     tasks: [
                         {
                             instructionJsx: <p><em>Copy</em> the data view from the previous exercise and <em>paste</em> it below on the same screen</p>,
-                            hintJsx: <p>Copy and paste controls can be found in the menu bar at the top of the screen or using keyboard shortcuts Ctrl+C and Ctrl + V</p>
+                            hintJsx: <p>Copy and paste controls can be found in the menu bar at the top of the screen or using keyboard shortcuts Ctrl+C and Ctrl+V</p>
                         },
                         {
-                            instructionJsx: <p>Add the entity Country to the row axis so that it becomes nested</p>
+                            instructionJsx: <p>Add the entity Customer Country to the row axis so that it becomes nested</p>
                         },
                         {
                             instructionJsx: <p>Set the data view to be <em>collapsed</em> by default</p>
@@ -811,7 +811,7 @@ const Training = {
                             hintJsx: <p>Try selecting both objects and using the align commands from the menu bar at the top. ALternatively, the position of each object from the left and top of the screen can be set manually in the <em>Position</em> settings in the right-hand menu.</p>
                         },
                         {
-                            instructionJsx: <p>Change the drill path of the new data view to drill from Country to City</p>,
+                            instructionJsx: <p>Change the drill path of the new data view to drill from Customer Country to Customer City</p>,
                             hintJsx: <p>To change an already configured drill, select a row and click the drill anywhere icon from the data view context menu</p>
                         },
                         {
@@ -833,7 +833,7 @@ const Training = {
                             instructionJsx: <p>From the toolbox, add a <em>label</em> with <em>substitution formula</em> <code>@Selection</code> as the <em>caption</em> to display the current selection</p>
                         },
                         {
-                            instructionJsx: <p>Create a data view showing Net Sales data with Country on the row</p>
+                            instructionJsx: <p>Create a data view showing Net Sales data with Customer Country on the row</p>
                         },
                         {
                             instructionJsx: <p>Add <em>previous year</em> Net Sales as a second <em>block</em> to your layout</p>,
@@ -1177,24 +1177,237 @@ const Training = {
                             instructionJsx: <p>Use the Product Group screen as a template for a new screen called <code>Sales Person</code> and move this into the Sales Analysis folder</p>
                         },
                         {
-                            instructionJsx: <p>On the data view layout, change the axis to Branch and <em>sort</em> by Margin <em>descending</em> and <em>keep top</em> 20 branches.</p>,
+                            instructionJsx: <p>On the data view layout, change the axis to Branch and <em>sort</em> by Margin <em>descending</em> and <em>keep top</em> 20 branches</p>,
                             hintJsx: <p>For sorting, navigate to the <em>filter</em> tab of the data configuration in the layout</p>
                         },
                         {
-                            instructionJsx: <p></p>
+                            instructionJsx: <p>Change the title on the <em>label</em> for this data view to <code>Average Price & Margin (Top 20)</code></p>
                         },
                         {
-                            instructionJsx: <p></p>
+                            instructionJsx: 
+                                <div>
+                                    <p>Delete the treemap object and add a new <em>card</em> object to the top-left hand mask tile. Configure layout with Sales Person on the <em>row axis</em> and with the following data blocks:</p>
+                                    <ul>
+                                        <li>Data: Sales Person Picture</li>
+                                        <li>Data: Working Hours, <em>hidden</em></li>
+                                        <li>Algorithm: <code>“Working Hours: “&b</code>, <em>data type</em> set to <code>text</code></li>
+                                        <li>Entity: Area Manager, <em>hidden</em></li>
+                                        <li>Algorithm: <code>"Manager: &d"</code>, <em>data type</em> set to <code>text</code></li>
+                                    </ul>
+                                </div>
                         },
                         {
-                            instructionJsx: <p></p>
+                            instructionJsx: <p>Arrange the blocks within the card in the preview window. Resize the picture block to fit down the entire left side of the card, with the other blocks arranged in rows across the right side. Save the layout.</p>
                         },
                         {
-                            instructionJsx: <p></p>
+                            instructionJsx: 
+                                <div>
+                                    <p>Configure the card with <em>master object</em> enabled and the following <em>card settings</em>:</p>
+                                    <ul>
+                                        <li>Card width type: Dynamic</li>
+                                        <li>Card height: 150</li>
+                                        <li>Card min width: 200</li>
+                                        <li>Card max width: 250</li>
+                                        <li>Card gap: 5</li>
+                                    </ul>
+                                    <p>Edit the <em>colours</em> to fit in with your colour scheme</p>
+                                </div>,
+                            hintJsx: <p>The background colours of the data blocks can be set in the <em>color alert</em> settings in the layout</p>
                         },
                         {
-                            instructionJsx: <p></p>
+                            instructionJsx: <p>In the Sales vs PY chart, change the <em>category axis</em> to Sales Person</p>
                         },
+                        {
+                            instructionJsx: <p>In the data view, we would like to know which country each Branch belongs to. Add Branch Country to the <em>row axis</em> – note how the sorting behaves in this case.</p>
+                        },
+                        {
+                            instructionJsx: <p>We don't want the branches to be grouped into their countries as this means the sorting takes place within each Branch Country. Remove Branch Country from the row axis and add it as a data block instead.</p>
+                        },
+                        {
+                            instructionJsx: <p>The master object allows a selection to easily be made on an individual sales person. Amend the layout for the three labels with data, to show values in thousands instead of millions if the value being shown is less than 100,000. This will ensure smaller individual totals can be easily read.</p>,
+                            hintJsx: <p>Use an <em>IF</em> function in the algorithm formula to test if the value to be shown is less than 100,000 and return the value with the relevant denominator and suffix ("m" or "k")</p>
+                        }
+                    ]
+                },
+                {
+                    name: 'Menu & Navigation',
+                    objective: 'Guide the user through the application with intuitive menus',
+                    tasks: [
+                        {
+                            instructionJsx: <p>In the Sales Report <em>mask</em>, create a <em>menu</em> object in the top banner, with position set on the Sales Analysis folder</p>
+                        },
+                        {
+                            instructionJsx: <p>Add a <em>calendar</em> object to the right-hand side of the top banner, to allow the user to select the exact time range. Save the mask - the menu and calendar will automatically be applied to all screens using it.</p>
+                        },
+                        {
+                            instructionJsx: 
+                                <div>
+                                    <p>On the Home screen, create a more graphical type of menu using labels. Create three <em>labels</em> with <em>size</em> <code>64 x 64 pixels</code>. For each one, change the <em>background colour</em> to <code>image</code> and set an appropriate icon for the Product Group, Geographical and Sales Person screens. Use the <em>link</em> option to embed images directly from other sources, such as icon libraries. Images used in solution exercise are:</p>
+                                    <ul>
+                                        <li><a href="https://img.icons8.com/dusk/64/000000/ingredients.png">Product Group</a></li>
+                                        <li><a href="https://img.icons8.com/dusk/64/000000/globe-earth.png">Geographical</a></li>
+                                        <li><a href="https://img.icons8.com/dusk/64/000000/businesswoman.png">Sales Person</a></li>
+                                    </ul>
+                                </div>
+                        },
+                        {
+                            instructionJsx: <p>On each label, set the <em>action type</em> as <code>go to screen</code> and set the target screen accordingly</p>
+                        },
+                        {
+                            instructionJsx: <p>In <em>comments</em>, set a <em>tooltip</em> on each label to inform the user of the destination screen when they hover the cursor over the icon</p>
+                        },
+                        {
+                            instructionJsx: <p>In <em>graphic effect</em>, set the object <em>transparency</em> to <code>50%</code> - this will create a highlighting effect when the user moves their cursor over the icon.</p>
+                        }
+                    ]
+                },
+                {
+                    name: 'Order Analysis (Independent Task)',
+                    objective: 'Use the techniques you have learned to create an order analysis screen with your own style. Use the previous dashboards as a template or experiment with other objects – the choice is yours.',
+                    tasks: [
+                        {
+                            instructionJsx: <p>For this exercise, you will create a screen that does some analysis of the orders data, as opposed to the net sales. You can use the Product Group screen as a template, or simply create a new screen with the Dashboard mask or design your own screen from scratch! The management team want a report to help them analyse the following.</p>
+                        },
+                        {
+                            instructionJsx: <p>The order distribution between countries. This could be with a treemap or another chart object.</p>
+                        },
+                        {
+                            instructionJsx: <p>How the orders have tracked week-by-week comparing the current year to the previous year. A cartesian line chart could be suitable but feel free to display this how you wish.</p>
+                        },
+                        {
+                            instructionJsx: <p>A table showing average order value by Customer, grouped by Sales Person.  Produce a report where you can show the Net Sales, Order Count and the Average Order Value for the current year. The average order value for the previous year should also be shown, with a variance between current and previous year calculated.</p>
+                        },
+                        {
+                            instructionJsx: <p>Allow the user to retrieve a listing of the orders for each customer from the orders database. A <em>drill-through</em> protocol has been set-up to facilitate this.</p>
+                        },
+                        {
+                            instructionJsx: <p>Display prominently the overall number of orders, total variance between current and previous year and the overall average order value</p>
+                        },
+                        {
+                            instructionJsx: <p>Ensure that the user can easily filter the data by entities that you feel are relevant to this analysis</p>
+                        },
+                        {
+                            instructionJsx: <p>Add an icon to the Home screen to allow access this screen and ensure it is accessible within the capsule menu. You may find this image useful: <a href="https://img.icons8.com/dusk/64/000000/purchase-order.png">Order icon</a></p>
+                        }
+                    ]
+                },
+                {
+                    name: 'Dynamic Icons & Tooltips',
+                    objective: 'Enhance the style and accessibility of your report with dynamic icons and use tooltips to provide additional information without cluttering the screen.',
+                    tasks: [
+                        {
+                            instructionJsx: <p>Navigate to capsule <em>images</em> and add <code>up-right.png</code> and <code>down-right.png</code> from the Pictures folder</p>
+                        },
+                        {
+                            instructionJsx: <p>In the data view on the Orders screen, add a new <em>algorithm</em> block with <em>data type</em> of <code>picture</code> that displays the correct icon depending on whether the orders have increased or decreased from the previous year. Set the <em>header</em> as a space character to prevent the formula being displayed in the column header.</p>,
+                            hintJsx: <p>The algorithm should use an IF function to determine whether the orders have increased or not and return the filename of the image to display, in double quotes, e.g. <code>IF(...,"up-right.png","down-right.png")</code></p>
+                        },
+                        {
+                            instructionJsx: <p>Save the layout and size this column to 20 pixels so the row heights are not stretched</p>,
+                            hintJsx: <p>With the data view selected, open <em>columns</em> from the right-hand vertical menu, choose the algorithm block you just created and set the width</p>
+                        },
+                        {
+                            instructionJsx: <p>Add another algorithm block to display text to inform whether there has been an increase or decrease from previous year and the value of that increase or decrease</p>,
+                            hintJsx: <p>In the algorithm formula, use the same IF function logic as for the picture algorithm to check if orders have increased or not but this time return the text "Increased" or "Decreased". Then concatenate the value of the variance, using the function <code>ABS(...)</code> to show the value as a positive regardless of whether it is an increase or decrease.</p>
+                        },
+                        {
+                            instructionJsx: <p>Display this text as a tooltip instead of another column by <em>hiding</em> the algorithm block, adding a new empty algorithm block and applying the text block as a <em>tooltip</em> for it.</p>,
+                            hintJsx: <p>An empty algorithm block can be created by simply setting the formula to <code>0</code> (numerical data type) or an empty string <code>""</code> (text data type). Set the header to a space character to keep it blank as well. Apply the tooltip to this empty block from the right-hand configuration menu.</p>
+                        },
+                        {
+                            instructionJsx: <p>Save the layout and resize this column as 20 pixels as well. Switch to play mode and hover over the tooltip icon to test.</p>
+                        }
+                    ]
+                },
+                {
+                    name: 'Capsule Tiles',
+                    objective: 'Style the entry point to your application, the capsule tile, with colours, images and data.',
+                    tasks: [
+                        {
+                            instructionJsx: <p>From the Board button, navigate to the capsules main menu. Go into <em>design</em> mode and edit the capsule <em>properties</em> for your Sales Reporting capsule. This is accessed via the hamburger menu on the capsule tile.</p>
+                        },
+                        {
+                            instructionJsx: <p>Configure the capsule tile to show some data for the current year. Click the <em>select</em> button and put a <em>dynamic selection</em> on Year to select the latest year of sales</p>
+                        },
+                        {
+                            instructionJsx: <p>Configure the <em>sparkline</em> to plot Net Sales by Week, naming the data block <em>header</em> so it shows clearly what is being represented on the tile</p>
+                        },
+                        {
+                            instructionJsx: <p>Configure the <em>footer</em> to show a count of the orders, using an algorithm text block to give the description of this measure in the footer</p>,
+                            hintJsx: <p>In the algorithm formula, concatenate the description in double-quotes with the data block. In label settings, set the algorithm block as the <em>show value</em>.</p>
+                        },
+                        {
+                            instructionJsx: <p>Set an <em>icon</em> to the capsule tile. You can use <a href="https://img.icons8.com/dusk/64/000000/total-sales.png">this</a> or source your own</p>
+                        },
+                        {
+                            instructionJsx: <p>Set the <em>background</em> to a colour from your colour scheme</p>
+                        },
+                        {
+                            instructionJsx: <p>Save these changes and return to the capsule menu. In play mode this time, use the hamburger menu on your capsule tile to expand the size to maximum to see the new tile data.</p>
+                        }
+                    ]
+                },
+                {
+                    name: 'Presentations',
+                    objective: 'Explore how users are able to self-serve using the dashboards you have designed, easily creating interactive presentations without the need for PowerPoint.',
+                    tasks: [
+                        {
+                            instructionJsx: <p>From the Board button menu, navigate to the <em>Presentations</em> environment</p>
+                        },
+                        {
+                            instructionJsx: <p>Create a new <em>presentation</em>, giving it the <em>title</em> <code>Sales Quarterly Update</code></p>
+                        },
+                        {
+                            instructionJsx: <p>Add a new section header slide, to introduce the presentation as an update on Q1 Sales for Andrew Fuller's sales team. Set background and foreground colours as desired.</p>
+                        },
+                        {
+                            instructionJsx: <p>Add a new slide using one of the dashboard screens created in the Sales Reporting Capsule</p>
+                        },
+                        {
+                            instructionJsx: <p><em>Reset</em> the <em>screen select</em> on the Day entity and make a selection on Quarter to cover Q1 2019. Make another selection on Area Manager to filter on Andrew Fuller.</p>
+                        },
+                        {
+                            instructionJsx: <p>Add any more screens to the presentation with the same selection, then finish with another section header slide to end the presentation</p>
+                        },
+                        {
+                            instructionJsx: <p>Click the play icon in the top-right to view the presentation. Click the share icon and share it with BoardUser2, giving them access to edit the presentation.</p>
+                        }
+                    ]
+                },
+                {
+                    name: 'Security',
+                    objective: 'Learn how to give users access to your capsule, as well as personalize the reports based on their security access.',
+                    tasks: [
+                        {
+                            instructionJsx: <p>From the Board button menu, navigate to the <em>system administration</em> environment and go into the <em>profiles</em> tile</p>
+                        },
+                        {
+                            instructionJsx: <p>Create a new <em>security profile</em> called <code>sales</code>. This will be used for the salespersons to login and view the capsule you created. If you have completed the Data Modelling course, this may already have been done but you will still need to edit it to set the capsule access.</p>
+                        },
+                        {
+                            instructionJsx: <p>In the <em>license</em> section, assign a <code>lite plus</code> license type for this profile</p>
+                        },
+                        {
+                            instructionJsx: <p>In the <em>capsules</em> section, grant access to the <code>2.Reporting & Analysis</code> folder only</p>
+                        },
+                        {
+                            instructionJsx: <p>In the <em>data models</em> section, assign <code>SALES</code> as the <em>default database security profile</em></p>
+                        },
+                        {
+                            instructionJsx: <p>Save changes and navigate to <em>users</em>. Create a new <em>user</em> for one of the salespersons, assigning the <code>sales</code> security profile</p>
+                        },
+                        {
+                            instructionJsx: <p>Set <em>password authentication</em> and type a password for the user</p>
+                        },
+                        {
+                            instructionJsx: <p>In the <em>select</em> tab, ensure the salesperson can only see data relating to themselves in the Northwind data model</p>
+                        },
+                        {
+                            instructionJsx: <p>Save changes and <em>logout</em> of Board. <em>Login</em> again using the user for the salesperson you created.</p>
+                        },
+                        {
+                            instructionJsx: <p>Open the Sales Reporting capsule and observe how the information is now restricted to a subset of customers (those belonging to that salesperson)</p>
+                        }
                     ]
                 }
             ]
