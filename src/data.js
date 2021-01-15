@@ -758,31 +758,32 @@ const Training = {
                     objective: 'Create a new capsule and understand the basics of the most important Board object, the Data View. Query data from the Northwind data model to create a basic report.',
                     tasks: [
                         {
-                            instructionJsx: <p>In the Reporting & Analysis folder, create a new <em>capsule</em> called <code>Sales Reporting</code>. Ensure the <em>linked data model</em> is <code>Northwind</code>.</p>   
+                            instructionJsx: <p>In the <code>2. Reporting & Analysis</code> folder, create a new <em>capsule</em> called <code>Sales Reporting</code>. Ensure the <em>linked data model</em> is <code>Northwind</code>.</p>,
+                            hintJsx: <p>You must switch to <em>design</em> mode to create a capsule by clicking the set square icon in the top-right</p>   
                         },
                         {
-                            instructionJsx: <p>Create a new <em>screen</em> named <code>Exercise 1-2</code></p>
+                            instructionJsx: <p>In the new capsule from the left-hand vertical menu, create a new <em>screen</em> named <code>Exercise 1-2</code></p>
                         },
                         {
-                            instructionJsx: <p>From the <em>toolbox</em>, drag a <em>data view</em> on to the screen</p>
+                            instructionJsx: <p>Navigate to the the <em>toolbox</em>, which is the second tab on the left-hand vertical menu. Drag a <em>data view</em> object from there and drop it on to the blank workspace.</p>
                         },
                         {
-                            instructionJsx: <p>In the <em>layout</em>, configure it with the Net Sales <em>data</em>, showing <em>entities</em> Continent on the <em>row axis</em> and Year on the <em>column axis</em></p>,
-                            hintJsx: <p>To access the layout, ensure the data view is selected (border will be highlighted in blue) then click the configure layout icon from the context menu in the top-left of the object or the controls in the menu bar at the top of the screen</p>
+                            instructionJsx: <p>Open the <em>layout</em> of the data view, configure it with the Net Sales <em>data</em>, showing <em>entities</em> Continent on the <em>row axis</em> and Year on the <em>column axis</em></p>,
+                            hintJsx: <p>Drag items from <em>data</em> and <em>entities</em> on the left-hand layout menu to the relevant areas of the configurator</p>
                         },
                         {
                             instructionJsx: <p>In <em>axis settings</em>, disable <em>show all</em> on the column axis to hide the years that have no data</p>
                         },
                         {
                             instructionJsx: <p>Save the layout and resize the data view object to fit the data, increasing <em>column widths</em> where necessary</p>,
-                            hintJsx: <p>Column widths can be sized by dragging on the data view header, or more accurately by specifying the width in the Columns menu on the right-hand panel</p>
+                            hintJsx: <p>Column widths can be sized by dragging on the data view header, or more accurately by specifying the width in the <em>columns</em> menu on the right-hand panel</p>
                         },
                         {
-                            instructionJsx: <p>Set up a <em>drill down</em> to Customer Country</p>,
-                            hintJsx: <p>Double-click on any of the row labels to access the drill configuration.</p>
+                            instructionJsx: <p>Double-click on any of the row labels and set up a <em>drill down</em> to Customer Country</p>,
+                            hintJsx: <p>You can also single-click on a row label and choose <em>drill down</em> from the object context menu</p>
                         },
                         {
-                            instructionJsx: <p>Save the screen, switch to <em>play mode</em> and interact with the report</p>
+                            instructionJsx: <p>Save the screen, switch to <em>play mode</em> and interact with the report. Double-click on a row label to drill into a particular Continent.</p>
                         }
                     ]
                 },
@@ -795,24 +796,25 @@ const Training = {
                             hintJsx: <p>Copy and paste controls can be found in the menu bar at the top of the screen or using keyboard shortcuts Ctrl+C and Ctrl+V</p>
                         },
                         {
-                            instructionJsx: <p>Add the entity Customer Country to the row axis so that it becomes nested</p>
+                            instructionJsx: <p>Edit the layout of the pasted data view. Add the entity Customer Country to the <em>row axis</em> so that it becomes nested</p>,
+                            hintJsx: <p>To access the layout, ensure the data view is selected (border will be highlighted in blue) then click the configure layout icon from the context menu in the top-left of the object or the controls in the menu bar at the top of the screen</p>
                         },
                         {
-                            instructionJsx: <p>Set the data view to be <em>collapsed</em> by default</p>
+                            instructionJsx: <p>In the layout <em>data view settings</em>, set the nested groups to be <em>collapsed</em> by default</p>
                         },
                         {
-                            instructionJsx: <p>Add Product Division to the column axis, so it appears above Year</p>
+                            instructionJsx: <p>Add Product Division to the <em>column axis</em>, so it appears above Year</p>
                         },
                         {
-                            instructionJsx: <p>Reduce the Net Sales column widths so they fit the object without needing to scroll</p>
+                            instructionJsx: <p>Save the layout and reduce the Net Sales column widths so they fit the object without needing to scroll horizontally</p>
                         },
                         {
                             instructionJsx: <p>Position the two data views on screen so they appear tidy and aligned</p>,
-                            hintJsx: <p>Try selecting both objects and using the align commands from the menu bar at the top. ALternatively, the position of each object from the left and top of the screen can be set manually in the <em>Position</em> settings in the right-hand menu.</p>
+                            hintJsx: <p>Try selecting both objects and using the align commands from the menu bar at the top. Alternatively, the position of each object relative to the left and top of the screen can be set manually in the <em>position</em> settings in the right-hand menu.</p>
                         },
                         {
                             instructionJsx: <p>Change the drill path of the new data view to drill from Customer Country to Customer City</p>,
-                            hintJsx: <p>To change an already configured drill, select a row and click the drill anywhere icon from the data view context menu</p>
+                            hintJsx: <p>To change an already configured drill, select a row and click the <em>drill anywhere</em> icon from the data view context menu</p>
                         },
                         {
                             instructionJsx: <p>Save the screen, switch to play mode and interact with the report</p>
@@ -821,7 +823,7 @@ const Training = {
                 },
                 {
                     name: 'Selections & Algorithms',
-                    objective: 'Learn how to filter the data from a cube and allow users to do so interactively. Understand how to perform calculations on the data on the fly.',
+                    objective: 'Learn how to filter the data from a cube and allow users to do so interactively. Understand how to perform calculations with the data on the fly.',
                     tasks: [
                         {
                             instructionJsx: <p>Create a new screen called <code>Exercise 3</code></p>
@@ -830,33 +832,34 @@ const Training = {
                             instructionJsx: <p>Make a <em>screen selection</em> on Year for <code>2018</code></p>
                         },
                         {
-                            instructionJsx: <p>From the toolbox, add a <em>label</em> with <em>substitution formula</em> <code>@Selection</code> as the <em>caption</em> to display the current selection</p>
+                            instructionJsx: <p>From the toolbox, add a <em>label</em> object. Enter the <em>substitution formula</em> <code>@Selection</code> as the <em>caption</em> to display the current selection on screen.</p>
                         },
                         {
-                            instructionJsx: <p>Create a data view showing Net Sales data with Customer Country on the row</p>
+                            instructionJsx: <p>Create a data view showing Net Sales data with Customer Country on the row axis</p>
                         },
                         {
-                            instructionJsx: <p>Add <em>previous year</em> Net Sales as a second <em>block</em> to your layout</p>,
-                            hintJsx: <p>This is an option in <em>time functions</em> of the block configuration</p>
+                            instructionJsx: <p>Add Net Sales data again as a second <em>block</em> to your layout. Click on the block to open the block configuration. From <em>time functions</em>, enable the option<em>previous year</em> to have this block return data from the year prior to the one selected. Set the block <em>header</em> to <code>Net Sales PY</code> to label the column appropriately.</p>
                         },
                         {
-                            instructionJsx: <p>Add an <em>algorithm</em> block with <em>header</em> <code>Growth</code> to calculate the growth vs. previous year</p>
+                            instructionJsx: <p>Click the <em>+</em> icon and then the <em>fx</em> icon to add an <em>algorithm</em> block calculating the growth vs. previous year. Set the <em>header</em> as <code>Growth</code>.</p>,
+                            hintJsx: <p>The algorithm formula should refer to other blocks by the letter shown next to their name</p>
                         },
                         {
-                            instructionJsx: <p>Add another algorithm block called <code>Growth %</code> to calculate the percentage growth vs. PY, showing 1 <em>decimal digit</em></p>
+                            instructionJsx: <p>Add another algorithm block called <code>Growth %</code> to calculate the percentage growth vs. PY, showing 1 <em>decimal digit</em></p>,
+                            hintJsx: <p>This should be calculated as <code>Growth / Net Sales PY * 100</code></p>
                         },
                         {
                             instructionJsx: <p>Give the layout the <em>title</em> <code>Sales Growth</code> and save the layout</p>
                         },
                         {
                             instructionJsx: <p>Use <em>block formatting</em> to add a <code>%</code> symbol to the Growth % block. Ensure the decimal digits are maintained at 1 decimal place.</p>,
-                            hintJsx: <p>Block format can be found from the data view menu on the right-hand side. Format all the necessary block elements (values and totals). A decimal digits setting of <code>-1</code> ensures the setting is taken from the layout and not overidden by the block format setting.</p>
+                            hintJsx: <p>Block format can be found from the data view menu on the right-hand side. Format all the necessary block elements (values and totals). A decimal digits setting of <code>-1</code> ensures the setting is taken from the layout and not overridden by the block format setting.</p>
                         },
                         {
-                            instructionJsx: <p>Add a <em>selector</em> for Product Group entity to the screen, with <em>type</em> set to <code>vertical</code></p>
+                            instructionJsx: <p>Add a <em>selector</em> object to the screen, set to the Product Group entity and with <em>type</em> set to <code>vertical</code></p>
                         },
                         {
-                            instructionJsx: <p>Add a <em>pager</em> for Area Manager entity, ensuring one area manager is always selected</p>,
+                            instructionJsx: <p>Add a <em>pager</em> object for the Area Manager entity, ensuring one area manager is always selected</p>,
                             hintJsx: <p>The <em>no all</em> setting forces the pager to always have a member selected</p>
                         },
                         {
@@ -869,13 +872,11 @@ const Training = {
                     objective: 'Learn how to sort the results of a query, use ranking functions and apply conditional formatting to draw users’ attention to the relevant data.',
                     tasks: [
                         {
-                            instructionJsx: <p>Using Exercise 3 as a starting point (use <em>save screen as</em>) create a new screen called <code>Exercise 4</code></p>
+                            instructionJsx: <p>Using Exercise 3 as a starting point, create a new screen called <code>Exercise 4</code></p>,
+                            hintJsx: <p>Use <em>save screen as</em> from the capsule navigation menu to make a copy of a screen</p>
                         },
                         {
-                            instructionJsx: <p>Add a <em>timebar</em> to the screen with Month on the axis and Net Sales as the <em>trend line</em></p>
-                        },
-                        {
-                            instructionJsx: <p>Save, switch to play mode and interact with the timebar to narrow the months selected</p>
+                            instructionJsx: <p>Add a <em>timebar</em> object to the screen with Month on the axis and Net Sales as the trend line. This object both displays data and allows the user to control the selection on the time entity.</p>
                         },
                         {
                             instructionJsx: <p><em>Sort</em> the data view rows by Net Sales with the highest values shown first</p>,
@@ -886,7 +887,10 @@ const Training = {
                             hintJsx: <p>The ranking block needs to be immediately after the block that needs ranking, in this case block a: Net Sales</p>
                         },
                         {
-                            instructionJsx: <p>Add a <em>colour alert</em> to the Growth % block to highlight positive growth of more than 5% in green and negative growth of more than 5% in red. Anything in between should remain as is.</p>
+                            instructionJsx: <p>Add a <em>colour alert</em> to the Growth % block to highlight positive growth of more than 5% in green and negative growth of more than 5% in red. Choose your own colour for positive or negative growth of less than 5%.</p>
+                        },
+                        {
+                            instructionJsx: <p>Save, switch to play mode and interact with the timebar to narrow the months selected</p>
                         }
                     ]
                 },
@@ -898,28 +902,25 @@ const Training = {
                             instructionJsx: <p>Using Exercise 4 as a starting point, save a new screen called <code>Exercise 5</code></p>
                         },
                         {
-                            instructionJsx: <p>Create a <em>cartesian chart</em> and configure the layout with Sales Volume and previous year Sales Volume, with Month on the <em>category axis</em></p>
+                            instructionJsx: <p>Create a <em>cartesian chart</em> object and configure the layout with Sales Volume and previous year Sales Volume data and Month on the <em>category axis</em></p>
                         },
                         {
-                            instructionJsx: <p>Give the layout the <em>title</em> <code>Sales Volume vs PY</code> and save the layout</p>
+                            instructionJsx: <p>Give the layout a <em>title</em> <code>Sales Volume vs PY</code> and save the layout</p>
                         },
                         {
-                            instructionJsx: <p>From the right-hand menu, change the <em>series type</em> for both series from line to <code>bar</code></p>
+                            instructionJsx: <p>From the right-hand vertical menu, change the <em>series type</em> for both series from line to <code>bar</code></p>
                         },
                         {
                             instructionJsx: <p>On the <em>primary y-axis</em>, set the <em>decimals</em> shown to <code>0</code></p>
                         },
                         {
-                            instructionJsx: <p>Return to the layout, add an algorithm block to the chart to calculate growth rate (calculate as a decimal this time, not a percentage)</p>
+                            instructionJsx: <p>Return to the layout, add an algorithm block to the chart to calculate growth rate from previous year (calculate as a decimal this time, not a percentage)</p>
                         },
                         {
-                            instructionJsx: <p>Set that series to type <code>spline</code> and plot this on the <em>secondary axis</em></p>
+                            instructionJsx: <p>Set the Growth % series to <em>type</em> <code>spline</code> and plot this on the <em>secondary axis</em>. Show <em>markers</em> and <em>labels</em> for this series and format the <em>secondary y axis</em> as a <em>percentage</em></p>
                         },
                         {
-                            instructionJsx: <p>Show <em>markers</em> and <em>labels</em> for this series and format the secondary axis as a <em>percentage</em></p>
-                        },
-                        {
-                            instructionJsx: <p>Resize and position the <em>plot, title and legend</em>objects within the chart to optimize the display</p>
+                            instructionJsx: <p>Resize and position the <em>plot, title and legend</em>objects within the chart object to optimize the display</p>
                         },
                         {
                             instructionJsx: <p>Create a second cartesian chart on screen. Copy the layout from the data view and paste it as the new chart's layout</p>
@@ -928,7 +929,7 @@ const Training = {
                             instructionJsx: <p>Remove the blocks for Net Sales PY, Growth and Growth %. From <em>axis settings</em>, remove <em>down totals</em>. Change the layout title to <code>Sales by Country</code> and save the layout.</p>
                         },
                         {
-                            instructionJsx: <p>In series options, set the Net Sales series to type <code>bar</code>. Leave Cumulated Vertical series as a line but show on the secondary axis.</p>
+                            instructionJsx: <p>In series options, set the Net Sales series to type <code>bar</code>. Leave Cumulated Vertical % series as a line but show on the secondary axis.</p>
                         },
                         {
                             instructionJsx: <p>Return to the layout and add Product Division to the <em>series axis</em>. Remove the <em>row totals</em> setting from the Net Sales block. Save the layout.</p> 
@@ -986,7 +987,7 @@ const Training = {
                             hintJsx: <p><code>b * 1.2</code></p>
                         },
                         {
-                            instructionJsx: <p>In the gauge settings of the layout, set the <em>value</em> as the Net Sales block and the <em>max</em> as the Target block. Remove anything set to <em>second or third value</em>.</p>
+                            instructionJsx: <p>In the <em>gauge settings</em> of the layout, set the <em>value</em> as the Net Sales block and the <em>max</em> as the Target block. Remove anything set to <em>second or third value</em>.</p>
                         },
                         {
                             instructionJsx: <p>Save the layout and set the gauge <em>background</em> to be transparent so it blends into the screen</p>
@@ -998,7 +999,7 @@ const Training = {
                             instructionJsx: <p>Change the layout select and title for this one to display data for <code>Delicacies</code> Product Division</p>
                         },
                         {
-                            instructionJsx: <p>Save the screen and navigate to <em>system administration</em>, using the main top-left Board menu. From there, go to <em>theme</em> and upload the Northwind.jpg image to appear as the <em>logo</em> in the banner menu.</p>
+                            instructionJsx: <p>Save the screen and navigate to <em>system administration</em>, using the Board button menu in the top-left of the screen. From there, go to <em>theme</em> and upload the Northwind.jpg image to appear as the <em>logo</em> in the banner menu.</p>
                         }
                     ]
                 },
@@ -1041,14 +1042,15 @@ const Training = {
                             hintJsx: <p>The mask background will help you position the object by dragging but to position and size it precisely, refer to the settings from the wireframe and set them directly on the object.</p>
                         },
                         {
-                            instructionJsx: <p>From the right-hand treemap menu, set the <em>data blocks</em> to use the Net Sales block for both value and colour, which will determine both the size and the colour shading of each rectangle in the treemap. In <em>colors</em> set the <em>color</em> property to a colour of your choice for treemap rectangles.</p>
+                            instructionJsx: <p>From the right-hand treemap menu, set the <em>data blocks</em> to use the Net Sales block for both value and colour, which will determine both the size and the intensity of the colour shading of each rectangle in the treemap. In <em>colors</em> set the <em>color</em> property to a colour of your choice for treemap rectangles.</p>
                         },
                         {
                             instructionJsx: <p>Add a label and position on the left-side of the banner tile above the treemap. Set the caption to <code>Sales Distribution</code>. Set the <em>background</em> to transparent and format the font appropriately to appear as a title to the treemap.</p>
                         },
                         {
-                            instructionJsx: <p>Copy the label and paste another one on the right side of the banner tile. Set the caption to <code>Net Sales £</code>. Add a layout to the label to display the total Net Sales. Add an algorithm block to display Net Sales in millions, with the <em>expression</em> set to <code>ROUND(a/1000000,1)&”m”</code>. Set the <em>algorithm type</em> as <code>text</code> and in label settings set block b as the <em>show value</em>.</p>
-                        },
+                            instructionJsx: <p>Copy the label and paste another one on the right side of the banner tile. Set the caption to <code>Net Sales £</code>. Add a layout to the label to display the total Net Sales. Add the Net Sales data and an algorithm block to display this in millions, formatted with the suffix <code>m</code>, e.g. <code>1.2m</code>. Set the <em>algorithm type</em> as <code>text</code> and in <em>label settings</em> set block b as the <em>show value</em>.</p>,
+                            hintJsx: <p>Set the algorithm expression as <code>ROUND(a/1000000,1)&”m”</code></p>
+                        }
                     ]
                 },
                 {
@@ -1066,7 +1068,7 @@ const Training = {
                         },
                         {
                             instructionJsx: <p>Copy and paste the two labels from the treemap banner tile and position them similarly on the cartesian chart banner tile. Change the caption of the title label to <code>Sales vs PY</code> and amend the layout of the right-hand label to calculate and display the total variance between the current and previous years.</p>,
-                            hintJsx: <p>The calculation can be performed directly in the text algorithm being displayed or can be calculated in a separate block which can be referred to in text algorithm</p>
+                            hintJsx: <p>The calculation can be performed directly in the text algorithm being displayed or can be calculated in a separate block which can be referred to in the text algorithm</p>
                         }
                     ]
                 },
@@ -1104,7 +1106,8 @@ const Training = {
                             instructionJsx: <p>Add a label positioned on the left side of the banner at the top of the screen, setting the caption with the substitution formula <code>@Product Group</code></p>
                         },
                         {
-                            instructionJsx: <p>Save the screen and return to the Product Group screen. Set up a <em>drill to screen</em> action on one or all the objects, with the Product Detail screen as the target.</p>
+                            instructionJsx: <p>Save the screen and return to the Product Group screen. Set up a <em>drill to screen</em> action on each of the objects, with the Product Detail screen as the target.</p>,
+                            hintJsx: <p>To set a drill on a chart object, click on one of the elements (e.g. bars on the bar chart) to select it and choose <em>drill down</em> from the object context menu</p>
                         }
                     ]
                 },
@@ -1130,7 +1133,7 @@ const Training = {
                             hintJsx: <p>The tab container must be selected by clicking on it (or use the screen objects menu on the left-hand side) before dragging the new geo map object into it</p>
                         },
                         {
-                            instructionJsx: <p>Select the geo map object and configure the layout with the cubes Net Sales, Latitude, Longitude. Set Branch on the <em>markers axis</em>.</p>
+                            instructionJsx: <p>Select the geo map object and configure the layout with the data Net Sales, Latitude, Longitude. Set Branch on the <em>markers axis</em>.</p>
                         },
                         {
                             instructionJsx: <p>In the layout geo map settings, open the <em>bubbles</em> options and set the <em>latitude and longitude</em> to the respective data blocks. Save the layout.</p>
@@ -1162,10 +1165,11 @@ const Training = {
                             instructionJsx: <p>From the geo map right-hand menu, click <em>upload GeoJSON</em>. Navigate to the <em>JSON library</em>, add the <code>world_low</code> JSON and save</p>                                
                         },
                         {
-                            instructionJsx: <p>Edit the geo map layout. Remove the Longitude and Latitude blocks. Add an <em>entity block</em> with the Country entity and set the <em>display mode</em> to <code>code</code>. </p>
+                            instructionJsx: <p>Edit the geo map layout. Remove the Longitude and Latitude blocks. Change the <em>markers axis</em> to Customer Country. Add an <em>entity block</em> with the Customer Country entity and set the block's <em>display mode</em> to <code>code</code>.</p>,
+                            hintJsx: <p>An entity block can be added by dragging from the entity list on the left-hand side to the <em>data</em> section of the layout</p>
                         },
                         {
-                            instructionJsx: <p>In geo map settings, turn off the <em>bubbles</em> option and activate the <em>map areas</em> option. Set <em>shape name</em> to the Country entity block to match the country codes to the geographical areas defined in the GeoJSON. Set the <em>color</em> setting to the Variance algorithm block.</p>
+                            instructionJsx: <p>In geo map settings, turn off the <em>bubbles</em> option and activate the <em>map areas</em> option. Set <em>shape name</em> to the Customer Country entity block to match the country codes to the geographical areas defined in the GeoJSON. Set the <em>color</em> setting to the Variance algorithm block.</p>
                         }
                     ]
                 },
@@ -1197,7 +1201,7 @@ const Training = {
                                 </div>
                         },
                         {
-                            instructionJsx: <p>Arrange the blocks within the card in the preview window. Resize the picture block to fit down the entire left side of the card, with the other blocks arranged in rows across the right side. Save the layout.</p>
+                            instructionJsx: <p>In the preview window of the layout, arrange the blocks within the card. Resize the picture block to fit down the entire left side of the card, with the other blocks arranged in rows across the right side. Save the layout.</p>
                         },
                         {
                             instructionJsx: 
@@ -1244,9 +1248,9 @@ const Training = {
                                 <div>
                                     <p>On the Home screen, create a more graphical type of menu using labels. Create three <em>labels</em> with <em>size</em> <code>64 x 64 pixels</code>. For each one, change the <em>background colour</em> to <code>image</code> and set an appropriate icon for the Product Group, Geographical and Sales Person screens. Use the <em>link</em> option to embed images directly from other sources, such as icon libraries. Images used in solution exercise are:</p>
                                     <ul>
-                                        <li><a href="https://img.icons8.com/dusk/64/000000/ingredients.png">Product Group</a></li>
-                                        <li><a href="https://img.icons8.com/dusk/64/000000/globe-earth.png">Geographical</a></li>
-                                        <li><a href="https://img.icons8.com/dusk/64/000000/businesswoman.png">Sales Person</a></li>
+                                        <li><a href="https://img.icons8.com/dusk/64/000000/ingredients.png" target="_blank" rel="noopener noreferrer">Product Group</a></li>
+                                        <li><a href="https://img.icons8.com/dusk/64/000000/globe-earth.png" target="_blank" rel="noopener noreferrer">Geographical</a></li>
+                                        <li><a href="https://img.icons8.com/dusk/64/000000/businesswoman.png" target="_blank" rel="noopener noreferrer">Sales Person</a></li>
                                     </ul>
                                 </div>
                         },
@@ -1266,19 +1270,19 @@ const Training = {
                     objective: 'Use the techniques you have learned to create an order analysis screen with your own style. Use the previous dashboards as a template or experiment with other objects – the choice is yours.',
                     tasks: [
                         {
-                            instructionJsx: <p>For this exercise, you will create a screen that does some analysis of the orders data, as opposed to the net sales. You can use the Product Group screen as a template, or simply create a new screen with the Dashboard mask or design your own screen from scratch! The management team want a report to help them analyse the following.</p>
+                            instructionJsx: <p>For this exercise, you will create a screen that does some analysis of the orders data, as opposed to the net sales. You can use the Product Group screen as a template, create a new screen with the Dashboard mask or design your own screen from scratch! The management team want a report to help them analyse the following.</p>
                         },
                         {
-                            instructionJsx: <p>The order distribution between countries. This could be with a treemap or another chart object.</p>
+                            instructionJsx: <p>Visualize the order distribution between countries. This could be with a treemap or another chart object.</p>
                         },
                         {
-                            instructionJsx: <p>How the orders have tracked week-by-week comparing the current year to the previous year. A cartesian line chart could be suitable but feel free to display this how you wish.</p>
+                            instructionJsx: <p>Display how the orders have tracked week-by-week comparing the current year to the previous year. A cartesian line chart could be suitable but feel free to display this how you wish.</p>
                         },
                         {
-                            instructionJsx: <p>A table showing average order value by Customer, grouped by Sales Person.  Produce a report where you can show the Net Sales, Order Count and the Average Order Value for the current year. The average order value for the previous year should also be shown, with a variance between current and previous year calculated.</p>
+                            instructionJsx: <p>Build a table showing average order value by Customer, grouped by Sales Person.  Produce a report where you can show the Net Sales, Order Count and the Average Order Value for the current year. The average order value for the previous year should also be shown, with a variance between current and previous year calculated.</p>
                         },
                         {
-                            instructionJsx: <p>Allow the user to retrieve a listing of the orders for each customer from the orders database. A <em>drill-through</em> protocol has been set-up to facilitate this.</p>
+                            instructionJsx: <p>Allow the user to retrieve a listing of the orders for each customer from the orders database. A <em>drill-through</em> protocol has already been set-up to facilitate this.</p>
                         },
                         {
                             instructionJsx: <p>Display prominently the overall number of orders, total variance between current and previous year and the overall average order value</p>
@@ -1287,7 +1291,7 @@ const Training = {
                             instructionJsx: <p>Ensure that the user can easily filter the data by entities that you feel are relevant to this analysis</p>
                         },
                         {
-                            instructionJsx: <p>Add an icon to the Home screen to allow access this screen and ensure it is accessible within the capsule menu. You may find this image useful: <a href="https://img.icons8.com/dusk/64/000000/purchase-order.png">Order icon</a></p>
+                            instructionJsx: <p>Add an icon to the Home screen to allow access this screen and ensure it is accessible within the capsule menu. You may find this image useful: <a href="https://img.icons8.com/dusk/64/000000/purchase-order.png" target="_blank" rel="noopener noreferrer">Order icon</a></p>
                         }
                     ]
                 },
@@ -1303,7 +1307,7 @@ const Training = {
                             hintJsx: <p>The algorithm should use an IF function to determine whether the orders have increased or not and return the filename of the image to display, in double quotes, e.g. <code>IF(...,"up-right.png","down-right.png")</code></p>
                         },
                         {
-                            instructionJsx: <p>Save the layout and size this column to 20 pixels so the row heights are not stretched</p>,
+                            instructionJsx: <p>Save the layout and resize this column to <code>20 pixels</code> so the row heights are not stretched</p>,
                             hintJsx: <p>With the data view selected, open <em>columns</em> from the right-hand vertical menu, choose the algorithm block you just created and set the width</p>
                         },
                         {
@@ -1315,7 +1319,7 @@ const Training = {
                             hintJsx: <p>An empty algorithm block can be created by simply setting the formula to <code>0</code> (numerical data type) or an empty string <code>""</code> (text data type). Set the header to a space character to keep it blank as well. Apply the tooltip to this empty block from the right-hand configuration menu.</p>
                         },
                         {
-                            instructionJsx: <p>Save the layout and resize this column as 20 pixels as well. Switch to play mode and hover over the tooltip icon to test.</p>
+                            instructionJsx: <p>Save the layout and resize this column to <code>20 pixels</code> as well. Switch to play mode and hover over the tooltip icon to test.</p>
                         }
                     ]
                 },
@@ -1337,7 +1341,7 @@ const Training = {
                             hintJsx: <p>In the algorithm formula, concatenate the description in double-quotes with the data block. In label settings, set the algorithm block as the <em>show value</em>.</p>
                         },
                         {
-                            instructionJsx: <p>Set an <em>icon</em> to the capsule tile. You can use <a href="https://img.icons8.com/dusk/64/000000/total-sales.png">this</a> or source your own</p>
+                            instructionJsx: <p>Set an <em>icon</em> to the capsule tile. You can use <a href="https://img.icons8.com/dusk/64/000000/total-sales.png" target="_blank" rel="noopener noreferrer">this</a> or source your own</p>
                         },
                         {
                             instructionJsx: <p>Set the <em>background</em> to a colour from your colour scheme</p>
