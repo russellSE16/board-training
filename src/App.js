@@ -5,8 +5,13 @@ import './App.css';
 import Training from './data';
 import CourseSelect from './components/CourseSelect/CourseSelect';
 import Exercise from './components/Exercise/Exercise';
+import { instanceOf } from 'prop-types';
+import { withCookies, Cookies } from 'react-cookie';
 
 class App extends React.Component {
+  static propTypes = {
+    cookies: instanceOf(Cookies).isRequired
+  }
   constructor(props) {
     super(props);
     this.courseOptions = {
@@ -23,6 +28,14 @@ class App extends React.Component {
     this.setCourse = this.setCourse.bind(this);
     this.updateExerciseStatus = this.updateExerciseStatus.bind(this);
     this.resetExercise = this.resetExercise.bind(this);
+  }
+  // componentDidMount() {
+  //   const { cookies } = props;
+  //   const cookieData = cookies.get('course');
+  // }
+  componentWillUnmount() {
+    const { cookies } = this.props;
+    cookies.set('course', this.state.selectedCourse, { path: '/' });
   }
   loadCourseData(courseIndex) {
     //When user selects a course, load the data into state, count how many exercises are marked complete and set the courseProgress in state
@@ -60,6 +73,8 @@ class App extends React.Component {
       })
     })
     this.loadCourseData(courseIndex);
+    const { cookies } = this.props;
+    cookies.set('course', Training.courses[courseIndex].exercises[0], { path: '/' });
   }
   updateExerciseStatus(exerciseIndex, taskIndex, taskIsComplete, exerciseIsComplete) {
     //Handles any change to the completion of tasks and exercises, updating the completed and current properties in Training module
@@ -87,6 +102,8 @@ class App extends React.Component {
     this.loadCourseData(courseIndex);
   }
   render() {
+    const { cookies } = this.props;
+    console.log(cookies.get('course'));
     return (
       <div className="App">
         <header className="App-header">
@@ -125,4 +142,4 @@ class App extends React.Component {
   }
 }
 
-export default App;
+export default withCookies(App);
