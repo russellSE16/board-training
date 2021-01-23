@@ -9,13 +9,12 @@ class Exercise extends React.Component {
         super(props);
         this.state = {
             open: false,
-            complete: false
+            // complete: false
         }
         this.handleClick = this.handleClick.bind(this);
         this.countCompletedTasks = this.countCompletedTasks.bind(this);
         this.handleReset = this.handleReset.bind(this);
         this.completeTask = this.completeTask.bind(this);
-        this.uncompleteTask = this.uncompleteTask.bind(this);
     }
     handleClick() {
         const toggleOpen = !this.state.open;
@@ -27,19 +26,16 @@ class Exercise extends React.Component {
     }
     handleReset() {
         this.props.resetExercise(this.props.index);
-        this.setState({ complete: false });
+        // this.setState({ complete: false });
     }
     completeTask(taskIndex) {
         let exerciseIsComplete = false;
         const completedTasks = this.countCompletedTasks() + 1;
         if (completedTasks === this.props.exercise.tasks.length) {
             exerciseIsComplete = true;
-            this.setState({ complete: true });
+            // this.setState({ complete: true });
         }
         this.props.updateExerciseStatus(this.props.index, taskIndex, true, exerciseIsComplete);
-    }
-    uncompleteTask(taskIndex) {
-        // this.props.updateExerciseStatus(this.props.index, taskIndex, false, false);
     }
     renderTasks() {
         if (this.state.open) {
@@ -51,8 +47,7 @@ class Exercise extends React.Component {
                                 task={task}
                                 index={index} 
                                 key={index} 
-                                completeTask={this.completeTask}
-                                uncompleteTask={this.uncompleteTask} 
+                                completeTask={this.completeTask} 
                             />
                         );
                     })}
@@ -63,11 +58,10 @@ class Exercise extends React.Component {
     render() {
         const imgSrc = this.state.open ? "https://img.icons8.com/cotton/64/000000/minus--v1.png" : "https://img.icons8.com/cotton/64/000000/plus--v1.png";
         const imgAlt = this.state.open ? 'Minus icon' : 'Plus icon';
-
         return (
             <div className="exercise" id={'exercise'+ this.props.index}>
                 <h2>{this.props.index + 1}. {this.props.exercise.name}</h2>
-                {this.state.complete && <img src="https://img.icons8.com/plasticine/100/000000/checked-2.png" alt='Checked checkbox' className='exercise-complete' />}
+                {this.props.exercise.completed && <img src="https://img.icons8.com/plasticine/100/000000/checked-2.png" alt='Checked checkbox' className='exercise-complete' />}
                 <h4>{this.props.exercise.objective}</h4>
                 <div className="exercise-completion">
                     <p>Tasks completed: {this.countCompletedTasks()} / {this.props.exercise.tasks.length}</p>
