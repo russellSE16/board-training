@@ -5,8 +5,13 @@ import './App.css';
 import Training from './data';
 import CourseSelect from './components/CourseSelect/CourseSelect';
 import Exercise from './components/Exercise/Exercise';
+import { instanceOf } from 'prop-types';
+import { withCookies, Cookies } from 'react-cookie';
 
 class App extends React.Component {
+  static propTypes = {
+    cookies: instanceOf(Cookies).isRequired
+  }
   constructor(props) {
     super(props);
     this.courseOptions = {
@@ -25,40 +30,46 @@ class App extends React.Component {
     this.resetExercise = this.resetExercise.bind(this);
   }
   loadCourseData(courseIndex) {
-    //When user selects a course, load the data into state, count how many exercises are marked complete and set the courseProgress in state
+    //Updates the course data in state, counts how many exercises are marked complete and sets the courseProgress in state
     const courseData = Training.courses[courseIndex];
-    const completedExercises = courseData.exercises.filter(exercise => exercise.completed); 
-    const progress = completedExercises.length;
+    const completedExercises = courseData.exercises.filter(exercise => exercise.completed);
+    const courseProgress = completedExercises.length;
+    const exerciseProgress = courseData.exercises.map(exercise => {
+      const completedTasks = exercise.tasks.filter(task => task.completed);
+      return completedTasks.length;  
+    });
     this.setState({ 
       selectedCourse: courseData,
-      courseProgress: progress
+      courseProgress: courseProgress
     });
+    const { cookies } = this.props;
+    cookies.set(courseData.title, exerciseProgress, { path: '/' , maxAge: 60*60*24*365 /*One year*/ });
   }
   setCourse(course) {
-    //When user selects a course, find the index of that course in Training.courses array. 
+    //When user selects a course, find the index of that course in Training.courses array.
+    //If present, get the cookie for this course to retrieve the user's previous progress and set the relevant completed and current properties. 
     //If course is loaded for the first time, set a completed property to each exercise and task equal to false.
     //If course is loaded for the first time, set a current property on each exercise to the first task in the exercise.
     const courseIndex = Training.courses.findIndex(element => element.title === course);
     if (courseIndex === -1) {
       return;
     }
-    Training.courses[courseIndex].exercises.forEach(exercise => {
+    const { cookies } = this.props;
+    const savedProgress = cookies.get(Training.courses[courseIndex].title);
+    Training.courses[courseIndex].exercises.forEach((exercise, exerciseIndex) => {
       if (exercise.completed === undefined) {
-        exercise.completed = false;
+        const taskCount = exercise.tasks.length;
+        exercise.completed = savedProgress ? savedProgress[exerciseIndex] === taskCount : false;
       }
       exercise.tasks.forEach((task, index) => {
         if (task.completed === undefined) {
-          task.completed = false;
+          task.completed = savedProgress ? savedProgress[exerciseIndex] > index : false;
         }
         if (task.current === undefined) {
-          if (index === 0) {
-            task.current = true;
-          } else {
-            task.current = false;
-          }
+          task.current = savedProgress ? savedProgress[exerciseIndex] === index : index === 0;
         }
-      })
-    })
+      });
+    });
     this.loadCourseData(courseIndex);
   }
   updateExerciseStatus(exerciseIndex, taskIndex, taskIsComplete, exerciseIsComplete) {
@@ -125,4 +136,4 @@ class App extends React.Component {
   }
 }
 
-export default App;
+export default withCookies(App);

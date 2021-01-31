@@ -13,8 +13,6 @@ class Task extends React.Component {
     handleClick() {
         if (this.props.task.current) {
             this.props.completeTask(this.props.index);
-        } else {
-            this.props.uncompleteTask(this.props.index);
         }
     }
     handleHintClick() {
