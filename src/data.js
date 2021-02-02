@@ -17,7 +17,7 @@ const Training = {
                             hintJsx: <p>Click on the + icon to create a new data model</p>
                         },
                         {
-                            instructionJsx: <p>Set the <em>from year</em> and <em>to year</em> as <code>2015</code> and <code>2020</code> respectively</p>
+                            instructionJsx: <p>Set the <em>from year</em> and <em>to year</em> as <code>2017</code> and <code>2022</code> respectively</p>
                         },
                         {
                             instructionJsx: <p>Enable all of the <em>time range</em> options (Day, Week, Quarter, Fiscal year), leaving additional options for each one as the default setting</p>
@@ -453,7 +453,7 @@ const Training = {
                             hintJsx: <p>From the capsule explorer menu on the left-hand side, click the hamburger icon next to <em>screens</em> and click <em>add screen</em></p>
                         },
                         {
-                            instructionJsx: <p>From the hamburger menu in the top-right of the screen, navigate to the screen <em>select</em> and make a selection on the Year entity for <code>2019</code></p>
+                            instructionJsx: <p>From the hamburger menu in the top-right of the screen, navigate to the screen <em>select</em> and make a selection on the Year entity for <code>2021</code></p>
                         },
                         {
                             instructionJsx: 
@@ -762,7 +762,7 @@ const Training = {
                             hintJsx: <p>You must switch to <em>design</em> mode to create a capsule by clicking the set square icon in the top-right</p>   
                         },
                         {
-                            instructionJsx: <p>In the new capsule from the left-hand vertical menu, create a new <em>screen</em> named <code>Exercise 1-2</code></p>
+                            instructionJsx: <p>In the new capsule from the left-hand vertical menu, create a new <em>screen</em> named <code>Data View Basics</code></p>
                         },
                         {
                             instructionJsx: <p>Navigate to the the <em>toolbox</em>, which is the second tab on the left-hand vertical menu. Drag a <em>data view</em> object from there and drop it on to the blank workspace.</p>
@@ -822,14 +822,14 @@ const Training = {
                     ]
                 },
                 {
-                    name: 'Selections & Algorithms',
+                    name: 'Selection & Algorithms',
                     objective: 'Learn how to filter the data from a cube and allow users to do so interactively. Understand how to perform calculations with the data on the fly.',
                     tasks: [
                         {
-                            instructionJsx: <p>Create a new screen called <code>Exercise 3</code></p>
+                            instructionJsx: <p>Create a new screen called <code>Selection & Algorithms</code></p>
                         },
                         {
-                            instructionJsx: <p>Make a <em>screen selection</em> on Year for <code>2018</code></p>
+                            instructionJsx: <p>Make a <em>screen selection</em> on Year for <code>2020</code></p>
                         },
                         {
                             instructionJsx: <p>From the toolbox, add a <em>label</em> object. Enter the <em>substitution formula</em> <code>@Selection</code> as the <em>caption</em> to display the current selection on screen.</p>
@@ -872,7 +872,7 @@ const Training = {
                     objective: 'Learn how to sort the results of a query, use ranking functions and apply conditional formatting to draw users’ attention to the relevant data.',
                     tasks: [
                         {
-                            instructionJsx: <p>Using Exercise 3 as a starting point, create a new screen called <code>Exercise 4</code></p>,
+                            instructionJsx: <p>Using the screen from the previous exercise as a starting point, create a new screen called <code>Sorting, Ranking & Alerts</code></p>,
                             hintJsx: <p>Use <em>save screen as</em> from the capsule navigation menu to make a copy of a screen</p>
                         },
                         {
@@ -899,7 +899,7 @@ const Training = {
                     objective: 'Explore the basics of designing a chart object.',
                     tasks: [
                         {
-                            instructionJsx: <p>Using Exercise 4 as a starting point, save a new screen called <code>Exercise 5</code></p>
+                            instructionJsx: <p>Using the screen from the previous exercise as a starting point, save a new screen called <code>Chart Basics</code></p>
                         },
                         {
                             instructionJsx: <p>Create a <em>cartesian chart</em> object and configure the layout with Sales Volume and previous year Sales Volume data and Month on the <em>category axis</em></p>
@@ -1368,7 +1368,7 @@ const Training = {
                             instructionJsx: <p>Add a new slide using one of the dashboard screens created in the Sales Reporting Capsule</p>
                         },
                         {
-                            instructionJsx: <p><em>Reset</em> the <em>screen select</em> on the Day entity and make a selection on Quarter to cover Q1 2019. Make another selection on Area Manager to filter on Andrew Fuller.</p>
+                            instructionJsx: <p><em>Reset</em> the <em>screen select</em> on the Day entity and make a selection on Quarter to cover Q1 2021. Make another selection on Area Manager to filter on Andrew Fuller.</p>
                         },
                         {
                             instructionJsx: <p>Add any more screens to the presentation with the same selection, then finish with another section header slide to end the presentation</p>
@@ -1687,7 +1687,7 @@ const Training = {
                                 <div>
                                     <p>Create a new <em>cube</em> called <code>BUD Annual Sales Volume</code> with the following properties:</p>
                                     <ul>
-                                        <li>Group: Planning</li>
+                                        <li>Group: PLN Sales Volume</li>
                                         <li>Data type: Double</li>
                                         <li>Dimensions: Year, Product, Branch</li>
                                     </ul>
@@ -1712,7 +1712,7 @@ const Training = {
                             hintJsx: <p>Data entry needs to be enabled on the BUD Year Flag block so the user can enter a flag on the desired Year. The appearance options for the blocks can be found in <em>data view settings</em> within the layout. A checkbox on a data entry block automatically inserts a value of 1 when the user clicks the checkbox.</p>
                         },
                         {
-                            instructionJsx: <p>Switch to play mode and enter a flag into the cube for 2019</p>
+                            instructionJsx: <p>Switch to play mode and enter a flag into the cube for 2021</p>
                         },
                         {
                             instructionJsx: <p>Open screen <code>Budget Initialization</code> and switch to design mode</p>
@@ -1833,7 +1833,7 @@ const Training = {
                                 <div>
                                     <p>Create a new <em>cube</em> called <code>BUD Seasonal Profile</code> with the following properties:</p>
                                     <ul>
-                                        <li>Group: Planning</li>
+                                        <li>Group: PLN Sales Volume</li>
                                         <li>Data type: Double</li>
                                         <li>Dimensions: Quarter, Product Group</li>
                                     </ul>
@@ -1844,7 +1844,7 @@ const Training = {
                                 <div>
                                     <p>Create a new <em>cube</em> called <code>BUD Sales Volume</code> with the following properties:</p>
                                     <ul>
-                                        <li>Group: Planning</li>
+                                        <li>Group: PLN Sales Volume</li>
                                         <li>Data type: Double</li>
                                         <li>Dimensions: Month, Product, Branch</li>
                                     </ul>
@@ -1894,7 +1894,7 @@ const Training = {
                                 <div>
                                     <p>Create a new <em>cube</em> called <code>TEMP Seasonal Profile Check</code> with the following properties:</p>
                                     <ul>
-                                        <li>Group: Planning</li>
+                                        <li>Group: PLN Sales Volume</li>
                                         <li>Data type: Integer</li>
                                         <li>Dimensions: Product Group</li>
                                     </ul>
@@ -1931,7 +1931,7 @@ const Training = {
                                 <div>
                                     <p>Create a new <em>cube</em> called <code>BUD Sales Price</code> with the following properties:</p>
                                     <ul>
-                                        <li>Group: Planning</li>
+                                        <li>Group: PLN Revenue</li>
                                         <li>Data type: Double</li>
                                         <li>Dimensions: Year, Product</li>
                                     </ul>
@@ -1942,7 +1942,7 @@ const Training = {
                                 <div>
                                     <p>Create a new <em>cube</em> called <code>BUD Net Sales</code> with the following properties:</p>
                                     <ul>
-                                        <li>Group: Planning</li>
+                                        <li>Group: PLN Revenue</li>
                                         <li>Data type: Double</li>
                                         <li>Dimensions: Month, Product, Branch</li>
                                     </ul>
@@ -2064,7 +2064,7 @@ const Training = {
                                 <div>
                                     <p>Create a new <em>cube</em> called <code>BUD Exchange Rate</code> with the following properties:</p>
                                     <ul>
-                                        <li>Group: Planning</li>
+                                        <li>Group: PLN Revenue</li>
                                         <li>Data type: Double</li>
                                         <li>Dimensions: Year, Currency</li>
                                     </ul>
@@ -2075,7 +2075,7 @@ const Training = {
                                 <div>
                                     <p>Create a new <em>cube</em> called <code>BUD Net Sales Local Curr</code> with the following properties:</p>
                                     <ul>
-                                        <li>Group: Planning</li>
+                                        <li>Group: PLN Revenue</li>
                                         <li>Data type: Double</li>
                                         <li>Dimensions: Month, Product, Branch</li>
                                     </ul>
@@ -2135,7 +2135,7 @@ const Training = {
                                 <div>
                                     <p>Create a new <em>cube</em> called <code>BUD Currency Fluctuations</code> with the following properties:</p>
                                     <ul>
-                                        <li>Group: Planning</li>
+                                        <li>Group: PLN Revenue</li>
                                         <li>Data type: Double</li>
                                         <li>Dimensions: Month, Currency, Scenario</li>
                                     </ul>
@@ -2146,7 +2146,7 @@ const Training = {
                                 <div>
                                     <p>Create a new <em>cube</em> called <code>BUD Net Sales Simulation</code> with the following properties:</p>
                                     <ul>
-                                        <li>Group: Planning</li>
+                                        <li>Group: PLN Revenue</li>
                                         <li>Data type: Double</li>
                                         <li>Dimensions: Month, Product, Branch, Scenario</li>
                                     </ul>
@@ -2238,7 +2238,7 @@ const Training = {
                                 <div>
                                     <p>Create a new <em>cube</em> called <code>TEMP Product Copy</code> with the following properties:</p>
                                     <ul>
-                                        <li>Group: Planning</li>
+                                        <li>Group: PLN Sales Volume</li>
                                         <li>Data type: Double</li>
                                         <li>Dimensions: Month, Branch</li>
                                     </ul>
@@ -2349,7 +2349,7 @@ const Training = {
                         {
                             instructionJsx: 
                                 <div>
-                                    <p>Create three new <em>cubes</em> all in the <code>Planning</code> group, with the following data type and dimensions:</p>
+                                    <p>Create three new <em>cubes</em> in a group called <code>PLN Workflow</code>, with the following data type and dimensions:</p>
                                     <ul>
                                         <li>BUD Workflow Flag - Integer - Year, Sales Person, Workflow Status</li>
                                         <li>BUD Workflow Status - Text - Year, Sales Person</li>
@@ -2527,14 +2527,14 @@ const Training = {
                                 </div>
                         },
                         {
-                            instructionJsx: <p>Manually populate the entity with the first member: <code>01 FY Budget 2019</code></p>
+                            instructionJsx: <p>Manually populate the entity with the first member: <code>01 FY Budget 2021</code></p>
                         },
                         {
                             instructionJsx:
                                 <div>
                                     <p>Create a new <em>cube</em> called <code>FCT Net Sales</code> with the following properties:</p>
                                     <ul>
-                                        <li>Group: Planning</li>
+                                        <li>Group: PLN Revenue</li>
                                         <li>Data type: Double</li>
                                         <li>Dimensions: Month, Product, Branch, Forecast Snapshot</li>
                                     </ul>
@@ -2569,14 +2569,14 @@ const Training = {
                             instructionJsx: <p>Set the <em>entity editor</em> object to the <code>Forecast Snapshot</code> entity. In <em>ATO entities configuration</em>, allow <em>insert/edit member</em> with the <em>auto-incremental</em> setting. This means a user can create a new entity member by just entering the description and the code will automatically be assigned the next available value in a numerical sequence.</p>
                         },
                         {
-                            instructionJsx: <p>Switch to play mode and select <code>FY Budget 2019</code> from the entity editor. For this snapshot, all twelve months of the year are forecast months so enter the flags accordingly.</p>,
+                            instructionJsx: <p>Switch to play mode and select <code>FY Budget 2021</code> from the entity editor. For this snapshot, all twelve months of the year are forecast months so enter the flags accordingly.</p>,
                             hintJsx: <p>All months should be flagged in the FCT Month Flag cube, by clicking the checkbox</p>
                         },
                         {
-                            instructionJsx: <p><em>Reset</em> the entity editor, then <em>add a new member</em> to Forecast Snapshot called <code>Forecast 2019 4+8</code></p>
+                            instructionJsx: <p><em>Reset</em> the entity editor, then <em>add a new member</em> to Forecast Snapshot called <code>Forecast 2021 4+8</code></p>
                         },
                         {
-                            instructionJsx: <p>For this snapshot, Jan-19 to Apr-19 should be flagged as actual months and May-19 to Dec-19 should be flagged as forecast months</p>
+                            instructionJsx: <p>For this snapshot, Jan-21 to Apr-21 should be flagged as actual months and May-21 to Dec-21 should be flagged as forecast months</p>
                         },
                         {
                             instructionJsx: <p>Create a procedure called <code>11.1 Take Forecast Snapshot</code></p>
@@ -2601,10 +2601,10 @@ const Training = {
                             instructionJsx: <p>Return to the screen and set the Take Forecast Snapshot button to run the procedure</p>
                         },
                         {
-                            instructionJsx: <p>Run the procedure for the <code>Forecast 2019 4+8</code> snapshot. Check that the values in FCT Net Sales are the correct combination of actuals and budget.</p>
+                            instructionJsx: <p>Run the procedure for the <code>Forecast 2021 4+8</code> snapshot. Check that the values in FCT Net Sales are the correct combination of actuals and budget.</p>
                         },
                         {
-                            instructionJsx: <p>Run the procedure again for <code>FY Budget 2019</code>. Note that a <em>message icon</em> appears in top-right of the screen. The message will inform you that the procedure has failed. This is because of the select based on cube action for the actual months causing an <em>empty selection</em>.</p>
+                            instructionJsx: <p>Run the procedure again for <code>FY Budget 2021</code>. Note that a <em>message icon</em> appears in top-right of the screen. The message will inform you that the procedure has failed. This is because of the select based on cube action for the actual months causing an <em>empty selection</em>.</p>
                         },
                         {
                             instructionJsx: <p>Edit the procedure, inserting <em>if then else</em> actions to check the ACT Month Flag and FCT Month Flag cubes and skipping the relevant actions if they are empty. You will need to remove the selection on Month between the two if then else actions, otherwise the second one may not be checking all months.</p>,
@@ -2612,10 +2612,10 @@ const Training = {
 
                         },
                         {
-                            instructionJsx: <p>Rerun the procedure for FY Budget 2019 and check it now works correctly</p>
+                            instructionJsx: <p>Rerun the procedure for FY Budget 2021 and check it now works correctly</p>
                         },
                         {
-                            instructionJsx: <p>Add another Forecast Snapshot member called <code>Forecast 2019 5+7</code>, assign the correct flags and run the procedure to take the snapshot</p>
+                            instructionJsx: <p>Add another Forecast Snapshot member called <code>Forecast 2021 5+7</code>, assign the correct flags and run the procedure to take the snapshot</p>
                         }
                     ]
                 },
@@ -2624,7 +2624,7 @@ const Training = {
                     objective: 'Create a report to allow comparison between two forecast snapshots',
                     tasks: [
                         {
-                            instructionJsx: <p>Open screen <code>Forecast Variance</code>. Set the <em>selector</em> to the Forecast Snapshot entity and select <code>Forecast 2019 5+7</code></p>
+                            instructionJsx: <p>Open screen <code>Forecast Variance</code>. Set the <em>selector</em> to the Forecast Snapshot entity and select <code>Forecast 2021 5+7</code></p>
                         },
                         {
                             instructionJsx:
@@ -2632,7 +2632,7 @@ const Training = {
                                     <p>Configure the <em>data view</em> with the following blocks:</p>
                                     <ul>
                                         <li>Data: FCT Net Sales</li>
-                                        <li>Data: FCT Net Sales, with <em>block reference</em> on Forecast Snapshot = <code>FY Budget 2019</code>. Set the <em>heading</em> to <code>@Selection</code> to return the description of the snapshot in the block header.</li>
+                                        <li>Data: FCT Net Sales, with <em>block reference</em> on Forecast Snapshot = <code>FY Budget 2021</code>. Set the <em>heading</em> to <code>@Selection</code> to return the description of the snapshot in the block header.</li>
                                         <li>Algorithm calculating the variance between the two forecasts</li>
                                         <li>Algorithm calculating the percentage variance between the two forecasts</li>
                                     </ul>
@@ -2656,7 +2656,7 @@ const Training = {
                             instructionJsx: <p>Return to the screen and set the Select Comparative Snapshot button to run the procedure</p>
                         },
                         {
-                            instructionJsx: <p>Run the procedure and select <code>Forecast 2019 4+8</code>. Check that the report updates correctly.</p>
+                            instructionJsx: <p>Run the procedure and select <code>Forecast 2021 4+8</code>. Check that the report updates correctly.</p>
                         }
                     ]
                 }
