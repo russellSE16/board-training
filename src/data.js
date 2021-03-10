@@ -2661,6 +2661,44 @@ const Training = {
                     ]
                 }
             ]
+        },
+        {
+            title: 'End User',
+            exercises: [
+                {
+                    name: 'Logging On & Board Environment',
+                    objective: 'Authenticate your end user credentials and familiarise yourself with the environment',
+                    tasks: [
+                        {
+                            instructionJsx: <p>Open Board in the browser to view the login screen. Enter the <em>username</em> <code>LiteUser</code> and the <em>password</em> is the same as that used to access the training environment.</p>
+                        },
+                        {
+                            instructionJsx: <p>You will begin in the <em>Capsules</em> environment and will see all capsules and <em>folders</em> that you have been given access to. Click on the folder <code>4. End User</code> to show the capsules within.</p>
+                        },
+                        {
+                            instructionJsx: <p>You have been told that you will need to regularly access the capsule <code>Sales Reporting</code>. Click on the hamburger menu on the capsule tile and click on the star icon to add this capsule to your <em>favourites</em>.</p>
+                        },
+                        {
+                            instructionJsx: <p>Click on the blue 'b' icon in the top-left of the screen. Move to <em>favourites</em> to view all capsules marked as a favourite. Click on the hamburger menu for Sales Reporting again and click the + icon. This will expand the tile, making it more prominent in the menu and showing additioanl data, if configured. It can be expanded up to two times.</p>
+                        },
+                        {
+                            instructionJsx: <p>Click on the Sales Reporting capsule tile itself to open the <em>home screen</em> of the capsule. Return to the capsules main menu by clicking the blue 'b' again and selecting <em>capsules</em></p>
+                        },
+                        {
+                            instructionJsx: 
+                                <div>
+                                    <p>Click on the icon with the letters 'LI' in the top-right to access the <em>user</em> menu. Click on <em>my profile</em> to enter some details for your user. You can set an avatar by entering the address of an <em>image</em>. Copy one of the below links for a Star Wars character, or link to your own image:</p>
+                                    <ul>
+                                        <li><a href="https://img.icons8.com/color/96/000000/luke-skywalker.png">Luke Skywalker icon by Icons8</a></li>
+                                        <li><a href="https://img.icons8.com/color/96/000000/darth-vader.png">Darth Vader icon by Icons8</a></li>
+                                        <li><a href="https://img.icons8.com/color/96/000000/c-3po.png">C-3PO icon by Icons8</a></li>
+                                    </ul>
+                                    <p>Enter your <em>email address</em> and <em>display name</em> and click <em>update profile</em>. You may change your <em>password</em> from here as well. Once finished, <em>sign out</em> from the user menu and sign back in again to see your new avatar.</p>
+                                </div>
+                        }
+                    ]
+                }
+            ]
         }
     ]
 }
