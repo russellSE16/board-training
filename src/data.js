@@ -285,16 +285,16 @@ const Training = {
                             instructionJsx: <p>Select <code>_Time1</code> entity and rename it to <code>Weekday</code>. Set the <em>code width</em> to <code>1</code> and the <em>max item number</em> to <code>7</code> and save changes.</p>
                         },
                         {
-                            instructionJsx: <p>Select the Weekday entity again and navigate to <em>content</em> and then <em>add new member</em></p>
+                            instructionJsx: <p>Go back to time range settings and navigate to <em>custom relationships</em>. Set Weekday as a <em>parent</em> of Day and save changes.</p>
+                        },
+                        {
+                            instructionJsx: <p>Return to custom entities. Select the Weekday entity again and navigate to <em>content</em> and then <em>add new member</em></p>
                         },
                         {
                             instructionJsx: <p>Manually add members for the seven days of the week, with codes as numbers <code>1, 2... 7</code> and descriptions as <code>Monday, Tuesday ... Sunday</code>, then save the added members</p>
                         },
                         {
                             instructionJsx: <p>Click on the Day entity and <em>extract</em> it – this will output it to a text file on the server</p>
-                        },
-                        {
-                            instructionJsx: <p>Go back to time range settings and navigate to <em>custom relationships</em>. Set Weekday as a <em>parent</em> of Day and save changes.</p>
                         },
                         {
                             instructionJsx: <p>Create a new text file data reader called <code>REL-Day to Weekday</code>. Connect to the extracted Day entity text file, <code>A007.csv</code>, and navigate to <em>mapping</em>. Map both the Day and Weekday entities to the first field in the file (Day).</p>,
