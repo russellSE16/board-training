@@ -64,6 +64,11 @@
     /* color: black; */
     opacity: 0.5;
 }
+.task-info {
+    margin: 4px 36px;
+    padding: 2px;
+    background-color: palegoldenrod;
+}
 em {
     color: royalblue;
     font-weight: bold; 
