@@ -18,7 +18,8 @@ class App extends React.Component {
       //Enter courses in this object with name to display as the key and string in Training.courses.name as value
       'Data Modelling' : 'data-modelling',
       'Analysis & Reporting' : 'analysis-reporting',
-      'Planning & Procedures' : 'planning-procedures'
+      'Planning & Procedures' : 'planning-procedures',
+      'End User' : 'end-user'
     }
     this.state = {
       selectedCourse: {exercises: []},
