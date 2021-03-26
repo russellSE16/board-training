@@ -2883,7 +2883,22 @@ const Training = {
                     name: 'Interacting with the Data View',
                     objective: 'Explore the different ways that you can interact with the data view object to display the information just as you would like',
                     tasks: [
-                        
+                        {
+                            instructionJsx: <p>Return to the Geographical screen. Note that the data view on this screen shows information by Customer Country, grouped by Continent. Click on a continent <em>header</em> to collapse that group. Click on it again to expand. Click on the hamburger menu icon at the top-left of the data view. The <em>+</em> and <em>-</em> icons will expand or collapse all groups at once.</p>,
+                            infoJsx: <p>This can be useful on data views with lots of detail, to quickly show you a more summarized view.</p>
+                        },
+                        {
+                            instructionJsx: <p>Expand all of the groups again. Click on the column header for <code>Net Sales</code> - this will sort the rows in descending according to the data in that column. Click the header again to reverse the sort order to ascending.</p>,
+                            infoJsx: <p>On data views with groups, like the Continent groups here, both the groups themselves are sorted according to the group subtotal, as well as the individual items within the groups.</p>
+                        },
+                        {
+                            instructionJsx: <p>Single-click on the name of a country, which will select the cell like on a spreadsheet. Note the context menu shows the options relevant to this selection - the <em>drill</em> functions as well as a <em>select</em> function. Select several countries by dragging the mouse over a range or using ctrl+click to add them individually. Click the select icon to apply the selected countries to the <em>screen selection</em>. All information on screen, including the graphical objects, will refresh with this selection applied. Click the <em>reset</em> icon that appears in the data view context menu to remove it again.</p>,
+                            infoJsx: <p>This feature can be useful if there is no selector on screen for the particular entity you would like to select on. It can also be used on the subtotal rows, to select a grouping entity member.</p>
+                        },
+                        {
+                            instructionJsx: <p>Move to the screen <code>Sales Person</code>. The data view on this dashboard is much more detailed as it displays the measures broken down by Branch. Click the data view hamburger menu and click the <em>search</em> icon. This will allow you to perform a text search within the data view. Enter the search term <code>deli</code> to find all customers who are a delicatessen.</p>,
+                            infoJsx: <p>The search is performed in all columns of the data view, not only the row headers, so this can be very useful for searching within text data.</p>
+                        }
                     ]
                 }
             ]
