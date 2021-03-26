@@ -47,8 +47,8 @@ class Task extends React.Component {
     handleSubmit(event) {
         event.preventDefault();
         const userAnswer = this.state.answer.toLowerCase();
-        const taskAnswer = typeof this.props.task.answer === 'string' ? this.props.task.answer.toLowerCase() : this.props.task.answer;
-        if (userAnswer == taskAnswer) {
+        const taskAnswer = typeof this.props.task.answer === 'string' ? this.props.task.answer.toLowerCase() : this.props.task.answer.toString();
+        if (userAnswer === taskAnswer) {
             this.setState({ answerCorrect: 'yes' });
         } else {
             this.setState({ answerCorrect: 'no' });
