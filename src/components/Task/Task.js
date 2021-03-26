@@ -6,7 +6,7 @@ class Task extends React.Component {
         super(props);
         this.state = {
             hintOpen: false,
-            answer: 0,
+            answer: '',
             answerCorrect: ''
         }
         this.handleClick = this.handleClick.bind(this);
@@ -47,7 +47,7 @@ class Task extends React.Component {
     handleSubmit(event) {
         event.preventDefault();
         const userAnswer = this.state.answer.toLowerCase();
-        const taskAnswer = this.props.answer.toLowerCase();
+        const taskAnswer = typeof this.props.task.answer === 'string' ? this.props.task.answer.toLowerCase() : this.props.task.answer;
         if (userAnswer == taskAnswer) {
             this.setState({ answerCorrect: 'yes' });
         } else {
