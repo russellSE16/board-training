@@ -1,108 +1,80 @@
 import React from 'react';
 import './Task.css';
 
-class Task extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            hintOpen: false,
-            answer: '',
-            answerCorrect: ''
+export default function Task({ task, index, completeTask }) {
+    const [hintOpen, setHintOpen] = React.useState(false);
+    const [answer, setAnswer] = React.useState('');
+    const [isCorrect, setIsCorrect] = React.useState('');
+
+    const handleClick = () => {
+        if (task.current) {
+            completeTask(index);
         }
-        this.handleClick = this.handleClick.bind(this);
-        this.handleHintClick = this.handleHintClick.bind(this);
-        this.handleInput = this.handleInput.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
-    }
-    handleClick() {
-        if (this.props.task.current) {
-            this.props.completeTask(this.props.index);
-        }
-    }
-    handleHintClick() {
-        const toggleOpen = !this.state.hintOpen;
-        this.setState({ hintOpen: toggleOpen });
-    }
-    renderHint() {
-        if (this.props.task.hintJsx) {
-            if (this.state.hintOpen) {
-                return (
-                    <div className="task-hint-open">
-                        <span>HINT: </span>
-                        {this.props.task.hintJsx}
-                    </div>
-                );
-            } else {
-                return (
-                    <div className="task-hint" >
-                        <p onClick={this.handleHintClick}>Click for hint</p>
-                    </div>
-                );
-            }
-        }
-    }
-    handleInput(event) {
-        this.setState({ answer: event.target.value });
-    }
-    handleSubmit(event) {
+    };
+    const handleHintClick = () => {
+        setHintOpen(!hintOpen);
+    };
+    const handleInput = event => {
+        setAnswer(event.target.value);
+    };
+    const handleSubmit = event => {
         event.preventDefault();
-        const userAnswer = this.state.answer.toLowerCase();
-        const taskAnswer = typeof this.props.task.answer === 'string' ? this.props.task.answer.toLowerCase() : this.props.task.answer.toString();
+        const userAnswer = answer.toLowerCase();
+        const taskAnswer = typeof task.answer === 'string' ? task.answer.toLowerCase() : task.answer.toString();
         if (userAnswer === taskAnswer) {
-            this.setState({ answerCorrect: 'yes' });
+            setIsCorrect('yes');
         } else {
-            this.setState({ answerCorrect: 'no' });
+            setIsCorrect('no');
         }
+    };
+    
+    const divClassName = () => {
+        if (task.completed) {
+            return "task-complete";
+        } else if (task.current) {
+            return "task-current";
+        } else {
+            return "task-incomplete";
+        }
+    };
+    const iconImgSrc = task.completed ? "https://img.icons8.com/plasticine/100/000000/checked-2.png" : "https://img.icons8.com/plasticine/100/000000/unchecked-checkbox.png";
+    const iconImgAlt = task.completed ? 'Checked checkbox' : 'Unchecked checkbox';
 
-    }
-    renderInput() {
-        if (!this.props.task.inputCaption) return null;
-
-        return (
-            <div className="task-input">
-                <form>
-                    <label htmlFor={this.props.index + 'answer'}>{this.props.task.inputCaption}</label>
-                    <input id={this.props.index + 'answer'} type="text" onChange={this.handleInput}></input>
-                    <input type="submit" value="Submit" onClick={this.handleSubmit}></input>
-                    {this.state.answerCorrect && <span>{this.state.answerCorrect === 'yes' ? 'Correct' : 'Incorrect'}</span>}
-                </form>
+    return (
+        <div className={divClassName()}>
+            <div className="task-header">
+                <img src={iconImgSrc} alt ={iconImgAlt} onClick={handleClick} />
+                <h6>Step {index + 1}</h6>                    
             </div>
-        )
-        
-    }
-    render() {
-        const divClassName = () => {
-            if (this.props.task.completed) {
-                return "task-complete";
-            } else if (this.props.task.current) {
-                return "task-current";
-            } else {
-                return "task-incomplete";
-            }
-        };
-        const iconImgSrc = this.props.task.completed ? "https://img.icons8.com/plasticine/100/000000/checked-2.png" : "https://img.icons8.com/plasticine/100/000000/unchecked-checkbox.png";
-        const iconImgAlt = this.props.task.completed ? 'Checked checkbox' : 'Unchecked checkbox';
-
-        return(
-            <div className={divClassName()}>
-                <div className="task-header">
-                    <img src={iconImgSrc} alt ={iconImgAlt} onClick={this.handleClick} />
-                    <h6>Step {this.props.index + 1}</h6>                    
-                </div>
-                <div className="task-instruction">
-                    {this.props.task.instructionJsx}
-                    {this.props.task.image && <img src={`./img/${this.props.task.image}`} alt={this.props.task.imageAlt} />}
-                </div>
-                {this.renderHint()}
-                {this.renderInput()}
-                {this.props.task.infoJsx && (
-                    <div className="task-info">
-                        {this.props.task.infoJsx}
-                    </div>
-                )}
+            <div className="task-instruction">
+                {task.instructionJsx}
+                {task.image && <img src={`./img/${task.image}`} alt={task.imageAlt} />}
             </div>
-        );
-    }
+            {task.hintJsx && hintOpen ? (
+                <div className="task-hint-open">
+                    <span>HINT: </span>
+                    {task.hintJsx}
+                </div>
+            ) : (
+                <div className="task-hint" >
+                    <p onClick={handleHintClick}>Click for hint</p>
+                </div>
+            )}
+            {task.inputCaption && (
+                <div className="task-input">
+                    <form>
+                        <label htmlFor={index + 'answer'}>{task.inputCaption}</label>
+                        <input id={index + 'answer'} type="text" onChange={handleInput}></input>
+                        <input type="submit" value="Submit" onClick={handleSubmit}></input>
+                        {isCorrect && <span>{isCorrect === 'yes' ? 'Correct' : 'Incorrect'}</span>}
+                    </form>
+                </div>
+            )}
+            {task.infoJsx && (
+                <div className="task-info">
+                    {task.infoJsx}
+                </div>
+            )}
+        </div>
+    );
 }
-
-export default Task;

@@ -7,18 +7,13 @@ import Task from '../Task/Task';
 class Exercise extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {
-            open: false,
-            // complete: false
-        }
         this.handleClick = this.handleClick.bind(this);
         this.countCompletedTasks = this.countCompletedTasks.bind(this);
         this.handleReset = this.handleReset.bind(this);
         this.completeTask = this.completeTask.bind(this);
     }
     handleClick() {
-        const toggleOpen = !this.state.open;
-        this.setState({ open: toggleOpen });
+        this.props.openExercise(this.props.isOpen ? null : this.props.index);    
     }
     countCompletedTasks() {
         const completedTasks = this.props.exercise.tasks.filter(task => task.completed);
@@ -26,19 +21,17 @@ class Exercise extends React.Component {
     }
     handleReset() {
         this.props.resetExercise(this.props.index);
-        // this.setState({ complete: false });
     }
     completeTask(taskIndex) {
         let exerciseIsComplete = false;
         const completedTasks = this.countCompletedTasks() + 1;
         if (completedTasks === this.props.exercise.tasks.length) {
             exerciseIsComplete = true;
-            // this.setState({ complete: true });
         }
         this.props.updateExerciseStatus(this.props.index, taskIndex, true, exerciseIsComplete);
     }
     renderTasks() {
-        if (this.state.open) {
+        if (this.props.isOpen) {
             return (
                 <div className="task-list">
                     {this.props.exercise.tasks.map((task, index) => {
@@ -56,8 +49,8 @@ class Exercise extends React.Component {
         }
     }
     render() {
-        const imgSrc = this.state.open ? "https://img.icons8.com/cotton/64/000000/minus--v1.png" : "https://img.icons8.com/cotton/64/000000/plus--v1.png";
-        const imgAlt = this.state.open ? 'Minus icon' : 'Plus icon';
+        const imgSrc = this.props.isOpen ? "https://img.icons8.com/cotton/64/000000/minus--v1.png" : "https://img.icons8.com/cotton/64/000000/plus--v1.png";
+        const imgAlt = this.props.isOpen ? 'Minus icon' : 'Plus icon';
         return (
             <div className="exercise" id={'exercise'+ this.props.index}>
                 <h2>{this.props.index + 1}. {this.props.exercise.name}</h2>

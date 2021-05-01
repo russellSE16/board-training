@@ -23,10 +23,12 @@ class App extends React.Component {
     }
     this.state = {
       selectedCourse: {exercises: []},
-      courseProgress: 0
+      courseProgress: 0,
+      currentExercise: null
     }
     this.loadCourseData = this.loadCourseData.bind(this);
     this.setCourse = this.setCourse.bind(this);
+    this.openExercise = this.openExercise.bind(this);
     this.updateExerciseStatus = this.updateExerciseStatus.bind(this);
     this.resetExercise = this.resetExercise.bind(this);
   }
@@ -72,6 +74,10 @@ class App extends React.Component {
       });
     });
     this.loadCourseData(courseIndex);
+    this.openExercise(null);
+  }
+  openExercise(index) {
+    this.setState({ currentExercise: index });
   }
   updateExerciseStatus(exerciseIndex, taskIndex, taskIsComplete, exerciseIsComplete) {
     //Handles any change to the completion of tasks and exercises, updating the completed and current properties in Training module
@@ -124,7 +130,9 @@ class App extends React.Component {
                   <Exercise 
                     exercise={exercise}
                     index={index} 
-                    key={this.state.selectedCourse.title + index} 
+                    key={this.state.selectedCourse.title + index}
+                    isOpen={index === this.state.currentExercise}
+                    openExercise={this.openExercise} 
                     updateExerciseStatus={this.updateExerciseStatus}
                     resetExercise={this.resetExercise} 
                   />
