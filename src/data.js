@@ -73,22 +73,6 @@ const Training = {
                     ]
                 },
                 {
-                    name: 'Configure Cubes',
-                    objective: 'Create the data model objects that will store the sales measures data at the optimal level of granularity',
-                    tasks: [
-                        {
-                            instructionJsx: <p>Navigate to <em>Cubes</em> within your data model. Click <em>+ cube</em> to create a new cube.</p>,
-                        },
-                        {
-                            instructionJsx: <p>Create a cube named <code>Sales Volume</code>. Assign to a <em>group</em> called <code>Sales</code> and set <em>data type</em> as <code>double</code>. Configure a <em>version</em> with the dimensions Day, Product, Branch and Shipper. Save the cube to create it.</p>
-                        },
-                        {
-                            instructionJsx: <p>Create three more cubes to measure sales. Name them <code>Net Sales</code>, <code>Net Sales at Markdown Price</code>, <code>Net Sales at Std Price</code>. Configure the cubes with all of the same settings as the first one.</p>,
-                            hintJsx: <p>Use the <em>copy from</em> button to take all of the settings from the Sales Volume cube</p>
-                        }
-                    ]
-                },
-                {
                     name: 'Configure SQL Data Readers for Master Data',
                     objective: 'Connect the Board data model to the data structures maintained in the relational database',
                     tasks: [
@@ -134,6 +118,22 @@ const Training = {
                         },
                         {
                             instructionJsx: <p>Run the ENT-Area Manager Desc and ENT-Shipper data readers and check the relevant entities have been populated as expected</p>
+                        }
+                    ]
+                },
+                {
+                    name: 'Configure Cubes',
+                    objective: 'Create the data model objects that will store the sales measures data at the optimal level of granularity',
+                    tasks: [
+                        {
+                            instructionJsx: <p>Navigate to <em>Cubes</em> within your data model. Click <em>+ cube</em> to create a new cube.</p>,
+                        },
+                        {
+                            instructionJsx: <p>Create a cube named <code>Sales Volume</code>. Assign to a <em>group</em> called <code>Sales</code> and set <em>data type</em> as <code>double</code>. Set the <em>dimensions</em> as Day, Product, Branch and Shipper. Save the cube to create it.</p>
+                        },
+                        {
+                            instructionJsx: <p>Create three more cubes to measure sales. Name them <code>Net Sales</code>, <code>Net Sales at Markdown Price</code>, <code>Net Sales at Std Price</code>. Configure these cubes with all of the same settings as the first one.</p>,
+                            hintJsx: <p>Use the <em>copy from</em> button to take all of the settings from the Sales Volume cube</p>
                         }
                     ]
                 },
@@ -396,7 +396,7 @@ const Training = {
                     ]
                 },
                 {
-                    name: 'Configure Sparsity',
+                    name: 'Configure Sparsity (B10 Only)',
                     objective: 'Sparsity is a concept within Board that allows for more efficient storage of data within a data model and, as a result, significantly faster query and data processing times. Sparsity can be set on the sales cubes to optimise this data model.',
                     tasks: [
                         {
@@ -423,21 +423,21 @@ const Training = {
                     objective: 'Cube versions allow data in numerical cubes to be pre-aggregated and the data stored a more summarized level, improving query times on commonly used reports. The sales cubes in this data model are defined at a very detailed level, so secondary versions would optimize it for high-level reporting.',
                     tasks: [
                         {
-                            instructionJsx: <p>Add a second <em>version</em> to the Sales Volume cube to pre-aggregate the data at a commonly used level: <code>Month</code>, <code>Product Group</code>, <code>Customer Country</code></p>,
+                            instructionJsx: <p>Add a new <em>version</em> to the Sales Volume cube to pre-aggregate the data at a commonly used level: <code>Month</code>, <code>Product Group</code>, <code>Customer Country</code></p>,
                             hintJsx: <p>Click on the cube name, navigate to <em>versions</em> then click <code>+</code> to create a new cube version, defining the dimensions in the normal way</p>
                         },
                         {
-                            instructionJsx: <p>In the Data Validation capsule, configure a data view showing the Sales Volume data at this aggregated level, or a more aggregated level. Note that no data is returned. This is because the second version has not been populated with data.</p>,
+                            instructionJsx: <p>In the Data Validation capsule, configure a data view showing the Sales Volume data at this aggregated level, or a more aggregated level. Note that no data is returned. This is because the new version has not been populated with data.</p>,
                             hintJsx: <p>Set any of Month, Product Group and Customer Country on the axes, or any of their parents such as Year or Product Division</p>
                         },
                         {
-                            instructionJsx: <p>Amend the data view layout to use a dimension more granular than used in the second cube version (e.g. Customer City instead of Customer Country). Note that data is now returned – Board automatically picks the appropriate version for the layout configuration.</p>
+                            instructionJsx: <p>Amend the data view layout to use a dimension more granular than used in the new cube version (e.g. Customer City instead of Customer Country). Note that data is now returned – Board automatically picks the appropriate version for the layout configuration.</p>
                         },
                         {
-                            instructionJsx: <p>Return to the Sales Volume cube in the data model. In the <em>properties</em> tab, open the <em>versions</em> list to see the stored versions. Click <em>verify</em> to confirm that the second version has no data (<em>checksum</em> will show the total of all values stored in a cube version).</p>
+                            instructionJsx: <p>Return to the Sales Volume cube in the data model. In the <em>properties</em> tab, open the <em>versions</em> list to see the stored versions. Click <em>verify</em> to confirm that the new version has no data (<em>checksum</em> will show the total of all values stored in a cube version).</p>
                         },
                         {
-                            instructionJsx: <p>On the second version, run the <em>align</em> process to pre-aggregate data from the primary version and store it in the secondary version</p>
+                            instructionJsx: <p>On the new version, run the <em>align</em> process to pre-aggregate data from the primary version and store it in the secondary version</p>
                         },
                         {
                             instructionJsx: <p>Retry the data view at the aggregate level to verify data now comes through using the second cube version</p>
@@ -1524,7 +1524,7 @@ const Training = {
                                 </div>
                         },
                         {
-                            instructionJsx: <p>Edit procedures 01.1 and 01.2, adding actions to first <em>select</em> the relevant Task and then run a <em>data flow</em> action to record the current date and time in the Last Run cube.  Use <em>substitution formula</em> <code>@datetime</code> as the data flow <em>expression</em>. Note for this particular data flow you must disable <em>high performance mode</em> in the <em>options</em> for the data flow.</p>,
+                            instructionJsx: <p>Edit procedures 01.1 and 01.2, adding actions to first <em>select</em> the relevant Task and then run a <em>data flow</em> action to record the current date and time in the Last Run cube.  Use <em>substitution formula</em> <code>@datetime</code> as the data flow <em>expression</em> and under <em>calculation domain</em> enable the option to <em>extend</em> the calculation on all new <em>tuples</em> of the Task entity.</p>,
                             hintJsx: <p>Click <em>edit layout</em> to retrieve the Last Run cube for the data flow, dragging it into the layout configuration. Set it as the <em>target</em> and set the target to equal the <code>@datetime</code> expression.</p>
                         },
                         {
@@ -1665,16 +1665,6 @@ const Training = {
                         },
                         {
                             instructionJsx: <p>Run the procedure, select a different product (or several products) from the interactive selection and note that the sales values are copied from one product to another</p>
-                        },
-                        {
-                            instructionJsx: <p>Go into the data model and navigate to cubes. Edit the <code>ACT Net Sales</code> cube, changing the Branch and Product dimensions to be sparse.</p>,
-                            hintJsx: <p>In the <em>versions</em> section of the cube configuration, click on the check marks against the relevant dimensions to change them to an <code>S</code>, which indicates a sparse setting</p>
-                        },
-                        {
-                            instructionJsx: <p>Re-run the procedure, noting that now the entire amount is not copied from the source product.</p>
-                        },
-                        {
-                            instructionJsx: <p>Drill to Branch on both the source and destination products to note that a data flow cannot open new sparse combinations in this instance</p>
                         }
                     ]
                 },
@@ -1755,7 +1745,7 @@ const Training = {
                             hintJsx: <p>Configure the <em>if yes</em> option to <code>none</code> and the <em>if no</em> option to <code>exit procedures</code></p>
                         },
                         {
-                            instructionJsx: <p>Add a <em>data flow</em> step to copy the previous year data from <code>Sales Volume</code> into <code>BUD Sales Volume</code> (you must disable <em>high performance mode</em> for this data flow)</p>
+                            instructionJsx: <p>Add a <em>data flow</em> step to copy the previous year data from <code>Sales Volume</code> into <code>BUD Sales Volume</code></p>
                         },
                         {
                             instructionJsx: <p>Save the procedure then create a new one, saving from 04.1. Call the new one <code>04.2 Initialize Budget (+10%)</code></p>
@@ -1919,6 +1909,12 @@ const Training = {
                         },
                         {
                             instructionJsx: <p>Rerun the procedure from the screen, testing that the allocation only runs if the Product Groups’ BUD Seasonal Profile all add up to 100%</p>
+                        },
+                        {
+                            instructionJsx: <p>Remove all values from one of the Product Groups' seasonal profiles and run the procedure again. Note that no error is shown this time and the calculation goes ahead.</p>
+                        },
+                        {
+                            instructionJsx: <p>In the first data flow calculating the TEMP Seasonal Profile Check cube, set the <em>calculation domain</em> to <em>extend</em> calculation to new tuples on all members of the Product Group entity. This will ensure the error flag is written even in the case that there is no profile in BUD Seasonal Profile. Rerun the procedure to check the error is now shown.</p>
                         }
                     ]
                 },
@@ -1957,7 +1953,7 @@ const Training = {
                                         <li>Data: BUD Sales Price, <em>data entry</em> enabled</li>
                                         <li>Algorithm called <code>Budget Increase/(Decrease)</code>, calculating difference between first two blocks</li>
                                     </ul>
-                                    <p>Put Product and Product Group on the row axis</p>
+                                    <p>Put Product and Product Group on the row axis, remove <em>down totals</em> and set all blocks to display <code>2</code> <em>decimal digits</em></p>
                                 </div> 
                         },
                         {
@@ -2171,8 +2167,8 @@ const Training = {
                             instructionJsx: <p>Create a procedure called <code>08.2 Currency Simulation</code></p>
                         },
                         {
-                            instructionJsx: <p>Add a <em>data flow</em> action that <em>calculates</em> <code>BUD Net Sales Simulation</code>. This should take the net sales in local currency calculated in the previous procedure and convert back to GBP using the exchange rates including the effect of any forecast fluctuations. Use <em>yearly cumulated value time function</em> on the <code>BUD Currency Fluctuation</code> block to ensure fluctuations cumulate month by month.</p>,
-                            hintJsx: <p>Data flow expression should be <code>BUD Net Sales simulation = BUD Net Sales Local Curr / (BUD Exchange Rates + BUD Currency Fluctuations)</code></p>
+                            instructionJsx: <p>Add a <em>data flow</em> action that <em>calculates</em> <code>BUD Net Sales Simulation</code>. This should take the net sales in local currency calculated in the previous procedure and convert back to GBP using the exchange rates including the effect of any forecast fluctuations. Use <em>yearly cumulated value time function</em> on the <code>BUD Currency Fluctuation</code> block to ensure fluctuations cumulate month by month. Consider whether the <em>calculation domain</em> should be extended for new tuples on any of the dimensions.</p>,
+                            hintJsx: <p>Data flow expression should be <code>BUD Net Sales simulation = BUD Net Sales Local Curr / (BUD Exchange Rates + BUD Currency Fluctuations)</code>. The calculation domain must be extended on all members of the <code>Scenario</code> entity, as this dimension is not present in any of the source cubes.</p>
                         },
                         {
                             instructionJsx: <p>Set the Simulate Currency Fluctuations button to run the procedure</p>
@@ -2188,7 +2184,7 @@ const Training = {
                             instructionJsx: <p>Choose a different Scenario on the pager, enter some different fluctuations and simulate those as well</p>
                         },
                         {
-                            instructionJsx: <p>To compare the scenarios, edit the layout of the bottom data view, setting a <em>layout select</em> to select all three Scenarios (this will effectively override the pager for that layout) and adding Scenario to the column axes</p>
+                            instructionJsx: <p>To compare the scenarios, edit the layout of the bottom data view, setting a <em>layout select</em> to select all Scenarios (this will effectively override the pager for that layout) and adding Scenario to the column axes</p>
                         }
                     ]
                 },
@@ -2236,9 +2232,8 @@ const Training = {
                         {
                             instructionJsx: 
                                 <div>
-                                    <p>Create a new <em>cube</em> called <code>TEMP Product Copy</code> with the following properties:</p>
+                                    <p>In the procedure <em>options</em>, add a <em>temporary cube</em> called <code>Product Profile</code> with the following settings:</p>
                                     <ul>
-                                        <li>Group: PLN Sales Volume</li>
                                         <li>Data type: Double</li>
                                         <li>Dimensions: Month, Branch</li>
                                     </ul>
@@ -2255,16 +2250,13 @@ const Training = {
                             hintJsx: <p>Use an <em>interactive selection</em> to allow the user to select the source Product</p>
                         },
                         {
-                            instructionJsx: <p>Add a <em>data flow</em> action to <em>copy</em> data for the selected Product from <code>BUD Sales Volume</code> to <code>TEMP Product Copy</code></p>
+                            instructionJsx: <p>Add a <em>data flow</em> action to <em>copy</em> data for the selected Product from <code>BUD Sales Volume</code> to the <code>Product Profile</code> <em>temporary cube</em></p>
                         },
                         {
                             instructionJsx: <p>Add an action to <em>restore</em> the Destination Product selection</p>
                         },
                         {
-                            instructionJsx: <p>Add an action to copy data back from <code>TEMP Product Copy</code> cube to <code>BUD Sales Volume</code>. Note that the change in selection has effectively copied data from one slice of BUD Sales Volume to another.</p>
-                        },
-                        {
-                            instructionJsx: <p>Add an action to <em>clear</em> the <code>TEMP Product Copy</code> cube</p>
+                            instructionJsx: <p>Add an action to copy data back from <code>Product Profile</code> to <code>BUD Sales Volume</code>. Note that the change in selection has effectively copied data from one slice of BUD Sales Volume to another.</p>
                         },
                         {
                             instructionJsx: <p>Add an action to inform the user that data has been copied to the new product. Use the <em>substitution formula</em> <code>@Product</code> to display the name of that Product in the message.</p>
@@ -2387,10 +2379,11 @@ const Training = {
                                     <ul>
                                         <li>Insert a flag <code>1</code> in the cube <code>BUD Workflow Flag</code></li>
                                         <li>Insert the text <code>Open</code> in the cube <code>BUD Workflow Status</code></li>
-                                        <li>Insert the current date and time in the cube <code>BUD Workflow Timestamp</code> (<em>high-performance mode</em> must be disabled for this data flow)</li>
+                                        <li>Insert the current date and time in the cube <code>BUD Workflow Timestamp</code></li>
                                     </ul>
+                                    <p>Consider the <em>calculation domain</em> required for these data flows</p>
                                 </div>,
-                            hintJsx: <p>These data flows only require the target cube in the layout and the expressions are hard-coded. Ensure text is enclosed in double-quotes.For the current date and time, a substitution formula is required.</p>
+                            hintJsx: <p>These data flows only require the target cube in the layout and the expressions are hard-coded. Ensure text is enclosed in double-quotes.For the current date and time, a substitution formula is required. The calculation domain for each of these data flows must be extended on all members of all of the dimensions of the target cubes.</p>
                         },
                         {
                             instructionJsx: <p>In the workflow data view layout, go to <em>data view settings</em> and set the Action block to run the procedure</p>,
@@ -2552,9 +2545,12 @@ const Training = {
                                 </div>
                         },
                         {
+                            instructionJsx: <p>Open screen <code>Forecast Snapshot</code>. Set the <em>entity editor</em> object to the <code>Forecast Snapshot</code> entity. In <em>ATO entities configuration</em>, allow <em>insert/edit member</em> with the <em>auto-incremental</em> setting. This means a user can create a new entity member by just entering the description and the code will automatically be assigned the next available value in a numerical sequence.</p>
+                        },
+                        {
                             instructionJsx:
                                 <div>
-                                    <p>Open screen <code>Forecast Snapshot</code>. Configure the <em>data view</em> with the following blocks:</p>
+                                    <p>Configure the <em>data view</em> with the following blocks:</p>
                                     <ul>
                                         <li>Data: BUD Net Sales</li>
                                         <li>Data: Net Sales</li>
@@ -2564,9 +2560,6 @@ const Training = {
                                     </ul>
                                     <p>Set Month on the row axis.</p>
                                 </div>
-                        },
-                        {
-                            instructionJsx: <p>Set the <em>entity editor</em> object to the <code>Forecast Snapshot</code> entity. In <em>ATO entities configuration</em>, allow <em>insert/edit member</em> with the <em>auto-incremental</em> setting. This means a user can create a new entity member by just entering the description and the code will automatically be assigned the next available value in a numerical sequence.</p>
                         },
                         {
                             instructionJsx: <p>Switch to play mode and select <code>FY Budget 2021</code> from the entity editor. For this snapshot, all twelve months of the year are forecast months so enter the flags accordingly.</p>,
@@ -2604,7 +2597,7 @@ const Training = {
                             instructionJsx: <p>Run the procedure for the <code>Forecast 2021 4+8</code> snapshot. Check that the values in FCT Net Sales are the correct combination of actuals and budget.</p>
                         },
                         {
-                            instructionJsx: <p>Run the procedure again for <code>FY Budget 2021</code>. Note that a <em>message icon</em> appears in top-right of the screen. The message will inform you that the procedure has failed. This is because of the select based on cube action for the actual months causing an <em>empty selection</em>.</p>
+                            instructionJsx: <p>Run the procedure again for <code>FY Budget 2021</code>. Note that nothing is copied to FCT Net Sales this time. This is because of the select based on cube action for the actual months causing an <em>empty selection</em>.</p>
                         },
                         {
                             instructionJsx: <p>Edit the procedure, inserting <em>if then else</em> actions to check the ACT Month Flag and FCT Month Flag cubes and skipping the relevant actions if they are empty. You will need to remove the selection on Month between the two if then else actions, otherwise the second one may not be checking all months.</p>,
