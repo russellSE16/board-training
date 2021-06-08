@@ -838,7 +838,7 @@ const Training = {
                             instructionJsx: <p>Create a data view showing Net Sales data with Customer Country on the row axis</p>
                         },
                         {
-                            instructionJsx: <p>Add Net Sales data again as a second <em>block</em> to your layout. Click on the block to open the block configuration. From <em>time functions</em>, enable the option<em>previous year</em> to have this block return data from the year prior to the one selected. Set the block <em>header</em> to <code>Net Sales PY</code> to label the column appropriately.</p>
+                            instructionJsx: <p>Add Net Sales data again as a second <em>block</em> to your layout. Click on the block to open the block configuration. From <em>time functions</em>, enable the option <em>previous year</em> to have this block return data from the year prior to the one selected. Set the block <em>header</em> to <code>Net Sales PY</code> to label the column appropriately.</p>
                         },
                         {
                             instructionJsx: <p>Click the <em>+</em> icon and then the <em>fx</em> icon to add an <em>algorithm</em> block calculating the growth vs. previous year. Set the <em>header</em> as <code>Growth</code>.</p>,
@@ -990,13 +990,13 @@ const Training = {
                             instructionJsx: <p>In the <em>gauge settings</em> of the layout, set the <em>value</em> as the Net Sales block and the <em>max</em> as the Target block. Remove anything set to <em>second or third value</em>.</p>
                         },
                         {
-                            instructionJsx: <p>Save the layout and set the gauge <em>background</em> to be transparent so it blends into the screen</p>
+                            instructionJsx: <p>Save the layout and set the gauge <em>background</em> to be transparent so it blends into the screen. Set the <em>bar color</em> to match your chosen colour for Everyday Products from the previous exercise.</p>
                         },
                         {
                             instructionJsx: <p>Copy the gauge object and paste a second one alongside the first</p>
                         },
                         {
-                            instructionJsx: <p>Change the layout select and title for this one to display data for <code>Delicacies</code> Product Division</p>
+                            instructionJsx: <p>Change the layout select and title for this one to display data for <code>Delicacies</code> Product Division. Set the bar color property to the corresponding colour for that Division.</p>
                         },
                         {
                             instructionJsx: <p>Save the screen and navigate to <em>system administration</em>, using the Board button menu in the top-left of the screen. From there, go to <em>theme</em> and upload the Northwind.jpg image to appear as the <em>logo</em> in the banner menu.</p>
@@ -1064,7 +1064,7 @@ const Training = {
                             instructionJsx: <p>Have the chart display horizontally by opening the <em>cartesian options</em> menu and enabling <em>switch orientation</em></p>
                         },
                         {
-                            instructionJsx: <p>In the <em>elements</em> menu, hide the title and legend by disabling their <em>visible</em> property</p>
+                            instructionJsx: <p>In the <em>elements</em> menu, hide the title and legend by disabling their <em>visible</em> property. Resize the plot element to fill the entire chart object. Set the <em>background</em> and <em>plot</em> color properties to transparent, so the color from the mask tile is shown as the background.</p>
                         },
                         {
                             instructionJsx: <p>Copy and paste the two labels from the treemap banner tile and position them similarly on the cartesian chart banner tile. Change the caption of the title label to <code>Sales vs PY</code> and amend the layout of the right-hand label to calculate and display the total variance between the current and previous years.</p>,
@@ -1159,7 +1159,7 @@ const Training = {
                     objective: 'Learn how to configure an area geo map and use GeoJSON files to customize the map',
                     tasks: [
                         {
-                            instructionJsx: <p>Copy the geo map from the previous exercise and paste into the same tab container, creating another geo map tab</p>
+                            instructionJsx: <p>Copy the geo map from the previous exercise and paste into the same tab container, creating another geo map tab. Name this tab <code>Country Map</code>.</p>
                         },
                         {
                             instructionJsx: <p>From the geo map right-hand menu, click <em>upload GeoJSON</em>. Navigate to the <em>JSON library</em>, add the <code>world_low</code> JSON and save</p>                                
@@ -1181,11 +1181,11 @@ const Training = {
                             instructionJsx: <p>Use the Product Group screen as a template for a new screen called <code>Sales Person</code> and move this into the Sales Analysis folder</p>
                         },
                         {
-                            instructionJsx: <p>On the data view layout, change the axis to Branch and <em>sort</em> by Margin <em>descending</em> and <em>keep top</em> 20 branches</p>,
+                            instructionJsx: <p>On the data view layout, change the axis to Branch and <em>sort</em> by Margin <em>descending</em> and <em>keep top</em> 20 branches. Deactivate the <em>keep totals</em> setting to ensure the overall totals are still displayed.</p>,
                             hintJsx: <p>For sorting, navigate to the <em>filter</em> tab of the data configuration in the layout</p>
                         },
                         {
-                            instructionJsx: <p>Change the title on the <em>label</em> for this data view to <code>Average Price & Margin (Top 20)</code></p>
+                            instructionJsx: <p>Set the layout title to <code>Top 20 Branches</code> to make it clear that not all are shown</p>
                         },
                         {
                             instructionJsx: 
@@ -1331,10 +1331,10 @@ const Training = {
                             instructionJsx: <p>From the Board button, navigate to the capsules main menu. Go into <em>design</em> mode and edit the capsule <em>properties</em> for your Sales Reporting capsule. This is accessed via the hamburger menu on the capsule tile.</p>
                         },
                         {
-                            instructionJsx: <p>Configure the capsule tile to show some data for the current year. Click the <em>select</em> button and put a <em>dynamic selection</em> on Year to select the latest year of sales</p>
+                            instructionJsx: <p>Configure the <em>sparkline</em> to plot Net Sales by Week, naming the data block <em>header</em> so it shows clearly what is being represented on the tile</p>
                         },
                         {
-                            instructionJsx: <p>Configure the <em>sparkline</em> to plot Net Sales by Week, naming the data block <em>header</em> so it shows clearly what is being represented on the tile</p>
+                            instructionJsx: <p>Limit the data to the current year. Click the <em>select</em> button and put a <em>dynamic selection</em> on Year to select the latest year of sales</p>
                         },
                         {
                             instructionJsx: <p>Configure the <em>footer</em> to show a count of the orders, using an algorithm text block to give the description of this measure in the footer</p>,
