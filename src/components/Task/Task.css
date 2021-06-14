@@ -64,6 +64,17 @@
     /* color: black; */
     opacity: 0.5;
 }
+.task-info {
+    margin: 4px 36px;
+    padding: 2px;
+    background-color: palegoldenrod;
+}
+.task-input {
+    margin: 4px 8px;
+}
+.task-input input {
+    margin: 0 4px;
+}
 em {
     color: royalblue;
     font-weight: bold; 
