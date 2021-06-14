@@ -20,7 +20,7 @@ const Training = {
                             instructionJsx: <p>Set the <em>from year</em> and <em>to year</em> as <code>2017</code> and <code>2022</code> respectively</p>
                         },
                         {
-                            instructionJsx: <p>Enable all of the <em>time range</em> options (Day, Week, Quarter, Fiscal year), leaving additional options for each one as the default setting</p>
+                            instructionJsx: <p>Enable all of the <em>time range</em> options (Day, Week, Quarter, Fiscal year), setting the Fiscal year <em>beginning on</em> to <code>April</code> and leaving the other additional options as the default setting</p>
                         },
                         {
                             instructionJsx: <p>Save changes to create the data model on the server</p>
@@ -53,18 +53,101 @@ const Training = {
                             instructionJsx: <p>Return to Board and navigate to <em>Entities</em> in your newly created data model. Click <em>+ entity</em> to create a new entity within it.</p>
                         },
                         {
-                            instructionJsx: <p>Create Product entities (<code>Product</code>, <code>Product Group</code>, <code>Product Division</code>) with the <em>group</em> set to <code>Product</code>. Set appropriate <em>code width, desc width and max item number</em> for each.</p>,
+                            instructionJsx: <p>Create Product entities (<code>Product</code>, <code>Product Group</code>, <code>Product Division</code>) with the <em>group</em> set to <code>Product</code>. Set appropriate <em>code width</em> and <em>desc width</em> for each. Set the <em>max item number</em>, using the <code>auto</code> setting for the Product entity. For the parent entities, set it manually at an appropriate level. Reference should me made to the SQL tables for these settings, making some assumptions on how much the entity members might grow over the life of the application.</p>,
                             image: 'product-hierarchy.png',
                             imageAlt: 'Hierarchy diagram showing Product, Product Group and Product Division, each one a parent of the previous one.',
-                            hintJsx: <p>The width and max item settings should be made with reference to the data from the SQL tables. Some assumptions should be made on how the entity members might grow in the future.</p>
+                            hintJsx: 
+                                <div>
+                                    <p>The following settings are suggested:</p>
+                                    <table>
+                                        <tr>
+                                            <th>Entity</th>
+                                            <th>Code width</th>
+                                            <th>Desc width</th>
+                                            <th>Max item</th>
+                                        </tr>
+                                        <tr>
+                                            <td>Product</td>
+                                            <td>3</td>
+                                            <td>50</td>
+                                            <td>Auto</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Product Group</td>
+                                            <td>2</td>
+                                            <td>50</td>
+                                            <td>50</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Product Division</td>
+                                            <td>2</td>
+                                            <td>50</td>
+                                            <td>10</td>
+                                        </tr>
+                                    </table>
+                                </div>
                         },
                         {
-                            instructionJsx: <p>Create Branch entities (<code>Branch</code>, <code>Customer</code>, <code>Branch Country</code>, <code>Customer City</code>, <code>Customer Country</code>, <code>Sales Person</code>, <code>Area Manager</code>) in a group called <code>Branch</code> with appropriate settings.</p>,
+                            instructionJsx: <p>Create Branch entities (<code>Branch</code>, <code>Customer</code>, <code>Branch Country</code>, <code>Customer City</code>, <code>Customer Country</code>, <code>Sales Person</code>, <code>Area Manager</code>) in a group called <code>Branch</code> with appropriate settings. For <em>max item number</em>, use <code>auto</code> for Branch and Product and set the rest of the entities manually</p>,
                             image: 'branch-hierarchy.png',
-                            imageAlt: 'Hierarchy diagram showing Branch, Customer, Customer City, Customer Country as one path. Branch, Customer, Sales Person, Area Manager as another path. Branch, Branch Country as the final path.'
+                            imageAlt: 'Hierarchy diagram showing Branch, Customer, Customer City, Customer Country as one path. Branch, Customer, Sales Person, Area Manager as another path. Branch, Branch Country as the final path.',
+                            hintJsx:
+                            <div>
+                            <p>The following settings are suggested:</p>
+                            <table>
+                                <tr>
+                                    <th>Entity</th>
+                                    <th>Code width</th>
+                                    <th>Desc width</th>
+                                    <th>Max item</th>
+                                </tr>
+                                <tr>
+                                    <td>Branch</td>
+                                    <td>5</td>
+                                    <td>50</td>
+                                    <td>Auto</td>
+                                </tr>
+                                <tr>
+                                    <td>Customer</td>
+                                    <td>5</td>
+                                    <td>50</td>
+                                    <td>Auto</td>
+                                </tr>
+                                <tr>
+                                    <td>Branch Country</td>
+                                    <td>3</td>
+                                    <td>50</td>
+                                    <td>50</td>
+                                </tr>
+                                <tr>
+                                    <td>Customer City</td>
+                                    <td>20</td>
+                                    <td>20</td>
+                                    <td>500</td>
+                                </tr>
+                                <tr>
+                                    <td>Customer Country</td>
+                                    <td>3</td>
+                                    <td>50</td>
+                                    <td>50</td>
+                                </tr>
+                                <tr>
+                                    <td>Sales Person</td>
+                                    <td>2</td>
+                                    <td>50</td>
+                                    <td>100</td>
+                                </tr>
+                                <tr>
+                                    <td>Area Manager</td>
+                                    <td>2</td>
+                                    <td>50</td>
+                                    <td>20</td>
+                                </tr>
+                            </table>
+                        </div>
                         },
                         {
-                            instructionJsx: <p>Create <code>Shipper</code> entity, with appropriate settings.</p>
+                            instructionJsx: <p>Create <code>Shipper</code> entity, with <em>max item number</em> set to <code>auto</code> and appropriate settings for the widths.</p>
                         },
                         {
                             instructionJsx: <p>Navigate to <em>Relationships</em> and configure the relevant hierarchies. Drag a parent entity and drop it onto the appropriate child entity to set the relationship. When finished, remember to click <em>save changes</em>.</p>,
@@ -396,25 +479,28 @@ const Training = {
                     ]
                 },
                 {
-                    name: 'Configure Sparsity (B10 Only)',
-                    objective: 'Sparsity is a concept within Board that allows for more efficient storage of data within a data model and, as a result, significantly faster query and data processing times. Sparsity can be set on the sales cubes to optimise this data model.',
+                    name: 'Configure Sparsity',
+                    objective: 'Sparsity is a concept within Board that allows for more efficient storage of data within a data model and, as a result, significantly faster query and data processing times. Board will automatically configure the sparse dimensions in cubes but it is possible to set them manually.',
                     tasks: [
                         {
-                            instructionJsx: <p>Modify the existing <em>version</em> of the Net Sales cube by flagging the Product and Branch dimensions as <em>sparse</em></p>,
-                            hintJsx: <p>Click on the cube name, navigate to <em>versions</em> then click on the tick mark for the dimensions to flag as sparse. This will change the tick to an S, to indicate a sparse dimension.</p>
+                            instructionJsx: <p>Click on the <em>structure</em> tab of the Net Sales cube. Note that Board has set the Product, Branch and Shipper dimensions as <em>sparse</em>, denoted by the <code>S</code> icon.</p>,
+                            infoJsx: <p>Time dimensions are always set to <em>dense</em></p>
+                        },
+                        {
+                            instructionJsx: <p>Click on the <code>S</code> icon next to Shipper. This will remove the dimension from the structure. Click again to set it as a <em>dense</em> dimension.</p>
                         },
                         {
                             instructionJsx: <p>On saving the changes, this action will clear all data from the cube. Rerun the relevant data reader to reload it from the SQL database.</p>
                         },
                         {
-                            instructionJsx: <p>Return to cubes, note that the <em>file size</em> of the cube is now smaller than the other cubes loaded from the same source</p>
+                            instructionJsx: <p>Return to cubes, note that the <em>file size</em> of the cube is now greater than the other cubes loaded from the same source, as Shipper has been removed form the sparse combination</p>
                         },
                         {
-                            instructionJsx: <p>Click on the Net Sales cube and navigate to <em>analysis</em>. Click on <em>sparsity</em> to discover how many combinations of the Product-Branch sparsity are open in the data model (i.e. have received data from the data reader).</p>
+                            instructionJsx: <p>Navigate to entities and click on Shipper. Click the <em>analysis</em> tab and click on <em>cubes</em> to show all the cubes this entity is used in as a dimension. Note that in the Net Sales cube, the max item number is much higher than the others. This is because for entities using auto max items, a limit is placed when the entity is used in a sparse combination. </p>,
+                            infoJsx: <p>This limit to max item number is there to keep the number of possible combinations in the cube's sparse structure to within 64 bit (i.e. 2<sup>64</sup>)</p>
                         },
                         {
-                            instructionJsx: <p>Calculate the <em>density</em> of this combination by dividing the open combinations by the total possible combinations of Product and Branch</p>,
-                            hintJsx: <p><code>Open combinations / (Product item number * Branch item number)</code></p>
+                            instructionJsx: <p>Check the same for Product and Branch entities. Note that the max item numbers are also higher for Net Sales as removing Shipper from the sparse structure allows for more members in the remaining Product-Branch sparsity</p>
                         }
                     ]
                 },
@@ -745,6 +831,58 @@ const Training = {
                         },
                         {
                             instructionJsx: <p>Sign in again as the new sales user you just created. Open the Data Validation capsule and open the screen with the data view you just created. The data view should automatically only be showing the Sales Person and related Customers for that user.</p>
+                        }
+                    ]
+                },
+                {
+                    name: 'Configure an Unbalanced Hierarchy',
+                    objective: 'A standard Board hierarchy is created bottom-up (i.e. from the most granular level up to the most summarized). Board can also create unbalanced hierarchies for top-down structures. In this exercise, a business unit hierarchy will be created for importing of expenses data across the organization.',
+                    tasks: [
+                        {
+                            instructionJsx:
+                                <div>
+                                    <p>Create a new <em>entity</em> called <code>Business Unit</code> with the following attributes:</p>
+                                    <ul>
+                                        <li>Group: Organization</li>
+                                        <li>Code width: 5</li>
+                                        <li>Desc width: 50</li>
+                                        <li>Max item no.: 1000</li>
+                                    </ul>
+                                    <p>Activate the <em>unbalanced hierarchy</em> option.</p>
+                                </div>
+                        },
+                        {
+                            instructionJsx: <p>Create a <em>SQL data reader</em> called <code>ENT-Business Unit</code>. Configure this to populate the entity's code and description from the table <code>dbo.Organization</code>. Once saved, run the data reader.</p>
+                        },
+                        {
+                            instructionJsx: <p>Navigate to <em>relationships</em> and click on the Business Unit entity. Unlike normal entities, an entity using unbalanced hierarchy can set relationships within itself. View the relationships between Business Unit and itself. Assign the first three members (with codes beginning 1xxxx) to the parent member <code>Group Executive</code>. Note that these child members are now nested underneath the parent.</p>
+                        },
+                        {
+                            instructionJsx: <p>Create another <em>data reader</em> called <code>REL-Business Unit</code> to load the relationships within the Business Unit entity from the same table, dbo.Organization. The immediate parent for each member should be assigned. Set the <em>mode</em> on the code field to <code>add new item</code>.</p>,
+                            hintJsx: <p>For entities using unbalanced hierarchy, a third type of MDB item is available in the data reader for loading the immediate parent of each member.</p>,
+                            infoJsx: <p>It is recommended to have separate data readers for populating the unbalanced hierarchy entity and setting the relationships. Although it can be done in one data reader, if a parent and child member are being added at the same time, this may result in the relationship not being set if the child member is loaded before the parent.</p>
+                        },
+                        {
+                            instructionJsx: <p>Run this data reader and then inspect the relationships for Business Unit again, noting that the members are now organized into a top-down hierarchy</p>,
+                            infoJsx: <p>For unbalanced hierarchies, it is valid if one or more members has no parent. This designates the member(s) as the root element at the top of the hierarchy.</p>
+                        },
+                        {
+                            instructionJsx:
+                                <div>
+                                    <p>Create a new cube called <code>Department Expenses</code> with the following attributes:</p>
+                                    <ul>
+                                        <li>Group: Finance</li>
+                                        <li>Data Type: Double</li>
+                                        <li>Dimensions: Month, Business Unit</li>
+                                    </ul>
+                                </div>
+                        },
+                        {
+                            instructionJsx: <p>Create a new <em>text data reader</em> to load this cube from an extract from the accounting system. This can be found at <code>C:\Board\Dataset\DB Training\NW Grp Expenses.csv</code>. Note that this file is <em>tab delimited</em>. Run the data reader to load the cube.</p>,
+                            hintJsx: <p>In the <em>source options</em> for the data reader, ensure the <em>csv delimiter</em> is set to <code>tabulator</code></p>
+                        },
+                        {
+                            instructionJsx: <p>In the Data Validation capsule create a data view to inspect the data in this cube with Business Unit on the rows and Fiscal Year on the columns. Note that the data view automatically organizes the rows using the unbalanced hierarchy, rolling up the leaf levels to their parents.</p>
                         }
                     ]
                 }
