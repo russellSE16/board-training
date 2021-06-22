@@ -18,9 +18,9 @@
   
   .CourseSelect-options li {
     cursor: pointer;
-    width: 5rem;
+    width: 6rem;
     border-bottom: 1px solid #fff;
-    padding: 0 2.58rem .33rem 2.58rem;
+    padding: 0 2rem .33rem 2rem;
     line-height: 1.13;
     text-align: center;
     font-weight: 600;
