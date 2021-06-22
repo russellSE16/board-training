@@ -2,11 +2,17 @@ import React from 'react';
 import { CSSTransitionGroup } from 'react-transition-group';
 import logo from './board-logo.svg';
 import './App.css';
-import Training from './data';
 import CourseSelect from './components/CourseSelect/CourseSelect';
 import Exercise from './components/Exercise/Exercise';
 import { instanceOf } from 'prop-types';
 import { withCookies, Cookies } from 'react-cookie';
+
+import { course as course1 } from './data/data-modelling';
+import { course as course2 } from './data/analysis-reporting';
+import { course as course3 } from './data/planning-procedures';
+import { course as course4 } from './data/end-user';
+
+const Training = { courses: [course1, course2, course3, course4] };
 
 class App extends React.Component {
   static propTypes = {
@@ -19,7 +25,7 @@ class App extends React.Component {
       'Data Modelling' : 'data-modelling',
       'Analysis & Reporting' : 'analysis-reporting',
       'Planning & Procedures' : 'planning-procedures',
-      'End User' : 'end-user'
+      // 'End User' : 'end-user' - Not yet ready for publishing
     }
     this.state = {
       selectedCourse: {exercises: []},
