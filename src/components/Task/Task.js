@@ -50,16 +50,15 @@ export default function Task({ task, index, completeTask }) {
                 {task.instructionJsx}
                 {task.image && <img src={`./img/${task.image}`} alt={task.imageAlt} />}
             </div>
-            {task.hintJsx && hintOpen ? (
-                <div className="task-hint-open">
-                    <span>HINT: </span>
-                    {task.hintJsx}
+            {task.hintJsx && (
+                <div className="task-hint">
+                    {hintOpen ? <>
+                        <span>HINT: </span>
+                        {task.hintJsx}
+                    </> : <p className="task-hint-control" onClick={handleHintClick}>Click for hint</p>
+                    }
                 </div>
-            ) : (
-                <div className="task-hint" >
-                    <p onClick={handleHintClick}>Click for hint</p>
-                </div>
-            )}
+            )}   
             {task.inputCaption && (
                 <div className="task-input">
                     <form>
