@@ -13,17 +13,19 @@ export const course = {
                 {
                     instructionJsx: <p>Open the <code>Northwind</code> <em>data model</em>, navigate to <em>procedures</em> and create a new <em>procedure</em> called <code>01.1 Load Hierarchies</code>
                     </p>,
-                    hintJsx: <p>Open another browser tab for navigating to data model to make it easier to switch between capsule and data model</p>
+                    hintJsx: <p>Open another browser tab for navigating to data model to make it easier to switch between capsule and data model</p>,
+                    infoJsx: <p>A procedure allows you to configure step-by-step actions to be performed when the procedure is executed, either by a user or on a schedule.</p>
                 },
                 {
                     instructionJsx: <p>Add an <em>action</em> to run the <em>SQL data reader protocol</em> <code>TREE–Product</code></p>
                 },
                 {
-                    instructionJsx: <p>Add further steps for the Branch hierarchy (including Area Manager description), the Shipper entity and the Business Unit hierarchy</p>,
+                    instructionJsx: <p>Add further steps to update the Branch hierarchy (including Area Manager description), the Shipper entity and the Business Unit hierarchy</p>,
                     hintJsx: <p>Protocols <code>TREE-Branch</code>, <code>ENT-Area Manager Desc</code>, <code>ENT-Shipper</code>, <code>ENT-Business Unit</code> and <code>REL-Business Unit</code> should be run</p>
                 },
                 {
-                    instructionJsx: <p>Add a <em>refresh screen</em> step at the end of the procedure (NB most procedures will require this step at the end – the instructions after this exercise will not explicitly state this each time!)</p>
+                    instructionJsx: <p>Add a <em>refresh screen</em> step at the end of the procedure (NB most procedures will require this step at the end – the instructions after this exercise will not explicitly state this each time!)</p>,
+                    infoJsx: <p>Refresh screen is commonly used at the end of any procedure that is executed from a screen so the user is immediately able to see the results of the procedure in the relevant data displayed within the screen objects. Although the user is able to refresh the screen themselves at any time, it is usually more intuitive that the procedure ends with this action.</p>
                 },
                 {
                     instructionJsx: <p>Return to the Data Loading screen and switch to <em>design mode</em>. Set the Load Hierarchies <em>button</em> to run the procedure.</p>,
@@ -33,16 +35,18 @@ export const course = {
                     instructionJsx: <p>Switch to <em>play mode</em> and click the button to run the procedure. Note that one new Product and one new Customer are added to the data model, as shown by the data views.</p>
                 },
                 {
-                    instructionJsx: <p>Go back to the data model, go to <em>relationships</em> and click <em>analyze</em>. Note that the new Product is missing a Product Category and the new Branch and Customer is missing the Continent.</p>
+                    instructionJsx: <p>Go back to the data model, go to <em>relationships</em> and click <em>analyze</em>. Note that the new Product is missing a Product Category and the new Branch and Customer is missing the Continent. This is because those particular relationships are not included in the data read from the SQL database.</p>
                 },
                 {
-                    instructionJsx: <p>Continent does not come from the source data but can be derived from the Customer Country of the new Customer. A <em>normalize</em> action will perform this assignment. Make sure in the normalize options that the Branch to Continent and Customer to Continent options are checked.</p>
+                    instructionJsx: <p>The Continent relationship does not come from the source data but can be derived from the Customer Country of the new Customer. A <em>normalize</em> action will perform this assignment. Make sure in the normalize options that the Branch to Continent and Customer to Continent options are checked and save these new options.</p>
                 },
                 {
-                    instructionJsx: <p>Return to the procedure and add a <em>normalize</em> action on the Branch hierarchy after the data reader protocol</p>
+                    instructionJsx: <p>Return to the procedure and add a <em>normalize</em> action on the Branch hierarchy after the data reader protocol</p>,
+                    infoJsx: <p>The normalize procedure action will execute all of the normalization options saved into the data model for the specified hierarchy.</p>
                 },
                 {
-                    instructionJsx: <p>For the Product Category relationship, this will need to be set manually. Go to screen <code>Admin</code>. The new Product should be highlighted as missing a category.</p>
+                    instructionJsx: <p>For the Product Category relationship, this will need to be set manually. Go to screen <code>Admin</code>. The new Product should be highlighted as missing a category.</p>,
+                    infoJsx: <p>Data views can be configured to display the current relationships between entity members in the front-end.</p>
                 },
                 {
                     instructionJsx: <p>Edit the <em>layout</em> of the <em>data view</em> and enable <em>data entry</em> on the Product Category <em>block</em>. This will allow users to set the relationship.</p>
@@ -51,7 +55,7 @@ export const course = {
                     instructionJsx: <p>Return to play mode and assign the missing Product Category for the new Product as <code>New</code>. Click the icon to <em>save data entry</em> to confirm this assignment in the data model.</p>
                 },
                 {
-                    instructionJsx: <p>Return to the Data Loading screen and rerun the procedure. Rerun the analyze relationships action and check that the missing parents are now resolved.</p>
+                    instructionJsx: <p>Return to the Data Loading screen and rerun the procedure, so the normalize actions are executed. Rerun the analyze relationships action and check that the missing parents are now resolved.</p>
                 }
             ]
         },
@@ -60,7 +64,8 @@ export const course = {
             objective: 'Implement a process for the application administrator to be able to initiate a load of the latest transactional data from the Board front-end',
             tasks: [
                 {
-                    instructionJsx: <p>In the data model, create a new procedure called <code>01.2 Load Sales Orders</code></p>
+                    instructionJsx: <p>In the data model, create a new procedure called <code>01.2 Load Sales Orders</code></p>,
+                    infoJsx: <p>Prefixing a number to the procedure name helps keep the procedures in a logical order.</p>
                 },
                 {
                     instructionJsx: <p>Add steps to run the SQL data reader protocols <code>CUBES-Sales</code> and <code>CUBE-Order Count</code></p>
@@ -78,7 +83,7 @@ export const course = {
                     instructionJsx: <p>Add a step to run the text data reader protocol <code>CUBE-Department Expenses</code>. Unfortunately the data reader is not configured to look in the correct location for the file that has been agreed with Accounting. Save the procedure and navigate to <em>data reader</em> in the data model.</p>
                 },
                 {
-                    instructionJsx: <p>Edit the CUBE-Department Expenses data reader, amending the <em>path</em> to look at <code>C:\Board\Dataset\PR Training</code>. Accounting have agreed to name the files with the month the relate to at the end of the filename. Add a <code>*</code> to the <em>pattern</em> after NW Group Expenses so the data reader will pick up the file regardless of this month suffix.</p>,
+                    instructionJsx: <p>Edit the CUBE-Department Expenses data reader, amending the <em>path</em> to look at <code>C:\Board\Dataset\PR Training</code>. Accounting have agreed to name the files with the month they relate to at the end of the filename. Add a <code>*</code> to the <em>pattern</em> after NW Group Expenses so the data reader will pick up the file regardless of this month suffix.</p>,
                     hintJsx: <p>The pattern should be <code>NW Grp Expenses*.csv</code></p>
                 },
                 {
@@ -108,7 +113,7 @@ export const course = {
                         </div>
                 },
                 {
-                    instructionJsx: <p>Add three <em>members</em> manually to represent the two loading tasks (hierarchies, sales orders and expenses)</p>,
+                    instructionJsx: <p>Add three <em>members</em> manually to represent the three loading tasks (hierarchies, sales orders and expenses)</p>,
                     hintJsx: <p>Click on <em>content</em> to <em>add new members</em> via the back-end. Set the codes to anything logical and the description to the name of the task.</p>
                 },
                 {
@@ -124,7 +129,8 @@ export const course = {
                 },
                 {
                     instructionJsx: <p>Edit procedures 01.1, 01.2 and 01.3, adding actions to first <em>select</em> the relevant Task and then run a <em>data flow</em> action to record the current date and time in the Last Run cube.  Use <em>substitution formula</em> <code>@datetime</code> as the data flow <em>expression</em> and under <em>calculation domain</em> enable the option to <em>extend</em> the calculation on all new <em>tuples</em> of the Task entity.</p>,
-                    hintJsx: <p>Click <em>edit layout</em> to retrieve the Last Run cube for the data flow, dragging it into the layout configuration. Set it as the <em>target</em> and set the target to equal the <code>@datetime</code> expression.</p>
+                    hintJsx: <p>Click <em>edit layout</em> to retrieve the Last Run cube for the data flow, dragging it into the layout configuration. Set it as the <em>target</em> and set the target to equal the <code>@datetime</code> expression.</p>,
+                    infoJsx: <p>Extending the calculation domain is necessary where the source of the data flow expression is not another cube.</p>
                 },
                 {
                     instructionJsx: <p>In the Data Loading screen, add a <em>layout</em> to the buttons to display the relevant information from the Last Run cube. Use a <em>layout select</em> to bring through the correct date to each one.</p>
@@ -142,10 +148,11 @@ export const course = {
                     instructionJsx: <p>Open screen <code>Data Entry Introduction</code></p>
                 },
                 {
-                    instructionJsx: <p>The top data view shows the Working Hours data. Edit the <em>layout</em> and enable <em>data entry</em> on the Working Hours block. Save the layout.</p>
+                    instructionJsx: <p>The top data view shows the Working Hours data. Edit the <em>layout</em> and enable <em>data entry</em> on the Working Hours block. Save the layout.</p>,
+                    infoJsx: <p>When data entry is enabled, the data view cells will change colour to indicate this.</p>
                 },
                 {
-                    instructionJsx: <p>In play mode, enter some data into the data view cells for some of the empty months. They will initially appear in red to indicate the entry is pending. Click <em>save data entry</em> icon to commit to the cube.</p>
+                    instructionJsx: <p>In play mode, enter some data into the data view cells for some of the empty months. They will initially appear in red to indicate the entry is pending. Click <em>save data entry</em> icon to commit the values to the cube.</p>
                 },
                 {
                     instructionJsx: <p>Edit the <em>total</em> for one of the months. Note how the change is distributed across the salespersons in proportion to the existing values.</p>
@@ -160,7 +167,8 @@ export const course = {
                     instructionJsx: <p>Enter a value preceded by <code>{'>'}</code>. Note how this copies the value across all cells to the right.</p>
                 },
                 {
-                    instructionJsx: <p>Edit the layout again. Click on the Working Hours block, open the <em>data entry</em> configuration and add a new <em>input validation rule</em>.</p>
+                    instructionJsx: <p>Edit the layout again. Click on the Working Hours block, open the <em>data entry</em> configuration and add a new <em>input validation rule</em>.</p>,
+                    infoJsx: <p>These will ensure the entered data complies with the validation rule before allowing it to be committed to the cube.</p>
                 },
                 {
                     instructionJsx: <p>Set the <em>condition</em> to check that the value entered for working hours is not negative, using the same syntax as for algorithms. Enter a message for the user in <em>else show</em> to inform them the value cannot be negative.</p>,
@@ -179,8 +187,8 @@ export const course = {
                     instructionJsx: <p>In the data model, create a procedure called <code>02.1 Copy Net Sales</code></p>
                 },
                 {
-                    instructionJsx: <p>Add a <em>data flow</em> action to copy data from cube Net Sales to cube ACT Net Sales. Add both cubes to the data flow layout, set the <em>target</em> to the ACT Net Sales block and enter the data flow <em>expression</em> to be reference the block for Net Sales.</p>,
-                    hintJsx: <p>The data flow expressions for a copy cube would normally be <code>b=a</code></p>
+                    instructionJsx: <p>Add a <em>data flow</em> action to copy data from cube Net Sales to cube ACT Net Sales. Add both cubes to the data flow layout, set the <em>target</em> to the ACT Net Sales block and enter the data flow <em>expression</em> to reference the block for Net Sales.</p>,
+                    hintJsx: <p>The data flow expression for a copy cube would normally be <code>b=a</code></p>
                 },
                 {
                     instructionJsx: <p>Return to the Data Entry Introduction screen and set the procedure to the Copy Net Sales <em>button</em></p>
@@ -207,7 +215,8 @@ export const course = {
                     instructionJsx: <p>Data entry is now possible at the summarized level. Modify a value and save. Drill down to note how the change in the summarized value has been distributed to the individual values making up the total, in proportion to their existing values.</p>
                 },
                 {
-                    instructionJsx: <p>Note it is not possible to enter values in cells that have no existing values. Drill again to Branch and then drill a second time to Product to enter values to one of the empty months.</p>
+                    instructionJsx: <p>Note it is not possible to enter values in cells that have no existing values. Drill again to Branch and then drill a second time to Product to enter values to one of the empty months.</p>,
+                    infoJsx: <p>Split & splat functionality can only be used if there is already some underlying data in the cube for the intersection you want to enter data for.</p>
                 }
             ]
         },
@@ -222,7 +231,8 @@ export const course = {
                     instructionJsx: <p>Set the procedure from the previous exercise, <code>02.1 Copy Net Sales</code>, to the Copy Net Sales button</p>
                 },
                 {
-                    instructionJsx: <p>Run the procedure to copy the data over again. Note from the data view that both cubes now have the same values – the previous values in ACT Net Sales were replaced.</p>
+                    instructionJsx: <p>Run the procedure to copy the data over again. Note from the data view that both cubes now have the same values – the previous values in ACT Net Sales were replaced.</p>,
+                    infoJsx: <p>Unlike the data reader, which can run in either replace or add mode, data flows always run in replace mode, meaning the result of the expression will replace whatever data is currently in the cube.</p>
                 },
                 {
                     instructionJsx: <p>Create a new procedure called <code>03.1 Copy Selected Net Sales</code>, saving this from 02.1 Copy Net Sales</p>
@@ -231,13 +241,15 @@ export const course = {
                     instructionJsx: <p>Add a step at the beginning of the procedure to <em>clear</em> the entire ACT Net Sales cube</p>
                 },
                 {
-                    instructionJsx: <p>Add an <em>interactive selection</em> action just before the data flow action to allow the user to select a specific Sales Person</p>
+                    instructionJsx: <p>Add an <em>interactive selection</em> action just before the data flow action to allow the user to select a specific Sales Person</p>,
+                    infoJsx: <p>This action will pause the procedure and invite the user to make a selection on a specified entity. Once they have done this, the procedure will continue with that selection active.</p>
                 },
                 {
                     instructionJsx: <p>Save and return to the screen. Point the Copy Net Sales button to this new procedure.</p>
                 },
                 {
-                    instructionJsx: <p>Run the procedure, select a Sales Person and observe that only that slice of the data is copied</p>
+                    instructionJsx: <p>Run the procedure, select a Sales Person and observe that only that slice of the data is copied</p>,
+                    infoJsx: <p>The data flow action will always take into account the active selection, performing the data flow expression only on the selected slice of the target cube.</p>
                 }
                 
             ]
@@ -254,16 +266,18 @@ export const course = {
                 },
                 {
                     instructionJsx: <p>Modify the data flow, setting a <em>block reference</em> on the Net Sales block (source block), selecting a specific Product</p>,
-                    hintJsx: <p>In the layout configuration, click on the Net Sales block and find block reference settings in the right-hand vertical menu</p>
+                    hintJsx: <p>In the layout configuration, click on the Net Sales block and find block reference settings in the right-hand vertical menu</p>,
+                    infoJsx: <p>A block reference can override the active selection for a specific block within the layout.</p>
                 },
                 {
-                    instructionJsx: <p>Back in the procedure actions list, write a <em>comment</em> to describe that the data flow action is now selecting a specific product as the source data</p>
+                    instructionJsx: <p>Back in the procedure actions list, write a <em>comment</em> to describe that the data flow action is now selecting a specific product as the source data</p>,
+                    infoJsx: <p>Comments are useful to describe exactly what a step is doing without having to go into the configuration of that step.</p>
                 },
                 {
                     instructionJsx: <p>Save the procedure and set the Copy Product to Product button on the Data Flow Introduction screen to run it</p>
                 },
                 {
-                    instructionJsx: <p>Run the procedure, select a different product (or several products) from the interactive selection and note that the sales values are copied from one product to another</p>
+                    instructionJsx: <p>Run the procedure, select a different product (or several products) from the interactive selection and note that the sales values are copied from one product to another. The active selection for Product is applied to the target cube but this selection is ignored on the source cube and overridden by the block reference.</p>
                 }
             ]
         },
@@ -298,7 +312,8 @@ export const course = {
                 },
                 {
                     instructionJsx: <p>Allow user to set a <em>flag</em> (represented by a value of 1) in <code>BUD Year Flag</code> cube to indicate the current budget year. Change the <em>appearance</em> of the block to a <code>checkbox</code> to make it more intuitive to set the flag.</p>,
-                    hintJsx: <p>Data entry needs to be enabled on the BUD Year Flag block so the user can enter a flag on the desired Year. The appearance options for the blocks can be found in <em>data view settings</em> within the layout. A checkbox on a data entry block automatically inserts a value of 1 when the user clicks the checkbox.</p>
+                    hintJsx: <p>Data entry needs to be enabled on the BUD Year Flag block so the user can enter a flag on the desired Year. The appearance options for the blocks can be found in <em>data view settings</em> within the layout. A checkbox on a data entry block automatically inserts a value of 1 when the user clicks the checkbox.</p>,
+                    infoJsx: <p>True or false (boolean) values are often represented in Board cubes by the presence or absence of a value of 1 at the relevant intersection. The checkbox functionality combined with data entry allows the user to click the checkbox to enter (or remove) this value of 1.</p>
                 },
                 {
                     instructionJsx: <p>Switch to play mode and enter a flag into the cube for 2021</p>
@@ -308,7 +323,8 @@ export const course = {
                 },
                 {
                     instructionJsx: <p>In the <em>screen select</em>, click the <em>[...]</em> icon for the Year entity and use the BUD Year Flag cube to <em>dynamically select</em> the budget year chosen in the Admin screen</p>,
-                    hintJsx: <p>Enable dynamic selection using the <em>based on cube</em> option. Choose the BUD Year Flag cube where <em>period {'<>'} 0</em>.</p>
+                    hintJsx: <p>Enable dynamic selection using the <em>based on cube</em> option. Choose the BUD Year Flag cube where <em>period {'<>'} 0</em>.</p>,
+                    infoJsx: <p>Dynamic selection based on cube will select all members of the entity for which there is any non-zero value in the chosen cube. Other selections will be taken into account first when evaluating the cube used in the dynamic selection.</p>
                 },
                 {
                     instructionJsx: <p>Add a <em>substitution formula</em> to the Budget Year <em>label</em> to show the user which year is selected</p>,
@@ -344,7 +360,8 @@ export const course = {
                     hintJsx: <p>Configure the <em>if yes</em> option to <code>none</code> and the <em>if no</em> option to <code>exit procedures</code></p>
                 },
                 {
-                    instructionJsx: <p>Add a <em>data flow</em> step to copy the previous year data from <code>Sales Volume</code> into <code>BUD Sales Volume</code></p>
+                    instructionJsx: <p>Add a <em>data flow</em> step to copy the previous year data from <code>Sales Volume</code> into <code>BUD Sales Volume</code></p>,
+                    hintJsx: <p>In the data flow layout, add the <em>previous year</em> time function to the Sales Volume block</p>
                 },
                 {
                     instructionJsx: <p>Save the procedure then create a new one, saving from 04.1. Call the new one <code>04.2 Initialize Budget (+10%)</code></p>
@@ -364,7 +381,8 @@ export const course = {
                 },
                 {
                     instructionJsx: <p>Modify the data view layout, enabling <em>data entry</em> on the Growth% block and using a <em>reverse algorithm</em> to allow the user to set the growth rate for each Product Group/Area Manager and calculate the resulting budget</p>,
-                    hintJsx: <p>Reverse algorithm formula should be <code>b=a*(1+c/100)</code></p>
+                    hintJsx: <p>Reverse algorithm formula should be <code>b=a*(1+c/100)</code></p>,
+                    infoJsx: <p>A reverse algorithm is required for data entry on an algorithm block. This specifies which data block (i.e. cube) needs to be updated if the user edits the result of the original algorithm.</p>
                 },
                 {
                     instructionJsx: <p>Switch to play mode, change some values and <em>save</em> the data entry. </p>
@@ -373,7 +391,8 @@ export const course = {
                     instructionJsx: <p><em>Highlight</em> some rows on the data view and click the <em>select</em> icon on the data view context menu. This will update the screen selection with only the selected Product Groups.</p>
                 },
                 {
-                    instructionJsx: <p>Run one of the initialize procedures again, then <em>reset</em> the screen selection. Note that only the selected Product Groups were re-initialized, the other were not. This is because screen selections automatically carry into the procedure.</p>
+                    instructionJsx: <p>Run one of the initialize procedures again, then <em>reset</em> the screen selection. Note that only the selected Product Groups were re-initialized, the other were not. This is because screen selections automatically carry into the procedure.</p>,
+                    infoJsx: <p>If a procedure is launched from a screen, the initial active selection will be inherited from the screen selection at the time the procedure was launched.</p>
                 }
             ]
         },
@@ -398,7 +417,7 @@ export const course = {
                     instructionJsx: <p>Set the Divide button to run this procedure. Run the procedure and note that the values in the source cube are duplicated along the Month dimension in the target cube.</p>
                 },
                 {
-                    instructionJsx: <p>Edit the data flow in 05.2 to average the working hours across the months and run the procedure again</p>,
+                    instructionJsx: <p>Edit the data flow in 05.2 to average the working hours across the twelve months and run the procedure again</p>,
                     hintJsx: <p>The data flow expression to average the annual working hours should be <code>b=a/12</code></p>
                 },
                 {
@@ -448,7 +467,8 @@ export const course = {
                                 <li>BUD Seasonal Profile (<em>data entry</em> enabled, <em>detail by</em> Quarter, <em>format block</em> with % <em>symbol after</em>)</li>
                             </ul>
                             <p>Show Product Group on the rows.</p>
-                        </div>
+                        </div>,
+                    infoJsx: <p>Detail by allows for an individual block to split out across a specified entity, creating a column for each entity member. This only applies to that block, as opposed to the column axis which will apply the entity to all blocks in the layout.</p>
                 },
                 {
                     instructionJsx: <p>Configure the bottom data view to show <code>BUD Sales Volume</code> by Product Group on rows and Month on columns</p>
@@ -487,10 +507,12 @@ export const course = {
                                 <li>Data type: Integer</li>
                                 <li>Dimensions: Product Group</li>
                             </ul>
-                        </div> 
+                        </div>,
+                    infoJsx: <p>Conventionally, TEMP cubes are ones that do not hold data permanently, and are only used temporarily during the running of a process.</p> 
                 },
                 {
-                    instructionJsx: <p>Return to the procedure. Add a new <em>group</em> called <code>Check</code> and bring it to the start of the procedure. Create another group called <code>Error</code> at the end of the procedure.</p>
+                    instructionJsx: <p>Return to the procedure. Add a new <em>group</em> called <code>Check</code> and bring it to the start of the procedure. Create another group called <code>Error</code> at the end of the procedure.</p>,
+                    infoJsx: <p>Groups have a significant impact on the way a procedure runs. Board will run each of the actions sequentially in the first group but will not move to the next group without a specific action to direct it there. In the absence of any such action, the procedure will terminate when it reaches the end of a group.</p>
                 },
                 {
                     instructionJsx: <p>In the Check group, add a <em>data flow</em> action to check that the value in BUD Seasonal Profile for each Product Group totals <code>100</code>. If it does, write a <code>0</code> into <code>TEMP Seasonal Profile Check</code>, if not, write a <code>1</code> (a flag representing an error). Use an IF function in the data flow to perform this check.</p>,
@@ -513,7 +535,8 @@ export const course = {
                     instructionJsx: <p>Remove all values from one of the Product Groups' seasonal profiles and run the procedure again. Note that no error is shown this time and the calculation goes ahead.</p>
                 },
                 {
-                    instructionJsx: <p>In the first data flow calculating the TEMP Seasonal Profile Check cube, set the <em>calculation domain</em> to <em>extend</em> calculation to new tuples on all members of the Product Group entity. This will ensure the error flag is written even in the case that there is no profile in BUD Seasonal Profile. Rerun the procedure to check the error is now shown.</p>
+                    instructionJsx: <p>In the first data flow calculating the TEMP Seasonal Profile Check cube, set the <em>calculation domain</em> to <em>extend</em> calculation to new tuples on all members of the Product Group entity. This will ensure the error flag is written even in the case that there is no profile in BUD Seasonal Profile. Rerun the procedure to check the error is now shown.</p>,
+                    infoJsx: <p>With the default calculation domain settings, Board will only calculate tuples (i.e. the intersection of the entity members that make up the cube dimensions) in the target cube if there is a least one block in the layout with a non-zero value for that tuple. In most data flows, there is no need to calculate the tuples where all the blocks are zero; however where this is necessary, extending the calculation domain will ensure all tuples are calculated regardless.</p>
                 }
             ]
         },
@@ -579,7 +602,8 @@ export const course = {
                     instructionJsx: <p>In the screen, set the Initialize Sales Prices button to run the 07.1 procedure and Calculate Net Sales button to run the 07.2 procedure</p>
                 },
                 {
-                    instructionJsx: <p>Run Initialize Sales Prices, then amend some of the prices manually. Use <em>lock & spread</em> function to increase or decrease the price of several products at once.</p>
+                    instructionJsx: <p>Run Initialize Sales Prices, then amend some of the prices manually. Use <em>lock & spread</em> function from the data view context menu to increase or decrease the price of several products at once.</p>,
+                    infoJsx: <p>Lock & spread allows the user to perform data entry in a full-screen mode, with additional functionality to allow values or operations to be applied to multiple cells as once.</p>
                 },
                 {
                     instructionJsx: <p>Run Calculate Net Sales and sense check the results</p>
@@ -604,14 +628,16 @@ export const course = {
                     instructionJsx: <p>Remove the blocks for <code>Std Price</code>, <code>BUD Sales Price</code> and <code>Budget Increase/(Decrease)</code>. Save the layout – we now can see an average price but can no longer edit the price of individual products.</p>
                 },
                 {
-                    instructionJsx: <p>On the price data view, configure a <em>drill</em> to Product. Edit the <em>drill layout</em>, <em>pasting</em> the previously copied layout. The user can now drill to a Product Group and amend the prices for those Products.</p>
+                    instructionJsx: <p>On the price data view, configure a <em>drill</em> to Product. Edit the <em>drill layout</em>, <em>pasting</em> the previously copied layout. The user can now drill to a Product Group and amend the prices for those Products.</p>,
+                    infoJsx: <p>Drill layouts can be completely customized to show a different data set to that of the parent layout.</p>
                 },
                 {
                     instructionJsx: <p>Note that after updating the prices, the weighted average price doesn’t update right away – the user will first need to run the Calculate Net Sales procedure again</p>
                 },
                 {
                     instructionJsx: <p>To automate this calculation whenever a price is changed, set a <em>data entry trigger</em> on the data view, running procedure 07.2. Set the procedure's <em>notify execution</em> to <code>background execution</code> and remove the <em>refresh screen</em> step to create a better experience for the user</p>,
-                    hintJsx: <p>Data entry trigger can be found in the data view's configuration menu on the right-hand side of the screen</p>
+                    hintJsx: <p>Data entry trigger can be found in the data view's configuration menu on the right-hand side of the screen</p>,
+                    infoJsx: <p>Data entry triggers will execute the procedure whenever the user performs data entry on that data view. The procedure will be executed multiple times, for each cell of data that is changed, with an additional selection passed to the procedure that relates to the changed value. This attempts to ensure that recalculations are only made where necessary.</p>
                 }
             ]
         },
@@ -767,7 +793,8 @@ export const course = {
                 },
                 {
                     instructionJsx: <p>Add a <em>data flow</em> action that <em>calculates</em> <code>BUD Net Sales Simulation</code>. This should take the net sales in local currency calculated in the previous procedure and convert back to GBP using the exchange rates including the effect of any forecast fluctuations. Use <em>yearly cumulated value time function</em> on the <code>BUD Currency Fluctuation</code> block to ensure fluctuations cumulate month by month. Consider whether the <em>calculation domain</em> should be extended for new tuples on any of the dimensions.</p>,
-                    hintJsx: <p>Data flow expression should be <code>BUD Net Sales simulation = BUD Net Sales Local Curr / (BUD Exchange Rates + BUD Currency Fluctuations)</code>. The calculation domain must be extended on all members of the <code>Scenario</code> entity, as this dimension is not present in any of the source cubes.</p>
+                    hintJsx: <p>Data flow expression should be <code>BUD Net Sales simulation = BUD Net Sales Local Curr / (BUD Exchange Rates + BUD Currency Fluctuations)</code>. The calculation domain must be extended on all members of the <code>Scenario</code> entity, as this dimension is not present in any of the source cubes.</p>,
+                    infoJsx: <p>Yearly cumulated value function means that for each month, the value used in the calculation is not just the value for that month but the cumulated value of all months in the year up to and including that month.</p>
                 },
                 {
                     instructionJsx: <p>Set the Simulate Currency Fluctuations button to run the procedure</p>
@@ -817,10 +844,12 @@ export const course = {
             objective: 'Implement a process to allow users to add a new product to the hierarchy and assign it a sales profile from an existing product, allowing a budget to be set',
             tasks: [
                 {
-                    instructionJsx: <p>On the <em>entity editor</em> object, set the <em>ATO entities configuration</em> to allow <em>insert/edit</em> of new Products. Assign new Products to a <em>default</em> Product Category of <code>New</code></p>
+                    instructionJsx: <p>On the <em>entity editor</em> object, set the <em>ATO entities configuration</em> to allow <em>insert/edit</em> of new Products. Assign new Products to a <em>default</em> Product Category of <code>New</code></p>,
+                    infoJsx: <p>The entity editor allows specific entities to be managed from the front-end. It can allow new members to be created, relationships to be reassigned and descriptions to be changed.</p>
                 },
                 {
-                    instructionJsx: <p>Configure the small <em>data view</em> below the entity editor to display <code>BUD Sales Price</code> data with <em>data entry</em> enabled. Display Product on the rows, with <em>show all</em> enabled and <em>down totals</em> disabled.</p>
+                    instructionJsx: <p>Configure the small <em>data view</em> below the entity editor to display <code>BUD Sales Price</code> data with <em>data entry</em> enabled. Display Product on the rows, with <em>show all</em> enabled and <em>down totals</em> disabled.</p>,
+                    infoJsx: <p>When an entity editor object is used, it will act similarly to a pager for all other objects on screen. However, those objects will not render until a member is selected on the entity editor. The effect of the entity editor can be limited by placing it in a container. This means only objects within the same container will be affected by it, other objects on screen will not.</p>
                 },
                 {
                     instructionJsx: <p>Switch to play mode and use the entity editor to <em>insert</em> a new Product. Enter a price for the new product in the data view below. <em>Refresh</em> the screen to see the product appear in the main data view. Note that it is not possible to enter a Sales Volume budget for the new product because there is no data in the cube to use to split the budget across the Branches.</p>
@@ -836,7 +865,8 @@ export const course = {
                                 <li>Data type: Double</li>
                                 <li>Dimensions: Month, Branch</li>
                             </ul>
-                        </div>
+                        </div>,
+                    infoJsx: <p>Temporary cubes within procedures allow for the results of data flows to be stored temporarily and then used in another data flow within the same procedure. An instance of the cube is created each time a procedure is executed and deleted automatically when it is finished.</p>
                 },
                 {
                     instructionJsx: <p>Return to the procedure. The procedure will initially run with a selection made on the new product (from the drill action that will call the procedure). Create an action to <em>save selection</em> for use later on, giving the saved selection the name <code>Destination Product</code>.</p>
@@ -867,7 +897,8 @@ export const course = {
                     instructionJsx: <p>Switch to play mode and run the procedure. Check the data has copied correctly.</p>
                 },
                 {
-                    instructionJsx: <p>Return to the procedure and add <em>breakpoints</em> on the first step and each of the data flow steps</p>
+                    instructionJsx: <p>Return to the procedure and add <em>breakpoints</em> on the first step and each of the data flow steps</p>,
+                    infoJsx: <p>Breakpoints are a debugging tool that pause the procedure just before executing the step with the breakpoint. The debugger then allows a developer to inspect the active selection at that point, as well as query the data, continue the procedure step-by-step or terminate it without completing.</p>
                 },
                 {
                     instructionJsx: <p>Run the procedure again from the drill action and note that the procedure will pause at each breakpoint. Take a note of the active <em>selection</em> at each point to observe that it changes correctly.</p>
@@ -993,7 +1024,8 @@ export const course = {
                 },
                 {
                     instructionJsx: <p>Set the <code>BUD Sales Volume</code> <em>data entry</em> to be <em>locked</em> by <code>BUD Workflow Flag</code> where the flag is empty (0). Data entry should immediately become disabled on saving the layout.</p>,
-                    hintJsx: <p>Open the data entry configuration for BUD Sales Volume and open the options for <em>data view cells locked by</em> to set this lock. Ensure the lock is set when the flag is 0.</p>
+                    hintJsx: <p>Open the data entry configuration for BUD Sales Volume and open the options for <em>data view cells locked by</em> to set this lock. Ensure the lock is set when the flag is 0.</p>,
+                    infoJsx: <p>Locking the data view cells allows for data entry to be controlled for specific intersections using some logic derived from another cube or algorithm.</p>
                 },
                 {
                     instructionJsx: <p>Switch to play mode and run the start budget action on one of the Sales Persons. Check that the Status changes to <code>Open</code>, the Action changes to <code>Submit budget</code> and the <em>data entry</em> for that Sales Person becomes available.</p>
@@ -1017,7 +1049,7 @@ export const course = {
                     instructionJsx: <p>Amend the text to be inserted into BUD Workflow Status to <code>Submitted</code></p>
                 },
                 {
-                    instructionJsx: <p>In the Main group (which should be the first group in the procedure) add an <em>if then else</em> action at the beginning to check if  <code>BUD Workflow Flag = 0</code> (i.e. the workflow status is not started). If so, <em>go to</em> the Open group.</p>
+                    instructionJsx: <p>In the Main group (which should be the first group in the procedure) add an <em>if then else</em> action at the beginning to check if <code>BUD Workflow Flag = 0</code> (i.e. the workflow status is not started). If so, <em>go to</em> the Open group.</p>
                 },
                 {
                     instructionJsx: <p>After the if then else step, <em>select</em> Workflow Status = <code>Open</code>, then add another <em>if then else</em> action to check that the workflow status is open. If so, go to the Submit group.</p>,
@@ -1178,7 +1210,8 @@ export const course = {
                 },
                 {
                     instructionJsx: <p>Add a <em>select based on cube</em> action to select only the months that are flagged as actual months for that Forecast Snapshot.</p>,
-                    hintJsx: <p>The select based on cube action should use ACT Month Flag</p>
+                    hintJsx: <p>The select based on cube action should use ACT Month Flag</p>,
+                    infoJsx: <p>Select based on cube will select all members of an entity for which the chosen cube has a non-zero value. This will first take into account any other selections active when evaluating the cube.</p>
                 },
                 {
                     instructionJsx: <p>Add a <em>data flow</em> action to copy data from <code>Net Sales</code> to <code>FCT Net Sales</code> for those months</p>
@@ -1196,7 +1229,8 @@ export const course = {
                     instructionJsx: <p>Run the procedure for the <code>Forecast 2021 4+8</code> snapshot. Check that the values in FCT Net Sales are the correct combination of actuals and budget.</p>
                 },
                 {
-                    instructionJsx: <p>Run the procedure again for <code>FY Budget 2021</code>. Note that nothing is copied to FCT Net Sales this time. This is because of the select based on cube action for the actual months causing an <em>empty selection</em>.</p>
+                    instructionJsx: <p>Run the procedure again for <code>FY Budget 2021</code>. Note that nothing is copied to FCT Net Sales this time. This is because of the select based on cube action for the actual months causing an <em>empty selection</em>.</p>,
+                    infoJsx: <p>Where all members of the entity return a zero value in the chosen cube, select based on cube will result in an empty selection - this should be avoided.</p>
                 },
                 {
                     instructionJsx: <p>Edit the procedure, inserting <em>if then else</em> actions to check the ACT Month Flag and FCT Month Flag cubes and skipping the relevant actions if they are empty. You will need to remove the selection on Month between the two if then else actions, otherwise the second one may not be checking all months.</p>,

@@ -8,17 +8,19 @@ export const course = {
             objective: 'Create a new Board data model as the basis for a new Sales Reporting & Planning application',
             tasks: [
                 {
-                    instructionJsx: <p>Logon to <em>Board</em> using <em>Windows Account</em></p>
+                    instructionJsx: <p>Logon to <em>Board</em> using the appropriate credentials</p>
                 },
                 {
-                    instructionJsx: <p>Navigate to <em>data model</em> and create a new database called <code>Training_[your initials]</code></p>,
+                    instructionJsx: <p>From the Board button in the top-left of the screen, navigate to <em>data model</em> and create a new database called <code>Training_[your initials]</code></p>,
                     hintJsx: <p>Click on the + icon to create a new data model</p>
                 },
                 {
-                    instructionJsx: <p>Set the <em>from year</em> and <em>to year</em> as <code>2017</code> and <code>2022</code> respectively</p>
+                    instructionJsx: <p>Set the <em>from year</em> and <em>to year</em> as <code>2017</code> and <code>2022</code> respectively</p>,
+                    infoJsx: <p>This defines the time range for which data can be loaded into the database. It can easily be moved forward incrementally whenever necessary so it should be initially defined as the time period for which data is required on the initial deployment.</p>
                 },
                 {
-                    instructionJsx: <p>Enable all of the <em>time range</em> options (Day, Week, Quarter, Fiscal year), setting the Fiscal year <em>beginning on</em> to <code>April</code> and leaving the other additional options as the default setting</p>
+                    instructionJsx: <p>Enable all of the <em>time range</em> options (Day, Week, Quarter, Fiscal year), setting the Fiscal year <em>beginning on</em> to <code>April</code> and leaving the other additional options as the default setting</p>,
+                    infoJsx: <p>These settings define the granularity of data that is available in terms of time. Some of them can be customized, for instance the format with which a fiscal year is displayed.</p>
                 },
                 {
                     instructionJsx: <p>Save changes to create the data model on the server</p>
@@ -30,7 +32,7 @@ export const course = {
             objective: 'Explore and understand the relational Northwind database and consider how it might be modelled in Board',
             tasks: [
                 {
-                    instructionJsx: <p>Open <em>SQL Server Management Studio</em> and connect to the server using the saved credentials</p>,
+                    instructionJsx: <p>Open <em>SQL Server Management Studio</em> and connect to the server using the saved credentials. Note you may need to connect to the server remotely in order to do this.</p>,
                     hintJsx: <p>A shortcut to open this application is on the Windows taskbar</p>
                 },
                 {
@@ -48,7 +50,8 @@ export const course = {
             objective: 'Create the building blocks of a Board data model; the descriptive items of what we would like to analyse our data by and define how they relate to one another',
             tasks: [
                 {
-                    instructionJsx: <p>Return to Board and navigate to <em>Entities</em> in your newly created data model. Click <em>+ entity</em> to create a new entity within it.</p>
+                    instructionJsx: <p>Return to Board and navigate to <em>Entities</em> in your newly created data model. Click <em>+ entity</em> to create a new entity within it.</p>,
+                    infoJsx: <p>An entity is a list of homogenous items that describe how you can analyze your data.</p>
                 },
                 {
                     instructionJsx: <p>Create Product entities (<code>Product</code>, <code>Product Group</code>, <code>Product Division</code>) with the <em>group</em> set to <code>Product</code>. Set appropriate <em>code width</em> and <em>desc width</em> for each. Set the <em>max item number</em>, using the <code>auto</code> setting for the Product entity. For the parent entities, set it manually at an appropriate level. Reference should me made to the SQL tables for these settings, making some assumptions on how much the entity members might grow over the life of the application.</p>,
@@ -83,7 +86,8 @@ export const course = {
                                     <td>10</td>
                                 </tr>
                             </table>
-                        </div>
+                        </div>,
+                    infoJsx: <p>The auto setting for max item no. should be used where the number of entity members and their future growth is highly uncertain. Where a sensible maximum can be set with a reasonable level of confidence that it will not be exceeded over the life of the application, it should be set manually.</p>
                 },
                 {
                     instructionJsx: <p>Create Branch entities (<code>Branch</code>, <code>Customer</code>, <code>Branch Country</code>, <code>Customer City</code>, <code>Customer Country</code>, <code>Sales Person</code>, <code>Area Manager</code>) in a group called <code>Branch</code> with appropriate settings. For <em>max item number</em>, use <code>auto</code> for Branch and Product and set the rest of the entities manually</p>,
@@ -149,7 +153,8 @@ export const course = {
                 },
                 {
                     instructionJsx: <p>Navigate to <em>Relationships</em> and configure the relevant hierarchies. Drag a parent entity and drop it onto the appropriate child entity to set the relationship. When finished, remember to click <em>save changes</em>.</p>,
-                    hintJsx: <p>Use the diagrams above to inform how the entities are related in each hierarchy</p>
+                    hintJsx: <p>Use the diagrams above to inform how the entities are related in each hierarchy</p>,
+                    infoJsx: <p>Relationships in Board must adhere to a n:1 connection between entity members. That is to say that each member of a child entity can belong to only one member of the parent entity. However each member of a parent entity can have assigned as many members of the child entity as needed.</p>
                 }
             ]
         },
@@ -161,18 +166,22 @@ export const course = {
                     instructionJsx: <p>Navigate to <em>Data Reader</em>. Create a new data reader protocol called <code>TREE-Product</code> to load the Product entities, their descriptions and the relationships between them. Assign to a <em>group</em> called <code>Master</code> and select <em>source type</em> as <code>SQL</code></p>
                 },
                 {
-                    instructionJsx: <p>Click the connection icon to connect to the Northwind SQL <em>data source</em> and then navigate to <em>mapping</em></p>
+                    instructionJsx: <p>Click the connection icon to connect to the Northwind SQL <em>data source</em> and then navigate to <em>mapping</em></p>,
+                    infoJsx: <p>Every time a data reader is created or edited, the connection to the data source must be established in this way.</p>
                 },
                 {
-                    instructionJsx: <p>From the <em>MDB</em> list, drag both <em>code</em> and <em>description</em> elements of each entity in the Product group to the <em>mapping</em> window</p>
+                    instructionJsx: <p>From the <em>MDB</em> list, drag both <em>code</em> and <em>description</em> elements of each entity in the Product group to the <em>mapping</em> window</p>,
+                    infoJsx: <p>The MDB list shows all of the individual elements in the Board data model that can be loaded via data reader.</p>
                 },
                 {
                     instructionJsx: <p>From the <em>RDB</em> list, drag the corresponding table fields to mapping window. This will construct a SQL query automatically.</p>,
-                    hintJsx: <p>The required fields are found in the tables <code>dbo.Product</code> and <code>dbo.Product_Group</code></p>
+                    hintJsx: <p>The required fields are found in the tables <code>dbo.Product</code> and <code>dbo.Product_Group</code></p>,
+                    infoJsx: <p>The RDB list shows the elements from the data source, such as tables and views.</p>
                 },
                 {
                     instructionJsx: <p>Navigate to <em>join</em> and set the fields on which to join the two tables required for this query</p>,
-                    hintJsx: <p>The fields are <code>dbo.Product.c_Productgroup</code> and <code>dbo.Product_Group.c_Productgroup</code></p>
+                    hintJsx: <p>The fields are <code>dbo.Product.c_Productgroup</code> and <code>dbo.Product_Group.c_Productgroup</code></p>,
+                    infoJsx: <p>When joining tables using the SQL auto-generator, the type of join will be an <em>inner join</em>.</p>
                 },
                 {
                     instructionJsx: <p>Return to mapping and set the <em>mode</em> of each item to allow new items to be added to the entities. Save the data reader.</p>,
@@ -183,7 +192,7 @@ export const course = {
                     hintJsx: <p>Return to entities, click on the name of the entity and navigate to the <em>content</em> tab to inspect the members. For relationships, click on the child, select the parent from the drop-down to inspect the relationships between members of the two entities.</p>
                 },
                 {
-                    instructionJsx: <p>Create a new data reader called <code>TREE-Branch</code> to load the Branch entities, their descriptions (excluding the description for Area Manager) and the relationships between them. For the description field of the Sales Person entity, two fields will need to be concatenated. You cannot drag two RDB items to the same MDB item so click to manually type the SQL expression. See the hint for syntax.</p>,
+                    instructionJsx: <p>Create a new data reader called <code>TREE-Branch</code> to load the Branch entities, their descriptions (excluding the description for Area Manager) and the relationships between them. For the description field of the Sales Person entity, two fields will need to be concatenated. You cannot drag two RDB items to the same MDB item so click into the field to manually type the SQL expression. See the hint for syntax.</p>,
                     hintJsx: <p>The required fields are found in the tables <code>dbo.Customer</code> and <code>dbo.Employee</code>, which should be joined on the common field <code>c_Employee</code>. The syntax to concatenate two fields with a space in between is <code>[field1] + ' ' + [field2]</code>.</p>
                 },
                 {
@@ -191,7 +200,8 @@ export const course = {
                 },
                 {
                     instructionJsx: <p>Create a new data reader called <code>ENT-Area Manager Desc</code> to load the correct descriptions for the Area Manager entity. Ensure that this data reader does not allow new items to be added to the entity but does replace the blank descriptions for members loaded in the TREE-Branch data reader.</p>,
-                    hintJsx: <p>The Area Manager names (descriptions) are in the same field as the Sales Person descriptions. The <em>mode</em> of the Area Manager code item should be set to <code>discard new item</code> so that all the sales person employees are not added as area managers. The mode of the description should be set to <code>replace</code> so the name is added.</p>
+                    hintJsx: <p>The Area Manager names (descriptions) are in the same field as the Sales Person descriptions. The <em>mode</em> of the Area Manager code item should be set to <code>discard new item</code> so that all the sales person employees are not added as area managers. The mode of the description should be set to <code>replace</code> so the name is added.</p>,
+                    infoJsx: <p>Discard new item mode means that a record from the query results will be completely discarded if the code does not match with an existing member of the entity in question.</p>
                 },
                 {
                     instructionJsx: <p>Create a new data reader called <code>ENT-Shipper</code> to load the Shipper entity and its descriptions</p>,
@@ -208,9 +218,11 @@ export const course = {
             tasks: [
                 {
                     instructionJsx: <p>Navigate to <em>Cubes</em> within your data model. Click <em>+ cube</em> to create a new cube.</p>,
+                    infoJsx: <p>A cube is the element of the data model that holds data, usually data that relates to a particular <em>measure</em>. It is dimensioned by one or more entities, which define how the data is stored and can be reported and summarized.</p>
                 },
                 {
-                    instructionJsx: <p>Create a cube named <code>Sales Volume</code>. Assign to a <em>group</em> called <code>Sales</code> and set <em>data type</em> as <code>double</code>. Set the <em>dimensions</em> as Day, Product, Branch and Shipper. Save the cube to create it.</p>
+                    instructionJsx: <p>Create a cube named <code>Sales Volume</code>. Assign to a <em>group</em> called <code>Sales</code> and set <em>data type</em> as <code>double</code>. Set the <em>dimensions</em> as Day, Product, Branch and Shipper. Save the cube to create it.</p>,
+                    infoJsx: <p>The data type defines the type of data that can be stored in the cube. There are four numerical data types which hold values to various levels of precision i.e. they will be rounded once the specified precision is reached.</p>
                 },
                 {
                     instructionJsx: <p>Create three more cubes to measure sales. Name them <code>Net Sales</code>, <code>Net Sales at Markdown Price</code>, <code>Net Sales at Std Price</code>. Configure these cubes with all of the same settings as the first one.</p>,
@@ -226,7 +238,8 @@ export const course = {
                     instructionJsx: <p>Create a new SQL data reader called <code>CUBES-Net Sales</code> to load data to the four cubes created previously. Assign this to a group called <code>Transaction</code>.</p>
                 },
                 {
-                    instructionJsx: <p>In mapping, drag the cubes one by one to the mapping window. The entities that comprise the dimensions of the cubes will be added automatically.</p>
+                    instructionJsx: <p>In mapping, drag the cubes one by one to the mapping window. The entities that comprise the dimensions of the cubes will be added automatically.</p>,
+                    infoJsx: <p>The cube field provides the value to be stored in the cube and the entity fields inform the position, with regards to its dimensions.</p>
                 },
                 {
                     instructionJsx: <p>Map the dimensions of the cubes to the appropriate fields in the database tables</p>,
@@ -250,10 +263,11 @@ export const course = {
                 },
                 {
                     instructionJsx: <p>Consider and set the appropriate <em>mode</em> for each item in the data reader, so that any orders containing Products, Branches or Shippers not in the master data are rejected. Ensure that the data reader can be run repeatedly to load the cube with the latest data.</p>,
-                    hintJsx: <p>For the entity items in the data reader, reject mode should be used to ensure master data is not affected. For the cube items, replace time slice mode will ensure the cubes are first cleared for the time period being loaded, before latest data is loaded.</p>
+                    hintJsx: <p>For the entity items in the data reader, <em>reject</em> mode should be used to ensure master data is not affected. For the cube items, <em>replace time slice</em> mode will ensure the cubes are first cleared for the time period being loaded, before latest data is loaded.</p>
                 },
                 {
-                    instructionJsx: <p>Save and run the CUBES-Net Sales data reader. Navigate to <em>Logs</em> to check the correct number of records have been read and validated.</p>
+                    instructionJsx: <p>Save and run the CUBES-Net Sales data reader. Navigate to <em>Logs</em> to check the correct number of records have been read and validated.</p>,
+                    infoJsx: <p>The database log records actions that take place on the data model, such as the execution of a data reader. The most recent action will be listed at the bottom of the log.</p>
                 }
             ]
         },
@@ -272,14 +286,14 @@ export const course = {
                     instructionJsx: <p>Give the capsule the name <code>Data Validation</code>. Expand the <em>more</em> options and under <em>linked data model</em> ensure this is set to your <code>Training_XX</code> data model and then click OK to create the capsule.</p>
                 },
                 {
-                    instructionJsx: <p>On the newly created Home <em>screen</em>, drag a new <em>data view</em> object from the <em>toolbox</em> to the workspace</p>,
-                    hintJsx: <p>From the left-hand side vertical menu, the toolbox is the second tab</p>
+                    instructionJsx: <p>On the newly created Home <em>screen</em>, drag a new <em>data view</em> object from the <em>toolbox</em> to the workspace. From the left-hand side vertical menu, the toolbox is the second tab.</p>
                 },
                 {
                     instructionJsx: <p>On the data view object, click <em>configure me</em> to open the <em>layout</em> designer and configure the data to query and display</p>
                 },
                 {
-                    instructionJsx: <p>In the <em>data</em> menu, open the Sales group to reveal the four <em>cubes</em> created previously. Drag each of these one by one to the <em>data</em> area of the layout.</p>
+                    instructionJsx: <p>In the <em>data</em> menu, open the Sales group to reveal the four <em>cubes</em> created previously. Drag each of these one by one to the <em>data</em> area of the layout.</p>,
+                    infoJsx: <p>Each item shown in the data area is known as a <em>block</em> - think of this a specific piece of data to display.</p>
                 },
                 {
                     instructionJsx: <p>Navigate to the <em>entities</em> menu to see a list of all entity groups in the data model. Open the Product group and drag the Product Group entity to the <em>by row</em> section of the <em>axis</em> window. Click save to return to the screen and view the report.</p>
@@ -315,7 +329,8 @@ export const course = {
                     hintJsx: <p>Both OrderDate and Delivery would be valid choices for the Day field, depending on when the order should be counted for the purpose of this analysis</p>
                 },
                 {
-                    instructionJsx: <p>For the cube value field, hard code a <code>1</code> into the query, ensuring that each record is effectively counted in the cube</p>
+                    instructionJsx: <p>For the cube value field, hard code a <code>1</code> into the query, ensuring that each record is effectively counted in the cube</p>,
+                    infoJsx: <p>For numerical cubes, Board automatically aggregates all incoming data in the relevant position in the cube.</p>
                 },
                 {
                     instructionJsx: <p>Save and run the data reader. Return to the Data Validation capsule and add a new data view object to the screen to check this data has loaded as expected.</p>
@@ -341,7 +356,8 @@ export const course = {
                     instructionJsx: <p>Create a new data reader called <code>CUBE-Working Hours</code> with <em>source type</em> set to <code>text file</code></p>
                 },
                 {
-                    instructionJsx: <p>Set the <em>source folder/URL</em> with <em>path</em> <code>C:\Board\Dataset\DB Training</code> and <em>pattern</em> <code>Working hours*.csv</code>. Set the <em>CSV delimiter</em> to <code>,</code>. The file should appear in the list, click the connection icon to connect to it.</p>
+                    instructionJsx: <p>Set the <em>source folder/URL</em> with <em>path</em> <code>C:\Board\Dataset\DB Training</code> and <em>pattern</em> <code>Working hours*.csv</code>. Set the <em>CSV delimiter</em> to <code>,</code>. The file should appear in the list, click the connection icon to connect to it.</p>,
+                    infoJsx: <p>The source location and pattern determines which files the data reader is able to pick up. The * wildcard can be used in the pattern, which will allow any filename matching the rest of the pattern.</p>
                 },
                 {
                     instructionJsx: <p>Navigate to the <em>mapping</em> step and map the fields in the text file to the Working Hours cube and its dimensions</p>
@@ -363,7 +379,8 @@ export const course = {
                     instructionJsx: <p>In your data model, navigate to <em>time range</em> and go to <em>custom entities</em></p>
                 },
                 {
-                    instructionJsx: <p>Select <code>_Time1</code> entity and rename it to <code>Weekday</code>. Set the <em>code width</em> to <code>1</code> and the <em>max item number</em> to <code>7</code> and save changes.</p>
+                    instructionJsx: <p>Select <code>_Time1</code> entity and rename it to <code>Weekday</code>. Set the <em>code width</em> to <code>1</code> and the <em>description width</em> to <code>10</code> and save changes.</p>,
+                    infoJsx: <p>There are a limited number of custom time entities that can be configured and used within the time hierarchy.</p>
                 },
                 {
                     instructionJsx: <p>Go back to time range settings and navigate to <em>custom relationships</em>. Set Weekday as a <em>parent</em> of Day and save changes.</p>
@@ -375,14 +392,16 @@ export const course = {
                     instructionJsx: <p>Manually add members for the seven days of the week, with codes as numbers <code>1, 2... 7</code> and descriptions as <code>Monday, Tuesday ... Sunday</code>, then save the added members</p>
                 },
                 {
-                    instructionJsx: <p>Click on the Day entity and <em>extract</em> it – this will output it to a text file on the server</p>
+                    instructionJsx: <p>Click on the Day entity and <em>extract</em> it – this will output it to a text file on the server</p>,
+                    infoJsx: <p>Any entity can be extracted in this way - the file will list all of the members' codes and descriptions.</p>
                 },
                 {
                     instructionJsx: <p>Create a new text file data reader called <code>REL-Day to Weekday</code>. Connect to the extracted Day entity text file, <code>A007.csv</code>, and navigate to <em>mapping</em>. Map both the Day and Weekday entities to the first field in the file (Day).</p>,
                     hintJsx: <p>Only the code fields of the entities are needed for mapping relationships</p>
                 },
                 {
-                    instructionJsx: <p>Navigate to <em>ETL</em>. Enable <em>show formulas</em> to transform the data before loading. In cell D4 (file output for loading to Weekday entity) write the formula <code>=WEEKDAY(C4,2)</code>. This function will translate the date from the extracted Day entity into a number representing the day of the week running Monday to Sunday.</p>
+                    instructionJsx: <p>Navigate to <em>ETL</em>. Enable <em>show formulas</em> to transform the data before loading. In cell D4 (file output for loading to Weekday entity) write the formula <code>=WEEKDAY(C4,2)</code>. This function will translate the date from the extracted Day entity into a number representing the day of the week running Monday to Sunday.</p>,
+                    infoJsx: <p>ETL allows you to perform transformations on the data from the incoming file. The input column shows the raw data from the file and the output column shows what will be read to Board for each field when the data reader is executed.</p>
                 },
                 {
                     instructionJsx: <p>Disable <em>show formulas</em> to check a number from 1-7 is returned. Page through the rows of the file to check some other dates.</p>
@@ -426,7 +445,8 @@ export const course = {
                     instructionJsx: <p>In the Data Validation capsule, create a data view with Product Category on the axis. Note that no data is shown as the relationships for each Product have not been set, so cannot yet be summarized by Product Category.</p>
                 },
                 {
-                    instructionJsx: <p>Return to relationships in the data model and run the <em>analyze</em> function. Note that there are missing relationships between Product and Product Category. Click on the row for <em>missing parent</em>.</p>
+                    instructionJsx: <p>Return to relationships in the data model and run the <em>analyze</em> function. Note that there are missing relationships between Product and Product Category. Click on the row for <em>missing parent</em>.</p>,
+                    infoJsx: <p>The analyze function scans the data model for missing relationships. This could be a member of a child entity that has no parent assigned or a member of a parent entity that has no children.</p>
                 },
                 {
                     instructionJsx: <p>All members of Product with no assigned Product Category are shown (currently all of them as the relationship was just created). As all products currently in the entity have been sold at some point, they should all be assigned to <code>Existing</code>. Click <em>default</em> to assign all missing relations to a particular parent member.</p>
@@ -463,13 +483,14 @@ export const course = {
                     instructionJsx: <p>In the Data Validation capsule, create a data view with Continent on the axis. Note that no data is shown.</p>
                 },
                 {
-                    instructionJsx: <p>In relationships, run the <em>analyze</em> function again. Note that although the Customer Country to Continent relationships have been set, all other relationships to Continent within the Branch hierarchy are still missing.</p>
+                    instructionJsx: <p>In relationships, run the <em>analyze</em> function again. Note that although the Customer Country to Continent relationships have been set, all other relationships to Continent within the Branch hierarchy are still missing.</p>,
+                    infoJsx: <p>When loading a hierarchy through a data reader, this will assign both direct and indirect relationships between all entities contained in that data reader. If part of a hierarchy is managed outside of a data reader, the indirect relationships may need to be <em>normalized</em> to ensure they are correctly set.</p>
                 },
                 {
                     instructionJsx: <p>Open the <em>normalize</em> configuration and enable the <em>do</em> option for all indirect relationships to Continent (Branch, Customer and Customer City). Ensure the <em>through</em> option for each is set to Customer Country, so the relationship is normalized using the relationship that has now been set manually. <em>Save</em> the settings, then click <em>go</em> to run the process.</p>
                 },
                 {
-                    instructionJsx: <p>Run the analyze function again to verify that all issues in the Branch hierarchy are resolved</p>
+                    instructionJsx: <p>Run the analyze function again to verify that all issues in the Branch hierarchy are resolved, with the exception of one of the Product Categories which has no children (this will be resolved later when new products are created)</p>
                 },
                 {
                     instructionJsx: <p>Refresh the data view in the capsule to check the report now displays data by Continent as expected</p>
@@ -494,7 +515,7 @@ export const course = {
                     instructionJsx: <p>Return to cubes, note that the <em>file size</em> of the cube is now greater than the other cubes loaded from the same source, as Shipper has been removed form the sparse combination</p>
                 },
                 {
-                    instructionJsx: <p>Navigate to entities and click on Shipper. Click the <em>analysis</em> tab and click on <em>cubes</em> to show all the cubes this entity is used in as a dimension. Note that in the Net Sales cube, the max item number is much higher than the others. This is because for entities using auto max items, a limit is placed when the entity is used in a sparse combination. </p>,
+                    instructionJsx: <p>Navigate to entities and click on Shipper. Click the <em>analysis</em> tab and click on <em>cubes</em> to show all the cubes this entity is used in as a dimension. Note that in the Net Sales cube, the max item number is much higher than the others. This is because for entities using auto max items, a limit is placed when the entity is used in a sparse combination.</p>,
                     infoJsx: <p>This limit to max item number is there to keep the number of possible combinations in the cube's sparse structure to within 64 bit (i.e. 2<sup>64</sup>)</p>
                 },
                 {
@@ -521,7 +542,8 @@ export const course = {
                     instructionJsx: <p>Return to the Sales Volume cube in the data model. In the <em>properties</em> tab, open the <em>versions</em> list to see the stored versions. Click <em>verify</em> to confirm that the new version has no data (<em>checksum</em> will show the total of all values stored in a cube version).</p>
                 },
                 {
-                    instructionJsx: <p>On the new version, run the <em>align</em> process to pre-aggregate data from the primary version and store it in the secondary version</p>
+                    instructionJsx: <p>On the new version, run the <em>align</em> process to pre-aggregate data from the primary version and store it in the secondary version</p>,
+                    infoJsx: <p>If a cube is loaded using a data reader, this will automatically load data to all versions, so aligning is not necessary.</p>
                 },
                 {
                     instructionJsx: <p>Retry the data view at the aggregate level to verify data now comes through using the second cube version</p>
@@ -578,12 +600,12 @@ export const course = {
                     instructionJsx: <p>Create a new <em>cube</em> called <code>Sales Report</code>. This should be configured with all the same attributes as the Net Sales cube but with an additional dimension of the Sales Report Line entity.</p>
                 },
                 {
-                    instructionJsx: <p>Configure three new <em>data readers</em> to load this cube. These should mirror the original <code>CUBES-Net Sales</code> data reader but with each of the three net sales measures calculated in its own data reader. Map the calculation to the correct slice of the Sales Report Line dimension by hard coding the code for that entity slice into the data reader query.</p>,
-                    hintJsx: <p>Map the Day, Branch, Product and Shipper dimensions to the same fields as before. Refer to the original CUBES-Net Sales data reader for the formulas for each measure. To hard-code, type the code for the Sales Report Line entity slice into the RDB item field, in quote mark, e.g. <code>'01'</code></p>
+                    instructionJsx: <p>Configure three new <em>data readers</em> to load this cube. A <em>view</em> <code>dbo.Net_Sales</code> has been created in the SQL database to more easily obtain the Net Sales measures. Map the dimensions and the relevant field in this view to the correct slice of the Sales Report Line dimension by hard coding the code for that entity slice into the data reader query.</p>,
+                    hintJsx: <p>Map the Day, Branch, Product and Shipper dimensions to the same fields as before. To hard-code, type the code for the Sales Report Line entity slice into the RDB item field, in quote marks, e.g. <code>'01'</code></p>
                 },
                 {
                     instructionJsx: <p>Consider the <em>mode</em> that should be used in these data readers. When multiple data readers load to the same cube, <code>replace time slice</code> option will always clear data from the previous data reader if it relates to the same time period (even if it is loading a different slice on another dimension).</p>,
-                    hintJsx: <p>One option here would be to set <code>replace time slice</code> on one fo three data readers and set <code>add</code> on the other two. They would need to be run in the correct order so that the replace one runs first, clearing data from a previous load, then the other two run without clearing.</p>
+                    hintJsx: <p>One option here would be to set <code>replace time slice</code> on one of the three data readers and set <code>add</code> on the other two. They would need to be run in the correct order so that the replace one runs first, clearing data from a previous load, then the other two run without clearing.</p>
                 },
                 {
                     instructionJsx: <p>Run the three data readers and verify the correct number of records were loaded.</p>
@@ -592,14 +614,16 @@ export const course = {
                     instructionJsx: <p>Return to the Sales Report screen in the capsule. Add a new data view, configured with the Sales Report cube data, Sales Report Line entity on the <em>row axis</em> and Quarter on the <em>column axis</em>. In <em>axis settings</em>, disable the option <em>down totals</em>. Save the layout. This report should now mirror part of the report from the first data view.</p>
                 },
                 {
-                    instructionJsx: <p>In the data model, navigate to <em>Rules</em>. Create a new <em>rule</em> called <code>Sales Report Calcs</code>, setting it to the Sales Report Line <em>entity</em>.</p>
+                    instructionJsx: <p>In the data model, navigate to <em>Rules</em>. Create a new <em>rule</em> called <code>Sales Report Calcs</code>, setting it to the Sales Report Line <em>entity</em>.</p>,
+                    infoJsx: <p>A rule allows for calculations to be defined within an entity, referencing the data for other entity members in the calculation.</p>
                 },
                 {
                     instructionJsx: <p>Write the correct formulas to calculate Markdown, Discount, Total Deduction and Total Deduction %. Formulas can refer to other members of the Sales Report Line entity by putting their codes in square brackets e.g. <code>[01] – [02]</code>. The net sales lines should be left empty. Save changes when done.</p>
                 },
                 {
                     instructionJsx: <p>In the data view layout, click on the Net Sales data block and from the right-hand configuration menu, apply this new rule to it. The values in the report should now match the first data view.</p>,
-                    hintJsx: <p>To apply the rule, activate the <em>rules</em> option from the right-hand menu and choose the rule to apply from the drop-down</p>
+                    hintJsx: <p>To apply the rule, activate the <em>rules</em> option from the right-hand menu and choose the rule to apply from the drop-down</p>,
+                    infoJsx: <p>Applying a rule to a data block requires the entity used in the rule to be shown on the row axis. For each row, the value(s) shown will either be taken from the cube used in the data block (if there is no formula present in the rule) or the result of the rule formula.</p>
                 },
                 {
                     instructionJsx: <p>In the data model, navigate to <em>Format</em>. Create a new <em>template</em> called <code>Sales Report</code> on the Sales Report Line entity.</p>
@@ -625,7 +649,8 @@ export const course = {
                 },
                 {
                     instructionJsx: <p>A rule formula referencing itself would create a circular reference, so an offset is required to refer the formula to the previous block in the layout. Add a <code>.</code> before each code reference in the formula but inside the square bracket e.g. <code>[.02]</code>. Save the rule.</p>,
-                    hintJsx: <p>Assuming the code for Net Sales at Std Price is <code>01</code> and the code for Net Sales at Markdown Price is <code>02</code>, the formula for Net Sales at Markdown Price should be <code>[.02]/[.01]*100</code></p>
+                    hintJsx: <p>Assuming the code for Net Sales at Std Price is <code>01</code> and the code for Net Sales at Markdown Price is <code>02</code>, the formula for Net Sales at Markdown Price should be <code>[.02]/[.01]*100</code></p>,
+                    infoJsx: <p>The . before the code indicates that this formula should calculate using the data from the previous block in the layout to which the rule is applied. Two ..s would calculate from two blocks previous. A . after the code would calculate from the next block.</p>
                 },
                 {
                     instructionJsx: <p>In the Sales Report screen, edit the layout of the second data view, adding a second block with the Sales Report cube as data.</p>
@@ -640,7 +665,7 @@ export const course = {
         },
         {
             name: 'Use Cubes More Efficiently with Data Picker',
-            objective: 'An advanced functionality of rules is called the data picker, which allows the formulas to not only reference other entity members but also specific cubes. This exercise shows how this can be used to remove the need for loading duplicate data performed into the Sales Report cube.',
+            objective: 'An advanced functionality of rules is called the data picker, which allows the formulas to not only reference other entity members but also specific cubes. This exercise shows how this can be used to remove the need for loading duplicate data into the Sales Report cube.',
             tasks: [
                 {
                     instructionJsx: <p>Create a new rule called <code>Sales Report Calcs (Data Picker)</code>, setting it to the Sales Report Line entity.</p>
@@ -671,7 +696,8 @@ export const course = {
                 },
                 {
                     instructionJsx: <p>Map the dimensions that users should be able to drill to, Month and Branch. Map them to the relevant fields in the dbo.Orders table.</p>,
-                    hintJsx: <p>The OrderDate field in dbo.Orders can easily be mapped to the Month entity; the SQL to convert the date to a the relevant month is automatically generated.</p>
+                    hintJsx: <p>The OrderDate field in dbo.Orders can easily be mapped to the Month entity; the SQL to convert the date to a the relevant month is automatically generated.</p>,
+                    infoJsx: <p>Mapping a dimension in the protocol means that the drill can be run from any report that uses that entity or any of its parents. It also means any selections applied will be reflected in the results.</p>
                 },
                 {
                     instructionJsx: <p>Add <em>generic fields</em> (under <em>more</em> in the MDB list) to bring additional information into the drill. The first one should be <code>dbo.Orders.OrderKz</code> to allow users to view individual orders within the drill. Add any more fields that could be useful. These fields can be from other tables, remembering to <em>join</em> these tables correctly.</p>,
@@ -751,15 +777,13 @@ export const course = {
                             <ul>
                                 <li>Group: Stock</li>
                                 <li>Data Type: Single</li>
+                                <li><em>Cube Type</em>: RDB</li>
                                 <li>Dimensions: Product</li>
                             </ul>
                         </div>
                 },
                 {
-                    instructionJsx: <p>After setting the dimension in <em>versions</em>, click on the version number and change the <em>MDB/RDB</em> option to <code>RDB</code></p>
-                },
-                {
-                    instructionJsx: <p>Open the <em>query</em> designer and connect to the Northwind SQL data source. In the <em>mapping</em> window, map the relevant fields from the dbo.Product table in the database.</p>
+                    instructionJsx: <p>Click <em>RDB query</em> and connect to the Northwind SQL data source. In the <em>mapping</em> window, map the relevant fields from the dbo.Product table in the database.</p>
                 },
                 {
                     instructionJsx: <p>In the Data Validation capsule, create a data view with the Stock cube and Product on the row axis. This should show the ‘live’ stock values from the database.</p>
@@ -838,7 +862,7 @@ export const course = {
                     instructionJsx: <p>Edit the layout of the data view, click on the Career Information data block and enable <em>data entry</em> from the right-hand configuration menu. Save the layout again.</p>
                 },
                 {
-                    instructionJsx: <p>The text comments should now be shown with a yellow background, meaning they can be edited. Change one of the comments and click the tick icon for <em>save data entry</em>.</p>
+                    instructionJsx: <p>The text comments should now be shown with a yellow background, meaning they can be edited. Change one of the comments and click the tick icon to <em>save data entry</em>.</p>
                 },
                 {
                     instructionJsx: <p>This will write the change back to the Northwind SQL database. Open the dbo.Employees table in Management Studio to verify the update was made.</p>
@@ -853,22 +877,24 @@ export const course = {
                     instructionJsx: <p>In the data model, navigate to <em>Database Security</em>.</p>
                 },
                 {
-                    instructionJsx: <p>Add a new <em>database security profile</em> called <code>ADMIN</code>. This should be configured with <em>security system</em> set to <code>builder</code> and <em>access mode</em> set to <code>database administrator</code>. This will ensure that you as the developer have full access to the data model.</p>
+                    instructionJsx: <p>Add a new <em>database security profile</em> called <code>ADMIN</code>. This should be configured with <em>security system</em> set to <code>builder</code> and <em>access mode</em> set to <code>database administrator</code>. This will ensure that you as the developer have full access to the data model.</p>,
+                    infoJsx: <p>Database security profiles govern who can access the data model, both in terms of viewing data through the capsule and in terms of modifying the data model. A developer licence would also be required for the latter. A user with a developer licence could also be restricted to end user access on a particular data model.</p>
                 },
                 {
                     instructionJsx: <p>Add another new security profile called <code>SALES</code>. This should be configured with security system set to <code>access denied</code> and access mode set to <code>read and write</code>. This is the profile to be used by end users in the sales team.</p>
                 },
                 {
-                    instructionJsx: <p>From the main menu, navigate to <em>System Administration</em> and then to <em>Profiles</em> under the <em>Security</em> heading</p>
+                    instructionJsx: <p>From the main menu, navigate to <em>System Administration</em> and then to <em>Profiles</em> under the <em>Security</em> heading</p>,
+                    infoJsx: <p>This area manages security for the entire Board server, not just an individual data model.</p>
                 },
                 {
-                    instructionJsx: <p>Create a new <em>security profile</em> called <code>sales</code>. This should be configured with a <em>licence</em> type of <code>lite plus</code> and within <em>data models</em>, a <em>default database security profile</em> of SALES. Save the profile. This will set users up as an end-user with read and write access and grant them access to the Training data model.</p>
+                    instructionJsx: <p>Create a new <em>security profile</em> called <code>sales</code>. This should be configured with a <em>licence</em> type of <code>user</code> and within <em>data models</em>, a <em>default database security profile</em> of <code>SALES</code>. Save the profile. This will establish users as an end-user with read and write access and grant them access to the Training data model.</p>
                 },
                 {
                     instructionJsx: <p>Navigate to <em>Users</em> under the <em>Security</em> heading</p>
                 },
                 {
-                    instructionJsx: <p>Create a new <em>user</em> with the name of one of the sales persons. This should be configured with the <em>security profile</em> set to <code>sales</code> and <em>user authentication type</em> as <code>password</code>. Enter a password below for this user to login with.</p>
+                    instructionJsx: <p>Create a new <em>user</em> for one of the sales persons. This should be configured with the <em>security profile</em> set to <code>sales</code> and <em>user authentication type</em> as <code>password</code>. Enter a password for this user to login with.</p>
                 },
                 {
                     instructionJsx: <p>Before saving, navigate to the <em>select</em> section of the user configuration</p>
