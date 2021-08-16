@@ -71,6 +71,7 @@ export default function Task({ task, index, completeTask }) {
             )}
             {task.infoJsx && (
                 <div className="task-info">
+                    <img src="https://img.icons8.com/office/40/000000/info.png" alt="Info icon"/>
                     {task.infoJsx}
                 </div>
             )}

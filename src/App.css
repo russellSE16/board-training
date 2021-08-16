@@ -28,3 +28,7 @@ body {
   color: white;
   margin-top: 25px;
 }
+
+footer a {
+  color: gold;
+}

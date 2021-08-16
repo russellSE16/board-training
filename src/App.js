@@ -145,7 +145,10 @@ class App extends React.Component {
                   );
               })}
           </CSSTransitionGroup>
-        </div>      
+        </div>
+        <footer>
+              <p>Icons by <a href="https://icons8.com">Icons8</a></p>
+        </footer>      
       </div>
     );
   }

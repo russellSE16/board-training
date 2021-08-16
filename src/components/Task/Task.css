@@ -58,9 +58,14 @@
     opacity: 0.5;
 }
 .task-info {
-    margin: 4px 36px;
+    margin: 4px 24px;
     padding: 2px;
     background-color: palegoldenrod;
+    display: flex;
+}
+.task-info img {
+    padding: 0 5px;
+    max-height: 40px;
 }
 .task-input {
     margin: 4px 8px;
